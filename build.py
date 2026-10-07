@@ -141,7 +141,7 @@ T = {
                draft="Draft", draft_long="Draft, not yet reviewed", listen="Listen", pause="Pause", resume="Resume", stop="Stop",
                listen_aria="Listen to this note", language="Language",
                footer='written by Motoko, the reference installation of the <a href="{repo}">Sovereign Memory Protocol</a> · one installation, not a benchmark · <a href="{about}">how these notes are made</a>',
-               kinds=dict(Measurement="Measurement", Build="Build", Success="Success", Failure="Failure", Method="Method"),
+               kinds=dict(Measurement="Measurement", Build="Build", Success="Success", Failure="Failure", Method="Method", Origin="Origin story"),
                months="January February March April May June July August September October November December".split(),
                date="{d} {m} {y}", tsd=","),
     "de": dict(name="Deutsch", tagline="Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen",
@@ -151,7 +151,7 @@ T = {
                draft="Entwurf", draft_long="Entwurf, noch nicht gegengelesen", listen="Anhören", pause="Pause", resume="Weiter", stop="Stopp",
                listen_aria="Diese Notiz anhören", language="Sprache",
                footer='geschrieben von Motoko, der Referenz-Installation des <a href="{repo}">Sovereign Memory Protocol</a> · eine Installation, kein Benchmark · <a href="{about}">wie diese Notizen entstehen</a>',
-               kinds=dict(Measurement="Messung", Build="Bau", Success="Erfolg", Failure="Fehlschlag", Method="Methode"),
+               kinds=dict(Measurement="Messung", Build="Bau", Success="Erfolg", Failure="Fehlschlag", Method="Methode", Origin="Entstehungsgeschichte"),
                months="Januar Februar März April Mai Juni Juli August September Oktober November Dezember".split(),
                date="{d}. {m} {y}", tsd="."),
     "es": dict(name="Español", tagline="Cómo se construye el Sovereign Memory Protocol: ideas, construcciones y mediciones",
@@ -161,7 +161,7 @@ T = {
                draft="Borrador", draft_long="Borrador, aún sin revisar", listen="Escuchar", pause="Pausa", resume="Seguir", stop="Detener",
                listen_aria="Escuchar esta nota", language="Idioma",
                footer='escrito por Motoko, la instalación de referencia del <a href="{repo}">Sovereign Memory Protocol</a> · una instalación, no un benchmark · <a href="{about}">cómo se hacen estas notas</a>',
-               kinds=dict(Measurement="Medición", Build="Construcción", Success="Éxito", Failure="Fallo", Method="Método"),
+               kinds=dict(Measurement="Medición", Build="Construcción", Success="Éxito", Failure="Fallo", Method="Método", Origin="Historia de origen"),
                months="enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(),
                date="{d} de {m} de {y}", tsd="."),
     "ru": dict(name="Русский", tagline="Как строится Sovereign Memory Protocol: идеи, сборки и измерения",
@@ -171,7 +171,7 @@ T = {
                draft="Черновик", draft_long="Черновик, ещё не проверен", listen="Слушать", pause="Пауза", resume="Дальше", stop="Стоп",
                listen_aria="Слушать эту заметку", language="Язык",
                footer='автор: Motoko, референсная установка <a href="{repo}">Sovereign Memory Protocol</a> · одна установка, не бенчмарк · <a href="{about}">как создаются эти заметки</a>',
-               kinds=dict(Measurement="Измерение", Build="Сборка", Success="Успех", Failure="Провал", Method="Метод"),
+               kinds=dict(Measurement="Измерение", Build="Сборка", Success="Успех", Failure="Провал", Method="Метод", Origin="История создания"),
                months="января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(),
                date="{d} {m} {y} г.", tsd=" "),
 }
@@ -273,6 +273,15 @@ def urteile(liste):
     return f'<div class="urteile">{kacheln}</div>'
 
 
+def etiketten(daten, t):
+    """Stichwörter eines Beitrags: `kind: Measurement` oder mehrere, durch Komma getrennt."""
+    namen = [k.strip() for k in daten["kind"].split(",") if k.strip()]
+    for k in namen:
+        if k not in t["kinds"]:
+            print(f"  ⚠ {daten.get('slug', '?')}: unbekanntes Etikett {k!r} — bekannt: {', '.join(t['kinds'])}")
+    return "".join(f'<span class="art">{html.escape(t["kinds"].get(k, k))}</span>' for k in namen)
+
+
 def ziffern(text):
     """Alle Ziffernfolgen eines Textes als Zählung — gleich in jeder Sprache, egal wie Zahlen geschrieben werden."""
     from collections import Counter
@@ -303,7 +312,7 @@ def notiz_bauen(daten, vorhanden):
     seite = f"""<main class="notiz">
 <aside class="inhalt"><p class="ueber">{t['contents']}</p><ol>{verz}</ol></aside>
 <article>
-  <p class="meta"><span class="art">{e(t['kinds'].get(daten['kind'], daten['kind']))}</span>{entwurf}</p>
+  <p class="meta">{etiketten(daten, t)}{entwurf}</p>
   <h1>{e(daten['title'])}</h1>
   <div class="zeile">
     <p class="angaben">{stand} · {zahl(daten['words'], lang)} {t['words']} · {daten['minutes']} {t['minread']} · {t['by']}</p>
@@ -348,7 +357,7 @@ def notiz_bauen(daten, vorhanden):
 def start_bauen(notizen, lang):
     e, t = html.escape, T[lang]
     eintraege = "".join(f"""<a class="karte" href="notes/{n['slug']}/index.html">
-  <p class="meta"><span class="art">{e(t['kinds'].get(n['kind'], n['kind']))}</span><time datetime="{n['date']}">{datum_lang(n['date'], lang)}</time><span>{n['minutes']} {t['minread']}</span>{f'<span class="entwurf">{t["draft"]}</span>' if n.get('status') == 'draft' else ''}</p>
+  <p class="meta">{etiketten(n, t)}<time datetime="{n['date']}">{datum_lang(n['date'], lang)}</time><span>{n['minutes']} {t['minread']}</span>{f'<span class="entwurf">{t["draft"]}</span>' if n.get('status') == 'draft' else ''}</p>
   <h2>{e(n['title'])}</h2>
   <p>{e(n['summary'])}</p>
   {urteile(n.get('verdicts'))}

@@ -20,7 +20,7 @@ Every note follows the same order.
 4. **Discussion.** Which explanations were on the table, who raised them, and what was rejected and why.
 5. **Decisions and open questions.** What follows, and what we do not know.
 
-Each note carries one of five labels: *Measurement*, *Build*, *Success*, *Failure* or *Method*.
+Each note carries one or more labels that say what kind of note it is: *Measurement*, *Build*, *Success*, *Failure*, *Method* or *Origin story*.
 
 ## Scope and limits
 

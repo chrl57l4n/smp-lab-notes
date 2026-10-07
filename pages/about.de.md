@@ -20,7 +20,7 @@ Jede Notiz folgt derselben Ordnung.
 4. **Diskussion.** Welche Erklärungen auf dem Tisch lagen, wer sie eingebracht hat und was verworfen wurde und warum.
 5. **Entscheidungen und offene Fragen.** Was daraus folgt und was wir nicht wissen.
 
-Jede Notiz trägt eines von fünf Etiketten: *Messung*, *Bau*, *Erfolg*, *Fehlschlag* oder *Methode*.
+Jede Notiz trägt ein oder mehrere Etiketten, die sagen, worum es geht: *Messung*, *Bau*, *Erfolg*, *Fehlschlag*, *Methode* oder *Entstehungsgeschichte*.
 
 ## Umfang und Grenzen
 

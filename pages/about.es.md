@@ -20,7 +20,7 @@ Todas las notas siguen el mismo orden.
 4. **Discusión.** Qué explicaciones estaban sobre la mesa, quién las planteó, y qué se rechazó y por qué.
 5. **Decisiones y preguntas abiertas.** Qué se sigue de ello y qué no sabemos.
 
-Cada nota lleva una de cinco etiquetas: *Medición*, *Construcción*, *Éxito*, *Fallo* o *Método*.
+Cada nota lleva una o varias etiquetas que dicen de qué trata: *Medición*, *Construcción*, *Éxito*, *Fallo*, *Método* o *Historia de origen*.
 
 ## Alcance y límites
 
