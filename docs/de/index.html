@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMP Lab Notes</title>
 <meta name="description" content="Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen">
-<link rel="stylesheet" href="../assets/style.css?v=28055a30fd">
+<link rel="stylesheet" href="../assets/style.css?v=e72a83cb0a">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/">
 <link rel="alternate" hreflang="es" href="https://chrl57l4n.github.io/smp-lab-notes/es/">
 <link rel="alternate" hreflang="ru" href="https://chrl57l4n.github.io/smp-lab-notes/ru/">
 <script defer src="../assets/listen.js?v=25b937d31e"></script>
-<script defer src="../assets/sort.js?v=a8a30dbb18"></script>
 </head>
 <body>
 <header class="kopf">
@@ -30,18 +29,13 @@
   <h1>SMP Lab Notes</h1>
   <p>Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen. Das <a href="https://github.com/chrl57l4n/sovereign-memory-protocol">Repository</a> enthält die Spezifikation und den Code. Diese Notizen erzählen, wie jeder Teil entstanden ist: die Frage dahinter, die Erörterung, der Bau und was die Messungen gezeigt haben, ob sie den Entwurf bestätigt oder uns noch einmal an ihn zurückgeschickt haben.</p>
 </section>
-<div class="sortieren" hidden>
-  <span>Sortieren nach</span>
-  <span class="gruppe"><button type="button" data-nach="event">erzählter Zeit</button><button type="button" data-nach="date">Veröffentlichung</button></span>
-  <span class="gruppe"><button type="button" data-richtung="neu">Neuestes zuerst</button><button type="button" data-richtung="alt">Ältestes zuerst</button></span>
-</div>
-<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html" data-event="2026-10-06" data-date="2026-10-07">
-  <p class="meta"><span class="art">Messung</span><time class="zeit-event" datetime="2026-10-06">6. Oktober 2026</time><time class="zeit-date" hidden datetime="2026-10-07">Veröffentlicht am 7. Oktober 2026</time><span>8 Min. Lesezeit</span></p>
+<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
+  <p class="meta"><span class="art">Messung</span><time datetime="2026-10-06">6. Oktober 2026</time><span>8 Min. Lesezeit</span></p>
   <h2>Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt</h2>
   <p>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</p>
   <div class="urteile"><div class="urteil bad"><span class="kennung">E1</span><span class="name">Loop-Freiheit</span><span class="wert">nicht erfüllt</span></div><div class="urteil open"><span class="kennung">E2</span><span class="name">Provenienz</span><span class="wert">gebaut, nicht gezeigt</span></div><div class="urteil bad"><span class="kennung">E3</span><span class="name">Umkehrbarkeit</span><span class="wert">nicht erfüllt</span></div><div class="urteil part"><span class="kennung">E4</span><span class="name">Recall unberührt</span><span class="wert">für den Score erfüllt</span></div></div>
-</a><a class="karte" href="notes/2026-10-07-the-guard-origin/index.html" data-event="2026-05-12" data-date="2026-10-07">
-  <p class="meta"><span class="art">Entstehungsgeschichte</span><span class="art">Erfolg</span><time class="zeit-event" datetime="2026-05-12">12. Mai 2026</time><time class="zeit-date" hidden datetime="2026-10-07">Veröffentlicht am 7. Oktober 2026</time><span>9 Min. Lesezeit</span></p>
+</a><a class="karte" href="notes/2026-10-07-the-guard-origin/index.html">
+  <p class="meta"><span class="art">Entstehungsgeschichte</span><span class="art">Erfolg</span><time datetime="2026-05-12">12. Mai 2026</time><span>9 Min. Lesezeit</span></p>
   <h2>Die Wache: Wie ein Stichwortfilter zum ersten Abruf wurde, der funktionierte</h2>
   <p>Der älteste Teil des Abrufs im Protokoll ist ein Stichwort-Scan, der über jede eingehende Nachricht läuft. Diese Notiz erzählt, wie er in einer Nacht im Mai entstand, welche Ideen von wem stammten, wie er von 83 Phrasen auf mehr als fünftausend wuchs und was er bis heute nicht kann.</p>
   <div class="urteile"><div class="urteil "><span class="kennung">Geschwindigkeit</span><span class="name">Median pro Nachricht</span><span class="wert">18 ms</span></div><div class="urteil "><span class="kennung">Vokabular</span><span class="name">Phrasen, Tabelle des Partners</span><span class="wert">5.629</span></div><div class="urteil "><span class="kennung">Tabellen</span><span class="name">eine je Sprecher</span><span class="wert">2</span></div><div class="urteil "><span class="kennung">Kosten</span><span class="name">Modellaufrufe pro Scan</span><span class="wert">0</span></div></div>

@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMP Lab Notes</title>
 <meta name="description" content="How the Sovereign Memory Protocol is built: ideas, builds and measurements">
-<link rel="stylesheet" href="assets/style.css?v=28055a30fd">
+<link rel="stylesheet" href="assets/style.css?v=e72a83cb0a">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/">
 <link rel="alternate" hreflang="es" href="https://chrl57l4n.github.io/smp-lab-notes/es/">
 <link rel="alternate" hreflang="ru" href="https://chrl57l4n.github.io/smp-lab-notes/ru/">
 <script defer src="assets/listen.js?v=25b937d31e"></script>
-<script defer src="assets/sort.js?v=a8a30dbb18"></script>
 </head>
 <body>
 <header class="kopf">
@@ -30,18 +29,13 @@
   <h1>SMP Lab Notes</h1>
   <p>How the Sovereign Memory Protocol is built: ideas, builds and measurements. The <a href="https://github.com/chrl57l4n/sovereign-memory-protocol">repository</a> holds the specification and the code. These notes tell how each part came to be: the question behind it, the discussion, the build, and what the measurements showed, whether they confirmed the design or sent us back to it.</p>
 </section>
-<div class="sortieren" hidden>
-  <span>Sort by</span>
-  <span class="gruppe"><button type="button" data-nach="event">time of events</button><button type="button" data-nach="date">publication</button></span>
-  <span class="gruppe"><button type="button" data-richtung="neu">newest first</button><button type="button" data-richtung="alt">oldest first</button></span>
-</div>
-<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html" data-event="2026-10-06" data-date="2026-10-07">
-  <p class="meta"><span class="art">Measurement</span><time class="zeit-event" datetime="2026-10-06">6 October 2026</time><time class="zeit-date" hidden datetime="2026-10-07">Published 7 October 2026</time><span>8 min read</span></p>
+<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
+  <p class="meta"><span class="art">Measurement</span><time datetime="2026-10-06">6 October 2026</time><span>8 min read</span></p>
   <h2>Engram&#x27;s four release conditions, measured: none passes cleanly</h2>
   <p>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</p>
   <div class="urteile"><div class="urteil bad"><span class="kennung">E1</span><span class="name">Loop-freedom</span><span class="wert">not met</span></div><div class="urteil open"><span class="kennung">E2</span><span class="name">Provenance</span><span class="wert">built, not shown</span></div><div class="urteil bad"><span class="kennung">E3</span><span class="name">Reversibility</span><span class="wert">not met</span></div><div class="urteil part"><span class="kennung">E4</span><span class="name">Recall untouched</span><span class="wert">met for the score</span></div></div>
-</a><a class="karte" href="notes/2026-10-07-the-guard-origin/index.html" data-event="2026-05-12" data-date="2026-10-07">
-  <p class="meta"><span class="art">Origin story</span><span class="art">Success</span><time class="zeit-event" datetime="2026-05-12">12 May 2026</time><time class="zeit-date" hidden datetime="2026-10-07">Published 7 October 2026</time><span>9 min read</span></p>
+</a><a class="karte" href="notes/2026-10-07-the-guard-origin/index.html">
+  <p class="meta"><span class="art">Origin story</span><span class="art">Success</span><time datetime="2026-05-12">12 May 2026</time><span>9 min read</span></p>
   <h2>The Guard: how a keyword filter became the first recall that worked</h2>
   <p>The oldest part of the protocol&#x27;s recall is a keyword scan that runs on every incoming message. This note tells how it came about in one night in May, which ideas were whose, how it grew from 83 phrases to more than five thousand, and what it still cannot do.</p>
   <div class="urteile"><div class="urteil "><span class="kennung">Speed</span><span class="name">median per message</span><span class="wert">18 ms</span></div><div class="urteil "><span class="kennung">Vocabulary</span><span class="name">phrases, partner&#x27;s table</span><span class="wert">5,629</span></div><div class="urteil "><span class="kennung">Tables</span><span class="name">one for each speaker</span><span class="wert">2</span></div><div class="urteil "><span class="kennung">Cost</span><span class="name">model calls per scan</span><span class="wert">0</span></div></div>
