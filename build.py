@@ -9,6 +9,7 @@ Ziel:    docs/  (GitHub Pages liest diesen Ordner)
 Alle Links sind relativ, damit die Vorschau lokal und unter /smp-lab-notes/ gleich aussieht.
 """
 import datetime
+import hashlib
 import html
 import json
 import re
@@ -170,6 +171,28 @@ def rahmen(titel, inhalt, wurzel, beschreibung=""):
 """
 
 
+def lesbar_markieren(seite):
+    """Nummeriert, was vorgelesen wird: Überschriften, Kurzfassung, Absätze, Listenpunkte.
+    Tabellen, Diagramme, Quellen und die Angabenzeile bleiben aus. Gibt (html, texte) zurück."""
+    texte = []
+    aus = re.compile(r'(<figure.*?</figure>|<div class="tabelle">.*?</div>|<ul class="quellen">.*?</ul>|'
+                     r'<div class="zeile">.*?</div>\s*</div>|<details.*?</details>|<p class="meta">.*?</p>|<h2 id="sources">.*?</h2>|<div class="urteile">.*?</div>\s*</div>)', re.S)
+    teile = aus.split(seite)
+
+    def nummer(m):
+        roh = re.sub(r"<[^>]+>", "", m.group(3))
+        texte.append(html.unescape(re.sub(r"\s+", " ", roh)).strip())
+        return f'<{m.group(1)}{m.group(2)} data-lies="{len(texte) - 1}">{m.group(3)}</{m.group(1)}>'
+
+    for i in range(0, len(teile), 2):
+        teile[i] = re.sub(r"<(h1|h2|h3|p|li)([^>]*)>(.*?)</\1>", nummer, teile[i], flags=re.S)
+    return "".join(teile), texte
+
+
+def text_pruefsumme(texte):
+    return hashlib.sha256("\n".join(texte).encode("utf-8")).hexdigest()[:16]
+
+
 def urteile(liste):
     if not liste:
         return ""
@@ -209,6 +232,7 @@ def notiz_bauen(pfad, publish):
         <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
         <span class="v-text">Listen</span>
       </button>
+      <span class="v-zeit" aria-live="off"></span>
       <button type="button" class="v-stopp" aria-label="Stop reading" hidden>Stop</button>
     </div>
   </div>
@@ -218,8 +242,22 @@ def notiz_bauen(pfad, publish):
   {haupt}
 </article>
 </main>"""
+    vor, _, rest = seite.partition("<article>")
+    mitte, texte = lesbar_markieren(rest)
+    seite = vor + "<article>" + mitte
     ziel = OUT / "notes" / slug
     ziel.mkdir(parents=True, exist_ok=True)
+    # Vorlese-Texte für das Vertonungs-Werkzeug; fertige Tonspur nur einbinden, wenn sie zum Text passt.
+    summe = text_pruefsumme(texte)
+    (ziel / "lies.json").write_text(json.dumps({"sum": summe, "texts": texte}, ensure_ascii=False), encoding="utf-8")
+    marken = OUT / "assets" / "audio" / f"{slug}.json"
+    ton = OUT / "assets" / "audio" / f"{slug}.mp3"
+    if marken.exists() and ton.exists():
+        if json.loads(marken.read_text(encoding="utf-8")).get("sum") == summe:
+            seite = seite.replace('<div class="vorlesen" hidden>',
+                                  f'<div class="vorlesen" hidden data-ton="../../assets/audio/{slug}.mp3" data-marken="../../assets/audio/{slug}.json">')
+        else:
+            print(f"  ⚠ Tonspur von {slug} passt nicht mehr zum Text — Seite fällt auf die Browser-Stimme zurück. Neu vertonen.")
     (ziel / "index.html").write_text(rahmen(f"{daten['title']} · {SITE}", seite, "../../", daten["summary"]), encoding="utf-8")
     daten["slug"] = slug
     return daten
@@ -279,10 +317,17 @@ def feed_bauen(notizen):
 
 def main():
     publish = "--publish" in sys.argv
+    # Tonspuren liegen nur einmal im Repo (docs/assets/audio) und überleben den Neubau.
+    ton = OUT / "assets" / "audio"
+    lager = ROOT / ".audio-lager"
+    if ton.exists():
+        shutil.move(str(ton), str(lager))
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(ROOT / "assets", OUT / "assets")
+    if lager.exists():
+        shutil.move(str(lager), str(ton))
     (OUT / ".nojekyll").write_text("")
     notizen = [n for n in (notiz_bauen(p, publish) for p in sorted((ROOT / "notes").glob("*.md"), reverse=True)) if n]
     start_bauen(notizen)

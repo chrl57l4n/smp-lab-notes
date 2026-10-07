@@ -1,33 +1,20 @@
-// Vorlesen mit der Sprachausgabe des Browsers (Web Speech API).
-// Kein Server, kein fremder Dienst: die Stimme kommt vom Gerät des Lesers.
-// Gelesen wird Absatz für Absatz; Tabellen und Diagramme werden übersprungen.
+// Vorlesen. Zwei Wege, eine Bedienung:
+//  1. Fertige Tonspur (data-ton + data-marken am Kasten): eine MP3 mit Zeitmarken je Absatz.
+//  2. Sonst die Sprachausgabe des Browsers (Web Speech API), Absatz für Absatz.
+// In beiden Fällen wird der gelesene Absatz hervorgehoben und die Seite läuft mit.
+// Gelesen wird, was im Bau ein data-lies bekommen hat; Tabellen und Diagramme bleiben aus.
 (function () {
   "use strict";
   var kasten = document.querySelector(".vorlesen");
   var artikel = document.querySelector("article");
-  if (!kasten || !artikel || !("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
+  if (!kasten || !artikel) return;
 
-  var synth = window.speechSynthesis;
   var start = kasten.querySelector(".v-start");
   var stopp = kasten.querySelector(".v-stopp");
   var text = kasten.querySelector(".v-text");
-  var teile = [];
-  var stelle = 0;
+  var zeit = kasten.querySelector(".v-zeit");
+  var teile = Array.prototype.slice.call(artikel.querySelectorAll("[data-lies]"));
   var zustand = "aus"; // aus | liest | pause
-
-  function sammeln() {
-    var wahl = "h1, .kurz, h2, h3, p, li";
-    return Array.prototype.filter.call(artikel.querySelectorAll(wahl), function (el) {
-      if (el.closest("figure, .tabelle, .inhalt-klein, .meta, .zeile, .urteile, .quellen")) return false;
-      return el.textContent.trim().length > 0;
-    });
-  }
-
-  function stimme() {
-    var alle = synth.getVoices();
-    var en = alle.filter(function (v) { return /^en(-|_|$)/i.test(v.lang); });
-    return en.filter(function (v) { return v.localService; })[0] || en[0] || null;
-  }
 
   function zeigen() {
     kasten.dataset.zustand = zustand;
@@ -37,6 +24,7 @@
 
   function markieren(el) {
     var alt = artikel.querySelector(".wird-gelesen");
+    if (alt === el) return;
     if (alt) alt.classList.remove("wird-gelesen");
     if (el) {
       el.classList.add("wird-gelesen");
@@ -45,49 +33,110 @@
     }
   }
 
-  function weiter() {
-    if (zustand !== "liest") return;
-    if (stelle >= teile.length) { beenden(); return; }
-    var el = teile[stelle];
-    var u = new SpeechSynthesisUtterance(el.textContent.replace(/\s+/g, " ").trim());
-    var v = stimme();
-    if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = "en-US"; }
-    u.rate = 1;
-    u.onend = function () { if (zustand === "liest") { stelle += 1; weiter(); } };
-    u.onerror = function (e) { if (e.error !== "interrupted" && e.error !== "canceled") beenden(); };
-    markieren(el);
-    synth.speak(u);
+  function uhr(s) {
+    s = Math.max(0, Math.floor(s));
+    return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
   }
 
-  function beenden() {
-    zustand = "aus";
-    stelle = 0;
-    synth.cancel();
-    markieren(null);
-    zeigen();
-  }
+  // ── Weg 1: fertige Tonspur ──
+  function mitTonspur(adresse, marken) {
+    var ton = new Audio();
+    ton.preload = "none";
+    ton.src = adresse;
 
-  start.addEventListener("click", function () {
-    if (zustand === "aus") {
-      teile = sammeln();
-      stelle = 0;
-      zustand = "liest";
-      synth.cancel();
-      weiter();
-    } else if (zustand === "liest") {
-      zustand = "pause";
-      synth.pause();
-    } else {
-      zustand = "liest";
-      synth.resume();
-      // Manche Browser nehmen nach einer Pause nicht wieder auf: dann den Absatz neu beginnen.
-      setTimeout(function () { if (zustand === "liest" && !synth.speaking) weiter(); }, 400);
+    function stelle() {
+      var t = ton.currentTime, i = 0;
+      while (i + 1 < marken.length && marken[i + 1] <= t + 0.05) i += 1;
+      return i;
     }
-    zeigen();
-  });
-  stopp.addEventListener("click", beenden);
-  window.addEventListener("pagehide", function () { synth.cancel(); });
+    ton.addEventListener("timeupdate", function () {
+      if (zustand === "aus") return;
+      markieren(teile[stelle()]);
+      if (zeit) zeit.textContent = uhr(ton.currentTime) + " / " + uhr(ton.duration || 0);
+    });
+    ton.addEventListener("ended", beenden);
+    ton.addEventListener("error", function () { beenden(); text.textContent = "Audio unavailable"; });
 
-  kasten.hidden = false;
-  zeigen();
+    function beenden() {
+      zustand = "aus";
+      ton.pause();
+      ton.currentTime = 0;
+      markieren(null);
+      if (zeit) zeit.textContent = "";
+      zeigen();
+    }
+    start.addEventListener("click", function () {
+      if (zustand === "liest") { zustand = "pause"; ton.pause(); }
+      else { zustand = "liest"; ton.play(); }
+      zeigen();
+    });
+    stopp.addEventListener("click", beenden);
+    // Antippen eines Absatzes springt dorthin, solange vorgelesen wird.
+    artikel.addEventListener("click", function (e) {
+      if (zustand === "aus" || e.target.closest("a, button")) return;
+      var el = e.target.closest("[data-lies]");
+      if (!el) return;
+      var i = teile.indexOf(el);
+      if (i >= 0) { ton.currentTime = marken[i]; if (zustand === "pause") markieren(el); }
+    });
+  }
+
+  // ── Weg 2: Sprachausgabe des Browsers ──
+  function mitBrowserStimme() {
+    var synth = window.speechSynthesis;
+    var nr = 0;
+
+    function stimme() {
+      var en = synth.getVoices().filter(function (v) { return /^en(-|_|$)/i.test(v.lang); });
+      return en.filter(function (v) { return v.localService; })[0] || en[0] || null;
+    }
+    function weiter() {
+      if (zustand !== "liest") return;
+      if (nr >= teile.length) { beenden(); return; }
+      var el = teile[nr];
+      var u = new SpeechSynthesisUtterance(el.textContent.replace(/\s+/g, " ").trim());
+      var v = stimme();
+      if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = "en-US"; }
+      u.onend = function () { if (zustand === "liest") { nr += 1; weiter(); } };
+      u.onerror = function (e) { if (e.error !== "interrupted" && e.error !== "canceled") beenden(); };
+      markieren(el);
+      synth.speak(u);
+    }
+    function beenden() {
+      zustand = "aus";
+      nr = 0;
+      synth.cancel();
+      markieren(null);
+      zeigen();
+    }
+    start.addEventListener("click", function () {
+      if (zustand === "aus") { nr = 0; zustand = "liest"; synth.cancel(); weiter(); }
+      else if (zustand === "liest") { zustand = "pause"; synth.pause(); }
+      else {
+        zustand = "liest";
+        synth.resume();
+        setTimeout(function () { if (zustand === "liest" && !synth.speaking) weiter(); }, 400);
+      }
+      zeigen();
+    });
+    stopp.addEventListener("click", beenden);
+    window.addEventListener("pagehide", function () { synth.cancel(); });
+  }
+
+  var kannSprechen = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+  function einschalten() { kasten.hidden = false; zeigen(); }
+
+  if (kasten.dataset.ton && kasten.dataset.marken && window.fetch) {
+    fetch(kasten.dataset.marken)
+      .then(function (a) { return a.json(); })
+      .then(function (d) {
+        if (!d.marks || d.marks.length !== teile.length) throw new Error("Zeitmarken passen nicht zur Seite");
+        mitTonspur(kasten.dataset.ton, d.marks);
+        einschalten();
+      })
+      .catch(function () { if (kannSprechen) { mitBrowserStimme(); einschalten(); } });
+  } else if (kannSprechen) {
+    mitBrowserStimme();
+    einschalten();
+  }
 })();
