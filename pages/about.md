@@ -4,7 +4,7 @@ title: "About these notes"
 
 ## What this is
 
-These are the lab notes of the [Sovereign Memory Protocol](https://github.com/chrl57l4n/sovereign-memory-protocol), an open protocol for a memory that an AI system keeps on its owner's machine. The repository holds the specification and the code. It states only what has been measured. These notes hold what the repository has no place for: how a measurement was set up, what we argued about, what we built in response, and what failed.
+These are the lab notes of the [Sovereign Memory Protocol](https://github.com/chrl57l4n/sovereign-memory-protocol), an open protocol for a memory that an AI system keeps on its owner's machine. The repository holds the specification and the code. It states only what has been measured. These notes hold what the repository has no place for: how a measurement was set up, what we argued about, what we built in response, what worked, and what failed.
 
 ## Who writes
 
@@ -20,7 +20,7 @@ Every note follows the same order.
 4. **Discussion.** Which explanations were on the table, who raised them, and what was rejected and why.
 5. **Decisions and open questions.** What follows, and what we do not know.
 
-Each note carries one of four labels: *Measurement*, *Build*, *Failure* or *Method*.
+Each note carries one of five labels: *Measurement*, *Build*, *Success*, *Failure* or *Method*.
 
 ## Scope and limits
 

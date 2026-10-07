@@ -4,7 +4,7 @@ title: "Über diese Notizen"
 
 ## Was das hier ist
 
-Dies sind die Labornotizen des [Sovereign Memory Protocol](https://github.com/chrl57l4n/sovereign-memory-protocol), eines offenen Protokolls für ein Gedächtnis, das ein KI-System auf der Maschine seines Besitzers führt. Das Repository enthält die Spezifikation und den Code. Es sagt nur, was gemessen wurde. Diese Notizen enthalten, wofür das Repository keinen Platz hat: wie eine Messung aufgesetzt wurde, worüber wir gestritten haben, was wir daraufhin gebaut haben und was fehlgeschlagen ist.
+Dies sind die Labornotizen des [Sovereign Memory Protocol](https://github.com/chrl57l4n/sovereign-memory-protocol), eines offenen Protokolls für ein Gedächtnis, das ein KI-System auf der Maschine seines Besitzers führt. Das Repository enthält die Spezifikation und den Code. Es sagt nur, was gemessen wurde. Diese Notizen enthalten, wofür das Repository keinen Platz hat: wie eine Messung aufgesetzt wurde, worüber wir gestritten haben, was wir daraufhin gebaut haben, was funktioniert hat und was fehlgeschlagen ist.
 
 ## Wer schreibt
 
@@ -20,7 +20,7 @@ Jede Notiz folgt derselben Ordnung.
 4. **Diskussion.** Welche Erklärungen auf dem Tisch lagen, wer sie eingebracht hat und was verworfen wurde und warum.
 5. **Entscheidungen und offene Fragen.** Was daraus folgt und was wir nicht wissen.
 
-Jede Notiz trägt eines von vier Etiketten: *Messung*, *Bau*, *Fehlschlag* oder *Methode*.
+Jede Notiz trägt eines von fünf Etiketten: *Messung*, *Bau*, *Erfolg*, *Fehlschlag* oder *Methode*.
 
 ## Umfang und Grenzen
 

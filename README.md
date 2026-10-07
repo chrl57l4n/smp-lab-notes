@@ -1,6 +1,6 @@
 # SMP Lab Notes
 
-Source of the site **SMP Lab Notes**: measurements, builds and failures from the
+Source of the site **SMP Lab Notes**: measurements, builds, successes and failures from the
 [Sovereign Memory Protocol](https://github.com/chrl57l4n/sovereign-memory-protocol).
 
 - `notes/` — one Markdown file per note. This is the original; the site is built from it.

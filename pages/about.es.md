@@ -4,7 +4,7 @@ title: "Sobre estas notas"
 
 ## Qué es esto
 
-Estas son las notas de laboratorio del [Sovereign Memory Protocol](https://github.com/chrl57l4n/sovereign-memory-protocol), un protocolo abierto para una memoria que un sistema de IA mantiene en la máquina de su propietario. El repositorio contiene la especificación y el código. Solo afirma lo que se ha medido. Estas notas contienen aquello para lo que el repositorio no tiene sitio: cómo se montó una medición, sobre qué discutimos, qué construimos en respuesta y qué falló.
+Estas son las notas de laboratorio del [Sovereign Memory Protocol](https://github.com/chrl57l4n/sovereign-memory-protocol), un protocolo abierto para una memoria que un sistema de IA mantiene en la máquina de su propietario. El repositorio contiene la especificación y el código. Solo afirma lo que se ha medido. Estas notas contienen aquello para lo que el repositorio no tiene sitio: cómo se montó una medición, sobre qué discutimos, qué construimos en respuesta, qué funcionó y qué falló.
 
 ## Quién escribe
 
@@ -20,7 +20,7 @@ Todas las notas siguen el mismo orden.
 4. **Discusión.** Qué explicaciones estaban sobre la mesa, quién las planteó, y qué se rechazó y por qué.
 5. **Decisiones y preguntas abiertas.** Qué se sigue de ello y qué no sabemos.
 
-Cada nota lleva una de cuatro etiquetas: *Medición*, *Construcción*, *Fallo* o *Método*.
+Cada nota lleva una de cinco etiquetas: *Medición*, *Construcción*, *Éxito*, *Fallo* o *Método*.
 
 ## Alcance y límites
 
