@@ -137,7 +137,7 @@ T = {
     "en": dict(name="English", tagline="How the Sovereign Memory Protocol is built: ideas, builds and measurements",
                intro='The <a href="{repo}">repository</a> holds the specification and the code. These notes tell how each part came to be: the question behind it, the discussion, the build, and what the measurements showed, whether they confirmed the design or sent us back to it.',
                notes="Notes", about="About", protocol="Protocol", feed="Feed", contents="Contents", sources="Sources",
-               happened="Events of", published="Published", unpublished="Not yet published", words="words", minread="min read", by="by Motoko",
+               sort_by="Sort by", s_event="time of events", s_date="publication", s_new="newest first", s_old="oldest first", happened="Events of", published="Published", unpublished="Not yet published", words="words", minread="min read", by="by Motoko",
                draft="Draft", draft_long="Draft, not yet reviewed", listen="Listen", pause="Pause", resume="Resume", stop="Stop",
                listen_aria="Listen to this note", language="Language",
                footer='written by Motoko, the reference installation of the <a href="{repo}">Sovereign Memory Protocol</a> · one installation, not a benchmark · <a href="{about}">how these notes are made</a>',
@@ -147,7 +147,7 @@ T = {
     "de": dict(name="Deutsch", tagline="Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen",
                intro='Das <a href="{repo}">Repository</a> enthält die Spezifikation und den Code. Diese Notizen erzählen, wie jeder Teil entstanden ist: die Frage dahinter, die Erörterung, der Bau und was die Messungen gezeigt haben, ob sie den Entwurf bestätigt oder uns noch einmal an ihn zurückgeschickt haben.',
                notes="Notizen", about="Über", protocol="Protokoll", feed="Feed", contents="Inhalt", sources="Quellen",
-               happened="Geschehen am", published="Veröffentlicht am", unpublished="Noch nicht veröffentlicht", words="Wörter", minread="Min. Lesezeit", by="von Motoko",
+               sort_by="Sortieren nach", s_event="erzählter Zeit", s_date="Veröffentlichung", s_new="Neuestes zuerst", s_old="Ältestes zuerst", happened="Geschehen am", published="Veröffentlicht am", unpublished="Noch nicht veröffentlicht", words="Wörter", minread="Min. Lesezeit", by="von Motoko",
                draft="Entwurf", draft_long="Entwurf, noch nicht gegengelesen", listen="Anhören", pause="Pause", resume="Weiter", stop="Stopp",
                listen_aria="Diese Notiz anhören", language="Sprache",
                footer='geschrieben von Motoko, der Referenz-Installation des <a href="{repo}">Sovereign Memory Protocol</a> · eine Installation, kein Benchmark · <a href="{about}">wie diese Notizen entstehen</a>',
@@ -157,7 +157,7 @@ T = {
     "es": dict(name="Español", tagline="Cómo se construye el Sovereign Memory Protocol: ideas, construcciones y mediciones",
                intro='El <a href="{repo}">repositorio</a> contiene la especificación y el código. Estas notas cuentan cómo nació cada parte: la pregunta de fondo, la discusión, la construcción y lo que mostraron las mediciones, tanto si confirmaron el diseño como si nos devolvieron a él.',
                notes="Notas", about="Acerca de", protocol="Protocolo", feed="Feed", contents="Contenido", sources="Fuentes",
-               happened="Hechos del", published="Publicado el", unpublished="Aún no publicado", words="palabras", minread="min de lectura", by="por Motoko",
+               sort_by="Ordenar por", s_event="época de los hechos", s_date="publicación", s_new="lo más reciente primero", s_old="lo más antiguo primero", happened="Hechos del", published="Publicado el", unpublished="Aún no publicado", words="palabras", minread="min de lectura", by="por Motoko",
                draft="Borrador", draft_long="Borrador, aún sin revisar", listen="Escuchar", pause="Pausa", resume="Seguir", stop="Detener",
                listen_aria="Escuchar esta nota", language="Idioma",
                footer='escrito por Motoko, la instalación de referencia del <a href="{repo}">Sovereign Memory Protocol</a> · una instalación, no un benchmark · <a href="{about}">cómo se hacen estas notas</a>',
@@ -167,7 +167,7 @@ T = {
     "ru": dict(name="Русский", tagline="Как строится Sovereign Memory Protocol: идеи, сборки и измерения",
                intro='<a href="{repo}">Репозиторий</a> содержит спецификацию и код. Эти заметки рассказывают, как возникла каждая часть: вопрос, с которого всё началось, обсуждение, сборка и то, что показали измерения, подтвердили ли они замысел или вернули нас к нему.',
                notes="Заметки", about="О блоге", protocol="Протокол", feed="Лента", contents="Содержание", sources="Источники",
-               happened="События", published="Опубликовано", unpublished="Ещё не опубликовано", words="слов", minread="мин чтения", by="автор: Motoko",
+               sort_by="Сортировать по", s_event="времени событий", s_date="дате публикации", s_new="сначала новое", s_old="сначала старое", happened="События", published="Опубликовано", unpublished="Ещё не опубликовано", words="слов", minread="мин чтения", by="автор: Motoko",
                draft="Черновик", draft_long="Черновик, ещё не проверен", listen="Слушать", pause="Пауза", resume="Дальше", stop="Стоп",
                listen_aria="Слушать эту заметку", language="Язык",
                footer='автор: Motoko, референсная установка <a href="{repo}">Sovereign Memory Protocol</a> · одна установка, не бенчмарк · <a href="{about}">как создаются эти заметки</a>',
@@ -220,6 +220,7 @@ def rahmen(titel, inhalt, lang, tiefe, seite, vorhanden, beschreibung=""):
 <link rel="stylesheet" href="{wurzel}assets/style.css">
 <link rel="alternate" type="application/atom+xml" title="{SITE}" href="{heim}feed.xml">
 {andere}<script defer src="{wurzel}assets/listen.js"></script>
+<script defer src="{wurzel}assets/sort.js"></script>
 </head>
 <body>
 <header class="kopf">
@@ -359,8 +360,8 @@ def notiz_bauen(daten, vorhanden):
 
 def start_bauen(notizen, lang):
     e, t = html.escape, T[lang]
-    eintraege = "".join(f"""<a class="karte" href="notes/{n['slug']}/index.html">
-  <p class="meta">{etiketten(n, t)}<time datetime="{n.get('event', n['date'])}">{datum_lang(n.get('event', n['date']), lang)}</time><span>{n['minutes']} {t['minread']}</span>{f'<span class="entwurf">{t["draft"]}</span>' if n.get('status') == 'draft' else ''}</p>
+    eintraege = "".join(f"""<a class="karte" href="notes/{n['slug']}/index.html" data-event="{n.get('event', n['date'])}" data-date="{n['date']}">
+  <p class="meta">{etiketten(n, t)}<time class="zeit-event" datetime="{n.get('event', n['date'])}">{datum_lang(n.get('event', n['date']), lang)}</time><time class="zeit-date" hidden datetime="{n['date']}">{t['published']} {datum_lang(n['date'], lang)}</time><span>{n['minutes']} {t['minread']}</span>{f'<span class="entwurf">{t["draft"]}</span>' if n.get('status') == 'draft' else ''}</p>
   <h2>{e(n['title'])}</h2>
   <p>{e(n['summary'])}</p>
   {urteile(n.get('verdicts'))}
@@ -370,6 +371,11 @@ def start_bauen(notizen, lang):
   <h1>{SITE}</h1>
   <p>{t['tagline']}. {t['intro'].format(repo=REPO_URL)}</p>
 </section>
+<div class="sortieren" hidden>
+  <span>{t['sort_by']}</span>
+  <span class="gruppe"><button type="button" data-nach="event">{t['s_event']}</button><button type="button" data-nach="date">{t['s_date']}</button></span>
+  <span class="gruppe"><button type="button" data-richtung="neu">{t['s_new']}</button><button type="button" data-richtung="alt">{t['s_old']}</button></span>
+</div>
 <section class="liste">{eintraege}</section>
 </main>"""
     ziel = OUT / basis(lang)
