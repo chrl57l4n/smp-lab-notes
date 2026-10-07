@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ru">
 <title>SMP Lab Notes</title>
-<subtitle>Измерения, сборки, успехи и неудачи Sovereign Memory Protocol</subtitle>
+<subtitle>Как строится Sovereign Memory Protocol: идеи, сборки и измерения</subtitle>
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
