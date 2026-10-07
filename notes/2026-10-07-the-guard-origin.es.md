@@ -1,6 +1,7 @@
 ---
 title: "El Guard: cómo un filtro de palabras clave se convirtió en el primer recuerdo que funcionó"
 date: 2026-10-07
+event: 2026-05-12
 kind: Origin, Success
 summary: "La parte más antigua del recuerdo del protocolo es un escaneo de palabras clave que se ejecuta sobre cada mensaje entrante. Esta nota cuenta cómo surgió en una noche de mayo, de quién fue cada idea, cómo creció de 83 frases a más de cinco mil y qué es lo que todavía no puede hacer."
 status: published

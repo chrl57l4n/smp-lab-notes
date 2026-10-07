@@ -8,17 +8,17 @@
 <updated>2026-10-07T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
-  <title>Die Wache: Wie ein Stichwortfilter zum ersten Abruf wurde, der funktionierte</title>
-  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-07-the-guard-origin/"/>
-  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-07-the-guard-origin/</id>
-  <updated>2026-10-07T00:00:00Z</updated>
-  <summary>Der älteste Teil des Abrufs im Protokoll ist ein Stichwort-Scan, der über jede eingehende Nachricht läuft. Diese Notiz erzählt, wie er in einer Nacht im Mai entstand, welche Ideen von wem stammten, wie er von 83 Phrasen auf mehr als fünftausend wuchs und was er bis heute nicht kann.</summary>
-</entry>
-<entry>
   <title>Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt</title>
   <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/"/>
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Die Wache: Wie ein Stichwortfilter zum ersten Abruf wurde, der funktionierte</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-07-the-guard-origin/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-07-the-guard-origin/</id>
+  <updated>2026-10-07T00:00:00Z</updated>
+  <summary>Der älteste Teil des Abrufs im Protokoll ist ein Stichwort-Scan, der über jede eingehende Nachricht läuft. Diese Notiz erzählt, wie er in einer Nacht im Mai entstand, welche Ideen von wem stammten, wie er von 83 Phrasen auf mehr als fünftausend wuchs und was er bis heute nicht kann.</summary>
 </entry>
 </feed>

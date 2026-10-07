@@ -1,6 +1,7 @@
 ---
 title: "Las cuatro condiciones de liberación de Engram, medidas: ninguna se cumple limpiamente"
 date: 2026-10-07
+event: 2026-10-06
 kind: Measurement
 summary: "La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales."
 status: published

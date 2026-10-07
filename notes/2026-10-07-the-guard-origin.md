@@ -1,6 +1,7 @@
 ---
 title: "The Guard: how a keyword filter became the first recall that worked"
 date: 2026-10-07
+event: 2026-05-12
 kind: Origin, Success
 summary: "The oldest part of the protocol's recall is a keyword scan that runs on every incoming message. This note tells how it came about in one night in May, which ideas were whose, how it grew from 83 phrases to more than five thousand, and what it still cannot do."
 status: published

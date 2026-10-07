@@ -1,6 +1,7 @@
 ---
 title: "Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt"
 date: 2026-10-07
+event: 2026-10-06
 kind: Measurement
 summary: "Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat."
 status: published

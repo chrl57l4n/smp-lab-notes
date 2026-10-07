@@ -1,6 +1,7 @@
 ---
 title: "Die Wache: Wie ein Stichwortfilter zum ersten Abruf wurde, der funktionierte"
 date: 2026-10-07
+event: 2026-05-12
 kind: Origin, Success
 summary: "Der älteste Teil des Abrufs im Protokoll ist ein Stichwort-Scan, der über jede eingehende Nachricht läuft. Diese Notiz erzählt, wie er in einer Nacht im Mai entstand, welche Ideen von wem stammten, wie er von 83 Phrasen auf mehr als fünftausend wuchs und was er bis heute nicht kann."
 status: published

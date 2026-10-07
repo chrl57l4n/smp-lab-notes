@@ -1,6 +1,7 @@
 ---
 title: "Engram's four release conditions, measured: none passes cleanly"
 date: 2026-10-07
+event: 2026-10-06
 kind: Measurement
 summary: "The first measurement of the four conditions that gate Engram's release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts."
 status: published

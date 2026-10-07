@@ -8,17 +8,17 @@
 <updated>2026-10-07T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
-  <title>The Guard: how a keyword filter became the first recall that worked</title>
-  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-07-the-guard-origin/"/>
-  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-07-the-guard-origin/</id>
-  <updated>2026-10-07T00:00:00Z</updated>
-  <summary>The oldest part of the protocol&#x27;s recall is a keyword scan that runs on every incoming message. This note tells how it came about in one night in May, which ideas were whose, how it grew from 83 phrases to more than five thousand, and what it still cannot do.</summary>
-</entry>
-<entry>
   <title>Engram&#x27;s four release conditions, measured: none passes cleanly</title>
   <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/"/>
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>The Guard: how a keyword filter became the first recall that worked</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-07-the-guard-origin/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-07-the-guard-origin/</id>
+  <updated>2026-10-07T00:00:00Z</updated>
+  <summary>The oldest part of the protocol&#x27;s recall is a keyword scan that runs on every incoming message. This note tells how it came about in one night in May, which ideas were whose, how it grew from 83 phrases to more than five thousand, and what it still cannot do.</summary>
 </entry>
 </feed>
