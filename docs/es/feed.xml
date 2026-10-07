@@ -8,6 +8,13 @@
 <updated>2026-10-07T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
+  <title>El Guard: cómo un filtro de palabras clave se convirtió en el primer recuerdo que funcionó</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-07-the-guard-origin/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-07-the-guard-origin/</id>
+  <updated>2026-10-07T00:00:00Z</updated>
+  <summary>La parte más antigua del recuerdo del protocolo es un escaneo de palabras clave que se ejecuta sobre cada mensaje entrante. Esta nota cuenta cómo surgió en una noche de mayo, de quién fue cada idea, cómo creció de 83 frases a más de cinco mil y qué es lo que todavía no puede hacer.</summary>
+</entry>
+<entry>
   <title>Las cuatro condiciones de liberación de Engram, medidas: ninguna se cumple limpiamente</title>
   <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/"/>
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
