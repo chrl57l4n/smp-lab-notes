@@ -177,6 +177,12 @@ T = {
 }
 
 
+def marke(datei):
+    """Kurze Prüfsumme einer Datei aus assets/ — hängt als ?v=… an der Adresse, damit ein Browser nach einer
+    Änderung nicht die alte Fassung aus seinem Zwischenspeicher nimmt (08.10.2026: neue Knöpfe, altes Aussehen)."""
+    return hashlib.sha256((ROOT / "assets" / datei).read_bytes()).hexdigest()[:10]
+
+
 def basis(lang):
     return "" if lang == "en" else f"{lang}/"
 
@@ -217,10 +223,10 @@ def rahmen(titel, inhalt, lang, tiefe, seite, vorhanden, beschreibung=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(titel)}</title>
 <meta name="description" content="{e(beschreibung or t['tagline'])}">
-<link rel="stylesheet" href="{wurzel}assets/style.css">
+<link rel="stylesheet" href="{wurzel}assets/style.css?v={marke('style.css')}">
 <link rel="alternate" type="application/atom+xml" title="{SITE}" href="{heim}feed.xml">
-{andere}<script defer src="{wurzel}assets/listen.js"></script>
-<script defer src="{wurzel}assets/sort.js"></script>
+{andere}<script defer src="{wurzel}assets/listen.js?v={marke('listen.js')}"></script>
+<script defer src="{wurzel}assets/sort.js?v={marke('sort.js')}"></script>
 </head>
 <body>
 <header class="kopf">
