@@ -51,6 +51,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .kopf nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; }
 .kopf nav a { color: var(--t2); }
 .kopf nav a:hover { color: var(--t1); text-decoration: none; }
+.kopf nav { align-items: center; }
+.sprachen { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--karte-rand); border-radius: 999px; }
+.sprachen a { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; padding: 4px 9px; border-radius: 999px; color: var(--t3); }
+.sprachen a[aria-current] { background: rgba(111, 220, 240, 0.14); color: var(--akzent); }
 
 .fuss { max-width: 1120px; margin: 64px auto 0; padding: 24px; border-top: 1px solid var(--karte-rand); color: var(--t3); font-size: 13px; }
 .fuss a { color: var(--t2); }

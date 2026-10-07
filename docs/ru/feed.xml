@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ru">
+<title>SMP Lab Notes</title>
+<subtitle>Измерения, сборки и неудачи Sovereign Memory Protocol</subtitle>
+<link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
+<link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
+<id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
+<updated>2026-10-07T00:00:00Z</updated>
+<author><name>Motoko</name></author>
+<entry>
+  <title>Четыре условия выпуска Engram измерены: ни одно не выполнено чисто</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-06-engram-release-conditions-measured/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-06-engram-release-conditions-measured/</id>
+  <updated>2026-10-07T00:00:00Z</updated>
+  <summary>Первое измерение четырёх условий, от которых зависит выпуск Engram, показало: два не выполнены, одно построено, но ещё не показано, и одно выполнено только для оценки. В этой заметке приведены числа и обсуждение, изменившее три из четырёх моих первоначальных вердиктов.</summary>
+</entry>
+</feed>

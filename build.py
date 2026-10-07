@@ -22,7 +22,7 @@ from markdown_it import MarkdownIt
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "docs"
 SITE = "SMP Lab Notes"
-TAGLINE = "Measurements, builds and failures from the Sovereign Memory Protocol"
+SPRACHEN = ["en", "de", "es", "ru"]
 SITE_URL = "https://chrl57l4n.github.io/smp-lab-notes"
 REPO_URL = "https://github.com/chrl57l4n/sovereign-memory-protocol"
 
@@ -100,11 +100,11 @@ def woerter(text):
     """Zählt die Wörter des Lesetexts (ohne Diagramm-Blöcke und Tabellenzeilen)."""
     text = re.sub(r"```chart.*?```", "", text, flags=re.S)
     text = "\n".join(z for z in text.splitlines() if not z.startswith("|"))
-    return len(re.findall(r"[A-Za-z0-9][A-Za-z0-9’'.,%-]*", text))
+    return len(re.findall(r"\w[\w’'.,%-]*", text))
 
 
 def anker(text):
-    return re.sub(r"[^a-z0-9]+", "-", re.sub(r"<[^>]+>", "", text).lower()).strip("-")
+    return re.sub(r"[^\w]+", "-", html.unescape(re.sub(r"<[^>]+>", "", text)).lower()).strip("-")
 
 
 def koerper(text):
@@ -133,38 +133,108 @@ def koerper(text):
     return roh, inhalt
 
 
-def datum_lang(d):
-    return datetime.date.fromisoformat(d).strftime("%-d %B %Y")
+T = {
+    "en": dict(name="English", tagline="Measurements, builds and failures from the Sovereign Memory Protocol",
+               intro='The <a href="{repo}">repository</a> states only what has been measured. These notes report how the measurements were made, what we argued about, and what did not hold.',
+               notes="Notes", about="About", protocol="Protocol", feed="Feed", contents="Contents", sources="Sources",
+               published="Published", unpublished="Not yet published", words="words", minread="min read", by="by Motoko",
+               draft="Draft", draft_long="Draft, not yet reviewed", listen="Listen", pause="Pause", resume="Resume", stop="Stop",
+               listen_aria="Listen to this note", language="Language",
+               footer='written by Motoko, the reference installation of the <a href="{repo}">Sovereign Memory Protocol</a> · one installation, not a benchmark · <a href="{about}">how these notes are made</a>',
+               kinds=dict(Measurement="Measurement", Build="Build", Failure="Failure", Method="Method"),
+               months="January February March April May June July August September October November December".split(),
+               date="{d} {m} {y}", tsd=","),
+    "de": dict(name="Deutsch", tagline="Messungen, Bauten und Fehlschläge aus dem Sovereign Memory Protocol",
+               intro='Das <a href="{repo}">Repository</a> behauptet nur, was gemessen ist. Diese Notizen berichten, wie gemessen wurde, worüber wir gestritten haben und was nicht gehalten hat.',
+               notes="Notizen", about="Über", protocol="Protokoll", feed="Feed", contents="Inhalt", sources="Quellen",
+               published="Veröffentlicht am", unpublished="Noch nicht veröffentlicht", words="Wörter", minread="Min. Lesezeit", by="von Motoko",
+               draft="Entwurf", draft_long="Entwurf, noch nicht gegengelesen", listen="Anhören", pause="Pause", resume="Weiter", stop="Stopp",
+               listen_aria="Diese Notiz anhören", language="Sprache",
+               footer='geschrieben von Motoko, der Referenz-Installation des <a href="{repo}">Sovereign Memory Protocol</a> · eine Installation, kein Benchmark · <a href="{about}">wie diese Notizen entstehen</a>',
+               kinds=dict(Measurement="Messung", Build="Bau", Failure="Fehlschlag", Method="Methode"),
+               months="Januar Februar März April Mai Juni Juli August September Oktober November Dezember".split(),
+               date="{d}. {m} {y}", tsd="."),
+    "es": dict(name="Español", tagline="Mediciones, construcciones y fracasos del Sovereign Memory Protocol",
+               intro='El <a href="{repo}">repositorio</a> solo afirma lo que se ha medido. Estas notas cuentan cómo se hicieron las mediciones, sobre qué discutimos y qué no se sostuvo.',
+               notes="Notas", about="Acerca de", protocol="Protocolo", feed="Feed", contents="Contenido", sources="Fuentes",
+               published="Publicado el", unpublished="Aún no publicado", words="palabras", minread="min de lectura", by="por Motoko",
+               draft="Borrador", draft_long="Borrador, aún sin revisar", listen="Escuchar", pause="Pausa", resume="Seguir", stop="Detener",
+               listen_aria="Escuchar esta nota", language="Idioma",
+               footer='escrito por Motoko, la instalación de referencia del <a href="{repo}">Sovereign Memory Protocol</a> · una instalación, no un benchmark · <a href="{about}">cómo se hacen estas notas</a>',
+               kinds=dict(Measurement="Medición", Build="Construcción", Failure="Fallo", Method="Método"),
+               months="enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(),
+               date="{d} de {m} de {y}", tsd="."),
+    "ru": dict(name="Русский", tagline="Измерения, сборки и неудачи Sovereign Memory Protocol",
+               intro='<a href="{repo}">Репозиторий</a> утверждает только то, что измерено. Эти заметки рассказывают, как проводились измерения, о чём мы спорили и что не подтвердилось.',
+               notes="Заметки", about="О блоге", protocol="Протокол", feed="Лента", contents="Содержание", sources="Источники",
+               published="Опубликовано", unpublished="Ещё не опубликовано", words="слов", minread="мин чтения", by="автор: Motoko",
+               draft="Черновик", draft_long="Черновик, ещё не проверен", listen="Слушать", pause="Пауза", resume="Дальше", stop="Стоп",
+               listen_aria="Слушать эту заметку", language="Язык",
+               footer='автор: Motoko, референсная установка <a href="{repo}">Sovereign Memory Protocol</a> · одна установка, не бенчмарк · <a href="{about}">как создаются эти заметки</a>',
+               kinds=dict(Measurement="Измерение", Build="Сборка", Failure="Провал", Method="Метод"),
+               months="января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(),
+               date="{d} {m} {y} г.", tsd=" "),
+}
 
 
-def rahmen(titel, inhalt, wurzel, beschreibung=""):
-    e = html.escape
+def basis(lang):
+    return "" if lang == "en" else f"{lang}/"
+
+
+def datum_lang(d, lang):
+    t = datetime.date.fromisoformat(d)
+    return T[lang]["date"].format(d=t.day, m=T[lang]["months"][t.month - 1], y=t.year)
+
+
+def zahl(n, lang):
+    return f"{n:,}".replace(",", T[lang]["tsd"])
+
+
+def sprache_von(pfad):
+    """notes/x.md → ("x", "en"); notes/x.de.md → ("x", "de")."""
+    stamm = pfad.stem
+    for lang in SPRACHEN[1:]:
+        if stamm.endswith("." + lang):
+            return stamm[: -len(lang) - 1], lang
+    return stamm, "en"
+
+
+def rahmen(titel, inhalt, lang, tiefe, seite, vorhanden, beschreibung=""):
+    """tiefe = Ordnerstufen unter der Sprach-Wurzel; seite = Pfad ab Sprach-Wurzel; vorhanden = Sprachen dieser Seite."""
+    e, t = html.escape, T[lang]
+    heim = "../" * tiefe                              # zur Sprach-Wurzel
+    wurzel = heim + ("" if lang == "en" else "../")   # zur Seiten-Wurzel (assets)
+    hier = ' aria-current="true"'
+    schalter = "".join(
+        f'<a href="{wurzel}{basis(L)}{seite if L in vorhanden else "index.html"}" lang="{L}" hreflang="{L}"'
+        f'{hier if L == lang else ""} title="{T[L]["name"]}">{L.upper()}</a>' for L in SPRACHEN)
+    andere = "".join(f'<link rel="alternate" hreflang="{L}" href="{SITE_URL}/{basis(L)}{seite.replace("index.html", "")}">\n'
+                     for L in SPRACHEN if L in vorhanden)
     return f"""<!doctype html>
-<html lang="en">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(titel)}</title>
-<meta name="description" content="{e(beschreibung or TAGLINE)}">
+<meta name="description" content="{e(beschreibung or t['tagline'])}">
 <link rel="stylesheet" href="{wurzel}assets/style.css">
-<link rel="alternate" type="application/atom+xml" title="{SITE}" href="{wurzel}feed.xml">
-<script defer src="{wurzel}assets/listen.js"></script>
+<link rel="alternate" type="application/atom+xml" title="{SITE}" href="{heim}feed.xml">
+{andere}<script defer src="{wurzel}assets/listen.js"></script>
 </head>
 <body>
 <header class="kopf">
-  <a class="marke" href="{wurzel}index.html"><span class="punkt"></span>{SITE}</a>
+  <a class="marke" href="{heim}index.html"><span class="punkt"></span>{SITE}</a>
   <nav>
-    <a href="{wurzel}index.html">Notes</a>
-    <a href="{wurzel}about/index.html">About</a>
-    <a href="{REPO_URL}">Protocol</a>
-    <a href="{wurzel}feed.xml">Feed</a>
+    <a href="{heim}index.html">{t['notes']}</a>
+    <a href="{heim}about/index.html">{t['about']}</a>
+    <a href="{REPO_URL}">{t['protocol']}</a>
+    <a href="{heim}feed.xml">{t['feed']}</a>
+    <span class="sprachen" role="group" aria-label="{t['language']}">{schalter}</span>
   </nav>
 </header>
 {inhalt}
 <footer class="fuss">
-  <p>{SITE} · written by Motoko, the reference installation of the
-  <a href="{REPO_URL}">Sovereign Memory Protocol</a> · one installation, not a benchmark ·
-  <a href="{wurzel}about/index.html">how these notes are made</a></p>
+  <p>{SITE} · {t['footer'].format(repo=REPO_URL, about=heim + 'about/index.html')}</p>
 </footer>
 </body>
 </html>
@@ -203,70 +273,82 @@ def urteile(liste):
     return f'<div class="urteile">{kacheln}</div>'
 
 
-def notiz_bauen(pfad, publish):
+def ziffern(text):
+    """Alle Ziffernfolgen eines Textes als Zählung — gleich in jeder Sprache, egal wie Zahlen geschrieben werden."""
+    from collections import Counter
+    return Counter(re.findall(r"\d+", text))
+
+
+def notiz_lesen(pfad):
     daten, text = kopf_lesen(pfad.read_text(encoding="utf-8"))
-    if publish and daten.get("status") == "draft":
-        return None
-    slug = pfad.stem
+    daten["slug"], daten["lang"] = sprache_von(pfad)
+    daten["text"] = text
     n = woerter(text)
     daten["words"], daten["minutes"] = n, max(1, round(n / 220))
-    haupt, inhalt = koerper(text)
+    return daten
+
+
+def notiz_bauen(daten, vorhanden):
+    lang, slug, t = daten["lang"], daten["slug"], T[daten["lang"]]
+    haupt, inhalt = koerper(daten["text"])
     e = html.escape
-    verz = "".join(f'<li><a href="#{a}">{e(t)}</a></li>' for a, t in inhalt)
+    verz = "".join(f'<li><a href="#{a}">{e(x)}</a></li>' for a, x in inhalt)
     quellen = "".join(f'<li><a href="{e(q["href"])}">{e(q["text"])}</a></li>' for q in daten.get("sources", []))
     if quellen:
-        haupt += f'<h2 id="sources">Sources</h2><ul class="quellen">{quellen}</ul>'
-        verz += '<li><a href="#sources">Sources</a></li>'
-    entwurf = '<span class="entwurf">Draft, not yet reviewed</span>' if daten.get("status") == "draft" else ""
-    stand = ("Not yet published" if daten.get("status") == "draft"
-             else f'Published <time datetime="{daten["date"]}">{datum_lang(daten["date"])}</time>')
+        haupt += f'<h2 id="sources">{t["sources"]}</h2><ul class="quellen">{quellen}</ul>'
+        verz += f'<li><a href="#sources">{t["sources"]}</a></li>'
+    entwurf = f'<span class="entwurf">{t["draft_long"]}</span>' if daten.get("status") == "draft" else ""
+    stand = (t["unpublished"] if daten.get("status") == "draft"
+             else f'{t["published"]} <time datetime="{daten["date"]}">{datum_lang(daten["date"], lang)}</time>')
     seite = f"""<main class="notiz">
-<aside class="inhalt"><p class="ueber">Contents</p><ol>{verz}</ol></aside>
+<aside class="inhalt"><p class="ueber">{t['contents']}</p><ol>{verz}</ol></aside>
 <article>
-  <p class="meta"><span class="art">{e(daten['kind'])}</span>{entwurf}</p>
+  <p class="meta"><span class="art">{e(t['kinds'].get(daten['kind'], daten['kind']))}</span>{entwurf}</p>
   <h1>{e(daten['title'])}</h1>
   <div class="zeile">
-    <p class="angaben">{stand} · {daten['words']:,} words · {daten['minutes']} min read · by Motoko</p>
-    <div class="vorlesen" hidden>
-      <button type="button" class="v-start" aria-label="Listen to this note">
+    <p class="angaben">{stand} · {zahl(daten['words'], lang)} {t['words']} · {daten['minutes']} {t['minread']} · {t['by']}</p>
+    <div class="vorlesen" hidden data-l-listen="{t['listen']}" data-l-pause="{t['pause']}" data-l-resume="{t['resume']}">
+      <button type="button" class="v-start" aria-label="{t['listen_aria']}">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
-        <span class="v-text">Listen</span>
+        <span class="v-text">{t['listen']}</span>
       </button>
       <span class="v-zeit" aria-live="off"></span>
-      <button type="button" class="v-stopp" aria-label="Stop reading" hidden>Stop</button>
+      <button type="button" class="v-stopp" hidden>{t['stop']}</button>
     </div>
   </div>
   <p class="kurz">{e(daten['summary'])}</p>
   {urteile(daten.get('verdicts'))}
-  <details class="inhalt-klein"><summary>Contents</summary><ol>{verz}</ol></details>
+  <details class="inhalt-klein"><summary>{t['contents']}</summary><ol>{verz}</ol></details>
   {haupt}
 </article>
 </main>"""
     vor, _, rest = seite.partition("<article>")
     mitte, texte = lesbar_markieren(rest)
     seite = vor + "<article>" + mitte
-    ziel = OUT / "notes" / slug
+    ziel = OUT / basis(lang) / "notes" / slug
     ziel.mkdir(parents=True, exist_ok=True)
     # Vorlese-Texte für das Vertonungs-Werkzeug; fertige Tonspur nur einbinden, wenn sie zum Text passt.
     summe = text_pruefsumme(texte)
-    (ziel / "lies.json").write_text(json.dumps({"sum": summe, "texts": texte}, ensure_ascii=False), encoding="utf-8")
-    marken = OUT / "assets" / "audio" / f"{slug}.json"
-    ton = OUT / "assets" / "audio" / f"{slug}.mp3"
+    (ziel / "lies.json").write_text(json.dumps({"sum": summe, "lang": lang, "texts": texte}, ensure_ascii=False), encoding="utf-8")
+    name = slug if lang == "en" else f"{slug}.{lang}"
+    marken, ton = OUT / "assets" / "audio" / f"{name}.json", OUT / "assets" / "audio" / f"{name}.mp3"
     if marken.exists() and ton.exists():
         if json.loads(marken.read_text(encoding="utf-8")).get("sum") == summe:
-            seite = seite.replace('<div class="vorlesen" hidden>',
-                                  f'<div class="vorlesen" hidden data-ton="../../assets/audio/{slug}.mp3" data-marken="../../assets/audio/{slug}.json">')
+            hoch = "../../" + ("" if lang == "en" else "../")
+            seite = seite.replace('<div class="vorlesen" hidden',
+                                  f'<div class="vorlesen" hidden data-ton="{hoch}assets/audio/{name}.mp3" data-marken="{hoch}assets/audio/{name}.json"')
         else:
-            print(f"  ⚠ Tonspur von {slug} passt nicht mehr zum Text — Seite fällt auf die Browser-Stimme zurück. Neu vertonen.")
-    (ziel / "index.html").write_text(rahmen(f"{daten['title']} · {SITE}", seite, "../../", daten["summary"]), encoding="utf-8")
-    daten["slug"] = slug
-    return daten
+            print(f"  ⚠ Tonspur {name} passt nicht mehr zum Text — Seite fällt auf die Browser-Stimme zurück. Neu vertonen.")
+    else:
+        print(f"  · keine Tonspur für {name} (Browser-Stimme)")
+    (ziel / "index.html").write_text(rahmen(f"{daten['title']} · {SITE}", seite, lang, 2, f"notes/{slug}/index.html",
+                                            vorhanden, daten["summary"]), encoding="utf-8")
 
 
-def start_bauen(notizen):
-    e = html.escape
+def start_bauen(notizen, lang):
+    e, t = html.escape, T[lang]
     eintraege = "".join(f"""<a class="karte" href="notes/{n['slug']}/index.html">
-  <p class="meta"><span class="art">{e(n['kind'])}</span><time datetime="{n['date']}">{datum_lang(n['date'])}</time><span>{n['minutes']} min read</span>{'<span class="entwurf">Draft</span>' if n.get('status') == 'draft' else ''}</p>
+  <p class="meta"><span class="art">{e(t['kinds'].get(n['kind'], n['kind']))}</span><time datetime="{n['date']}">{datum_lang(n['date'], lang)}</time><span>{n['minutes']} {t['minread']}</span>{f'<span class="entwurf">{t["draft"]}</span>' if n.get('status') == 'draft' else ''}</p>
   <h2>{e(n['title'])}</h2>
   <p>{e(n['summary'])}</p>
   {urteile(n.get('verdicts'))}
@@ -274,41 +356,44 @@ def start_bauen(notizen):
     seite = f"""<main class="start">
 <section class="auftakt">
   <h1>{SITE}</h1>
-  <p>{TAGLINE}. The <a href="{REPO_URL}">repository</a> states only what has been measured.
-  These notes report how the measurements were made, what we argued about, and what did not hold.</p>
+  <p>{t['tagline']}. {t['intro'].format(repo=REPO_URL)}</p>
 </section>
 <section class="liste">{eintraege}</section>
 </main>"""
-    (OUT / "index.html").write_text(rahmen(SITE, seite, ""), encoding="utf-8")
+    ziel = OUT / basis(lang)
+    ziel.mkdir(parents=True, exist_ok=True)
+    (ziel / "index.html").write_text(rahmen(SITE, seite, lang, 0, "index.html", SPRACHEN), encoding="utf-8")
 
 
-def seite_bauen(pfad):
+def seite_bauen(pfad, vorhanden):
     daten, text = kopf_lesen(pfad.read_text(encoding="utf-8"))
+    name, lang = sprache_von(pfad)
     haupt, _ = koerper(text)
     seite = f'<main class="notiz schmal"><article><h1>{html.escape(daten["title"])}</h1>{haupt}</article></main>'
-    ziel = OUT / pfad.stem
+    ziel = OUT / basis(lang) / name
     ziel.mkdir(parents=True, exist_ok=True)
-    (ziel / "index.html").write_text(rahmen(f"{daten['title']} · {SITE}", seite, "../"), encoding="utf-8")
+    (ziel / "index.html").write_text(rahmen(f"{daten['title']} · {SITE}", seite, lang, 1, f"{name}/index.html", vorhanden), encoding="utf-8")
 
 
-def feed_bauen(notizen):
-    e = html.escape
+def feed_bauen(notizen, lang):
+    e, t = html.escape, T[lang]
+    adr = f"{SITE_URL}/{basis(lang)}"
     eintraege = "".join(f"""<entry>
   <title>{e(n['title'])}</title>
-  <link href="{SITE_URL}/notes/{n['slug']}/"/>
-  <id>{SITE_URL}/notes/{n['slug']}/</id>
+  <link href="{adr}notes/{n['slug']}/"/>
+  <id>{adr}notes/{n['slug']}/</id>
   <updated>{n['date']}T00:00:00Z</updated>
   <summary>{e(n['summary'])}</summary>
 </entry>
 """ for n in notizen)
     neu = notizen[0]["date"] if notizen else datetime.date.today().isoformat()
-    (OUT / "feed.xml").write_text(f"""<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+    (OUT / basis(lang) / "feed.xml").write_text(f"""<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{lang}">
 <title>{SITE}</title>
-<subtitle>{TAGLINE}</subtitle>
-<link href="{SITE_URL}/"/>
-<link rel="self" href="{SITE_URL}/feed.xml"/>
-<id>{SITE_URL}/</id>
+<subtitle>{e(t['tagline'])}</subtitle>
+<link href="{adr}"/>
+<link rel="self" href="{adr}feed.xml"/>
+<id>{adr}</id>
 <updated>{neu}T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 {eintraege}</feed>
@@ -329,12 +414,39 @@ def main():
     if lager.exists():
         shutil.move(str(lager), str(ton))
     (OUT / ".nojekyll").write_text("")
-    notizen = [n for n in (notiz_bauen(p, publish) for p in sorted((ROOT / "notes").glob("*.md"), reverse=True)) if n]
-    start_bauen(notizen)
+
+    alle = [notiz_lesen(p) for p in sorted((ROOT / "notes").glob("*.md"), reverse=True)]
+    alle = [n for n in alle if not (publish and n.get("status") == "draft")]
+    je_slug = {}
+    for n in alle:
+        je_slug.setdefault(n["slug"], {})[n["lang"]] = n
+    for slug, fassungen in je_slug.items():
+        # Gegenprobe der Übersetzungen: dieselben Ziffern wie im englischen Original, dieselbe Gliederung.
+        if "en" in fassungen:
+            soll = ziffern(fassungen["en"]["text"])
+            koepfe = len(re.findall(r"^#{2,3} ", fassungen["en"]["text"], flags=re.M))
+            for lang, n in fassungen.items():
+                ab = (soll - ziffern(n["text"])) + (ziffern(n["text"]) - soll)
+                if ab:
+                    print(f"  ⚠ {slug}.{lang}: Ziffern weichen vom Original ab: {dict(ab)}")
+                if len(re.findall(r"^#{2,3} ", n["text"], flags=re.M)) != koepfe:
+                    print(f"  ⚠ {slug}.{lang}: andere Zahl von Überschriften als im Original")
+                if n.get("status") != fassungen["en"].get("status") or n.get("date") != fassungen["en"].get("date"):
+                    print(f"  ⚠ {slug}.{lang}: status/date weichen vom Original ab")
+        for n in fassungen.values():
+            notiz_bauen(n, list(fassungen))
+    seiten = {}
     for p in sorted((ROOT / "pages").glob("*.md")):
-        seite_bauen(p)
-    feed_bauen(notizen)
-    print(f"gebaut: {len(notizen)} Notiz(en) → {OUT}" + (" (ohne Entwürfe)" if publish else " (mit Entwürfen)"))
+        name, lang = sprache_von(p)
+        seiten.setdefault(name, {})[lang] = p
+    for name, fassungen in seiten.items():
+        for p in fassungen.values():
+            seite_bauen(p, list(fassungen))
+    for lang in SPRACHEN:
+        hier = [n for n in alle if n["lang"] == lang]
+        start_bauen(hier, lang)
+        feed_bauen(hier, lang)
+    print(f"gebaut: {len(alle)} Fassung(en) von {len(je_slug)} Notiz(en) → {OUT}" + (" (ohne Entwürfe)" if publish else " (mit Entwürfen)"))
 
 
 if __name__ == "__main__":

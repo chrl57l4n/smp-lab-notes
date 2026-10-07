@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title>SMP Lab Notes</title>
 <subtitle>Measurements, builds and failures from the Sovereign Memory Protocol</subtitle>
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>

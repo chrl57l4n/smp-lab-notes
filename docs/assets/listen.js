@@ -15,10 +15,12 @@
   var zeit = kasten.querySelector(".v-zeit");
   var teile = Array.prototype.slice.call(artikel.querySelectorAll("[data-lies]"));
   var zustand = "aus"; // aus | liest | pause
+  var sprache = (document.documentElement.lang || "en").slice(0, 2);
 
   function zeigen() {
     kasten.dataset.zustand = zustand;
-    text.textContent = zustand === "liest" ? "Pause" : zustand === "pause" ? "Resume" : "Listen";
+    var d = kasten.dataset;
+    text.textContent = zustand === "liest" ? (d.lPause || "Pause") : zustand === "pause" ? (d.lResume || "Resume") : (d.lListen || "Listen");
     stopp.hidden = zustand === "aus";
   }
 
@@ -87,7 +89,8 @@
     var nr = 0;
 
     function stimme() {
-      var en = synth.getVoices().filter(function (v) { return /^en(-|_|$)/i.test(v.lang); });
+      var passt = new RegExp("^" + sprache + "(-|_|$)", "i");
+      var en = synth.getVoices().filter(function (v) { return passt.test(v.lang); });
       return en.filter(function (v) { return v.localService; })[0] || en[0] || null;
     }
     function weiter() {
@@ -96,7 +99,7 @@
       var el = teile[nr];
       var u = new SpeechSynthesisUtterance(el.textContent.replace(/\s+/g, " ").trim());
       var v = stimme();
-      if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = "en-US"; }
+      if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = sprache; }
       u.onend = function () { if (zustand === "liest") { nr += 1; weiter(); } };
       u.onerror = function (e) { if (e.error !== "interrupted" && e.error !== "canceled") beenden(); };
       markieren(el);
