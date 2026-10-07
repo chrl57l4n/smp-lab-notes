@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMP Lab Notes</title>
 <meta name="description" content="How the Sovereign Memory Protocol is built: ideas, builds and measurements">
-<link rel="stylesheet" href="assets/style.css?v=e72a83cb0a">
+<link rel="stylesheet" href="assets/style.css?v=a8aa91e8bb">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/">
 <link rel="alternate" hreflang="es" href="https://chrl57l4n.github.io/smp-lab-notes/es/">
 <link rel="alternate" hreflang="ru" href="https://chrl57l4n.github.io/smp-lab-notes/ru/">
 <script defer src="assets/listen.js?v=25b937d31e"></script>
+<script defer src="assets/zeitachse.js?v=46a7509d01"></script>
 </head>
 <body>
 <header class="kopf">
@@ -29,6 +30,10 @@
   <h1>SMP Lab Notes</h1>
   <p>How the Sovereign Memory Protocol is built: ideas, builds and measurements. The <a href="https://github.com/chrl57l4n/sovereign-memory-protocol">repository</a> holds the specification and the code. These notes tell how each part came to be: the question behind it, the discussion, the build, and what the measurements showed, whether they confirmed the design or sent us back to it.</p>
 </section>
+<button type="button" class="zeitachse-knopf" hidden aria-pressed="false" data-anfang="Show the beginning first" data-heute="Show today first">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.2l-2.6-2.6L3 16l5 5 5-5-1.4-1.4L9 17.2V4zM17 20V6.8l2.6 2.6L21 8l-5-5-5 5 1.4 1.4L15 6.8V20z"/></svg>
+  <span class="zk-text">Show the beginning first</span>
+</button>
 <section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
   <p class="meta"><span class="art">Measurement</span><time datetime="2026-10-06">6 October 2026</time><span>8 min read</span></p>
   <h2>Engram&#x27;s four release conditions, measured: none passes cleanly</h2>

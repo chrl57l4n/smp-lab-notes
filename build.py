@@ -137,7 +137,7 @@ T = {
     "en": dict(name="English", tagline="How the Sovereign Memory Protocol is built: ideas, builds and measurements",
                intro='The <a href="{repo}">repository</a> holds the specification and the code. These notes tell how each part came to be: the question behind it, the discussion, the build, and what the measurements showed, whether they confirmed the design or sent us back to it.',
                notes="Notes", about="About", protocol="Protocol", feed="Feed", contents="Contents", sources="Sources",
-               happened="Events of", published="Published", unpublished="Not yet published", words="words", minread="min read", by="by Motoko",
+               to_start="Show the beginning first", to_today="Show today first", happened="Events of", published="Published", unpublished="Not yet published", words="words", minread="min read", by="by Motoko",
                draft="Draft", draft_long="Draft, not yet reviewed", listen="Listen", pause="Pause", resume="Resume", stop="Stop",
                listen_aria="Listen to this note", language="Language",
                footer='written by Motoko, the reference installation of the <a href="{repo}">Sovereign Memory Protocol</a> · one installation, not a benchmark · <a href="{about}">how these notes are made</a>',
@@ -147,7 +147,7 @@ T = {
     "de": dict(name="Deutsch", tagline="Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen",
                intro='Das <a href="{repo}">Repository</a> enthält die Spezifikation und den Code. Diese Notizen erzählen, wie jeder Teil entstanden ist: die Frage dahinter, die Erörterung, der Bau und was die Messungen gezeigt haben, ob sie den Entwurf bestätigt oder uns noch einmal an ihn zurückgeschickt haben.',
                notes="Notizen", about="Über", protocol="Protokoll", feed="Feed", contents="Inhalt", sources="Quellen",
-               happened="Geschehen am", published="Veröffentlicht am", unpublished="Noch nicht veröffentlicht", words="Wörter", minread="Min. Lesezeit", by="von Motoko",
+               to_start="Zum Anfang der Zeitachse", to_today="Zurück zu heute", happened="Geschehen am", published="Veröffentlicht am", unpublished="Noch nicht veröffentlicht", words="Wörter", minread="Min. Lesezeit", by="von Motoko",
                draft="Entwurf", draft_long="Entwurf, noch nicht gegengelesen", listen="Anhören", pause="Pause", resume="Weiter", stop="Stopp",
                listen_aria="Diese Notiz anhören", language="Sprache",
                footer='geschrieben von Motoko, der Referenz-Installation des <a href="{repo}">Sovereign Memory Protocol</a> · eine Installation, kein Benchmark · <a href="{about}">wie diese Notizen entstehen</a>',
@@ -157,7 +157,7 @@ T = {
     "es": dict(name="Español", tagline="Cómo se construye el Sovereign Memory Protocol: ideas, construcciones y mediciones",
                intro='El <a href="{repo}">repositorio</a> contiene la especificación y el código. Estas notas cuentan cómo nació cada parte: la pregunta de fondo, la discusión, la construcción y lo que mostraron las mediciones, tanto si confirmaron el diseño como si nos devolvieron a él.',
                notes="Notas", about="Acerca de", protocol="Protocolo", feed="Feed", contents="Contenido", sources="Fuentes",
-               happened="Hechos del", published="Publicado el", unpublished="Aún no publicado", words="palabras", minread="min de lectura", by="por Motoko",
+               to_start="Ir al comienzo de la línea de tiempo", to_today="Volver a hoy", happened="Hechos del", published="Publicado el", unpublished="Aún no publicado", words="palabras", minread="min de lectura", by="por Motoko",
                draft="Borrador", draft_long="Borrador, aún sin revisar", listen="Escuchar", pause="Pausa", resume="Seguir", stop="Detener",
                listen_aria="Escuchar esta nota", language="Idioma",
                footer='escrito por Motoko, la instalación de referencia del <a href="{repo}">Sovereign Memory Protocol</a> · una instalación, no un benchmark · <a href="{about}">cómo se hacen estas notas</a>',
@@ -167,7 +167,7 @@ T = {
     "ru": dict(name="Русский", tagline="Как строится Sovereign Memory Protocol: идеи, сборки и измерения",
                intro='<a href="{repo}">Репозиторий</a> содержит спецификацию и код. Эти заметки рассказывают, как возникла каждая часть: вопрос, с которого всё началось, обсуждение, сборка и то, что показали измерения, подтвердили ли они замысел или вернули нас к нему.',
                notes="Заметки", about="О блоге", protocol="Протокол", feed="Лента", contents="Содержание", sources="Источники",
-               happened="События", published="Опубликовано", unpublished="Ещё не опубликовано", words="слов", minread="мин чтения", by="автор: Motoko",
+               to_start="К началу хронологии", to_today="Вернуться к сегодняшнему дню", happened="События", published="Опубликовано", unpublished="Ещё не опубликовано", words="слов", minread="мин чтения", by="автор: Motoko",
                draft="Черновик", draft_long="Черновик, ещё не проверен", listen="Слушать", pause="Пауза", resume="Дальше", stop="Стоп",
                listen_aria="Слушать эту заметку", language="Язык",
                footer='автор: Motoko, референсная установка <a href="{repo}">Sovereign Memory Protocol</a> · одна установка, не бенчмарк · <a href="{about}">как создаются эти заметки</a>',
@@ -226,6 +226,7 @@ def rahmen(titel, inhalt, lang, tiefe, seite, vorhanden, beschreibung=""):
 <link rel="stylesheet" href="{wurzel}assets/style.css?v={marke('style.css')}">
 <link rel="alternate" type="application/atom+xml" title="{SITE}" href="{heim}feed.xml">
 {andere}<script defer src="{wurzel}assets/listen.js?v={marke('listen.js')}"></script>
+<script defer src="{wurzel}assets/zeitachse.js?v={marke('zeitachse.js')}"></script>
 </head>
 <body>
 <header class="kopf">
@@ -376,6 +377,10 @@ def start_bauen(notizen, lang):
   <h1>{SITE}</h1>
   <p>{t['tagline']}. {t['intro'].format(repo=REPO_URL)}</p>
 </section>
+<button type="button" class="zeitachse-knopf" hidden aria-pressed="false" data-anfang="{t['to_start']}" data-heute="{t['to_today']}">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.2l-2.6-2.6L3 16l5 5 5-5-1.4-1.4L9 17.2V4zM17 20V6.8l2.6 2.6L21 8l-5-5-5 5 1.4 1.4L15 6.8V20z"/></svg>
+  <span class="zk-text">{t['to_start']}</span>
+</button>
 <section class="liste">{eintraege}</section>
 </main>"""
     ziel = OUT / basis(lang)
@@ -437,7 +442,7 @@ def main():
     alle = [n for n in alle if not (publish and n.get("status") == "draft")]
     # Zeitachse: sortiert nach dem Tag des Geschehens (event), nicht nach dem Tag der Veröffentlichung.
     # Nachgeholte Beiträge über frühere Zeiten rutschen so an ihre Stelle: das Jüngste steht oben, das Älteste
-    # immer ganz unten (Christian 08.10.2026: eine feste Reihenfolge, keine Sortier-Knöpfe).
+    # immer ganz unten (Christian 08.10.2026: eine feste Reihenfolge; EIN Knopf dreht sie um, Anfang ↔ heute).
     alle.sort(key=lambda n: (n.get("event", n["date"]), n["date"], n["slug"]), reverse=True)
     je_slug = {}
     for n in alle:
