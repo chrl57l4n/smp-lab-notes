@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
-<updated>2026-10-07T00:00:00Z</updated>
+<updated>2026-10-08T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Четыре условия выпуска Engram измерены: ни одно не выполнено чисто</title>
@@ -20,5 +20,12 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-07-the-guard-origin/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Самая старая часть вспоминания в протоколе — это скан по ключевым словам, который выполняется на каждом входящем сообщении. В этой заметке рассказано, как он возник за одну майскую ночь, какие идеи кому принадлежали, как он вырос с 83 фраз до более чем пяти тысяч и чего он до сих пор не умеет.</summary>
+</entry>
+<entry>
+  <title>Слои при старте сеанса: как горстка простых файлов стала первой памятью</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-08-layers-at-session-start/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-08-layers-at-session-start/</id>
+  <updated>2026-10-08T00:00:00Z</updated>
+  <summary>Первой рабочей формой памяти в протоколе был набор простых текстовых файлов в репозитории под контролем версий, который загружался в каждый новый сеанс до первого сообщения. В этой заметке рассказано, как это возникло в апреле, что это сделало возможным за неделю и какие три ограничения проявились почти сразу.</summary>
 </entry>
 </feed>

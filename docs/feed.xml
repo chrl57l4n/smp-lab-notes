@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-07T00:00:00Z</updated>
+<updated>2026-10-08T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Engram&#x27;s four release conditions, measured: none passes cleanly</title>
@@ -20,5 +20,12 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-07-the-guard-origin/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The oldest part of the protocol&#x27;s recall is a keyword scan that runs on every incoming message. This note tells how it came about in one night in May, which ideas were whose, how it grew from 83 phrases to more than five thousand, and what it still cannot do.</summary>
+</entry>
+<entry>
+  <title>Layers at session start: how a handful of plain files became the first memory</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-08-layers-at-session-start/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-08-layers-at-session-start/</id>
+  <updated>2026-10-08T00:00:00Z</updated>
+  <summary>The first working form of the protocol&#x27;s memory was a set of plain text files in a version-controlled repository, loaded into every new session before the first message. This note tells how that came about in April, what it made possible within a week, and which three limits showed almost at once.</summary>
 </entry>
 </feed>
