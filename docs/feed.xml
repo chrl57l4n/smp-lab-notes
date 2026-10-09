@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-08T00:00:00Z</updated>
+<updated>2026-10-09T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Engram&#x27;s four release conditions, measured: none passes cleanly</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-07-the-guard-origin/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The oldest part of the protocol&#x27;s recall is a keyword scan that runs on every incoming message. This note tells how it came about in one night in May, which ideas were whose, how it grew from 83 phrases to more than five thousand, and what it still cannot do.</summary>
+</entry>
+<entry>
+  <title>Two instances, one memory: section checksums, a vocabulary for drift, and the first reflexes</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-09-two-instances-one-memory/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-09-two-instances-one-memory/</id>
+  <updated>2026-10-09T00:00:00Z</updated>
+  <summary>When two sessions of the same model began to work from the same memory files, three things were built within five days: checksums over the sections that must not change silently, a shared vocabulary for recurring kinds of error, and the first two written reflexes. This note tells how they came out of one long review dialogue, what they caught, and what a run of the check shows today.</summary>
 </entry>
 <entry>
   <title>Layers at session start: how a handful of plain files became the first memory</title>
