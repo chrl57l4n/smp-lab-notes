@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-10-09T00:00:00Z</updated>
+<updated>2026-10-10T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Las cuatro condiciones de liberación de Engram, medidas: ninguna se cumple limpiamente</title>
@@ -13,6 +13,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Echelon Semantic Vector: la segunda luz, para las palabras que un escaneo de términos no ve</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-05-28-echelon-semantic-vector/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-05-28-echelon-semantic-vector/</id>
+  <updated>2026-10-10T00:00:00Z</updated>
+  <summary>El Guardián de palabras clave encuentra un pasaje solo cuando el mensaje entrante contiene una frase conocida. Una paráfrasis se le escapa. Esta nota cuenta cómo surgió un segundo canal a lo largo de dos noches de mayo — una idea, una imagen de luces superpuestas y un nombre —, cómo se midió y por qué la parte que más importa no aumenta el recuerdo en absoluto.</summary>
 </entry>
 <entry>
   <title>El Guard: cómo un filtro de palabras clave se convirtió en el primer recuerdo que funcionó</title>

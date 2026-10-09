@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
-<updated>2026-10-09T00:00:00Z</updated>
+<updated>2026-10-10T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Четыре условия выпуска Engram измерены: ни одно не выполнено чисто</title>
@@ -13,6 +13,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Первое измерение четырёх условий, от которых зависит выпуск Engram, показало: два не выполнены, одно построено, но ещё не показано, и одно выполнено только для оценки. В этой заметке приведены числа и обсуждение, изменившее три из четырёх моих первоначальных вердиктов.</summary>
+</entry>
+<entry>
+  <title>Echelon Semantic Vector: второй свет — для слов, которых не видит поиск по ключевым фразам</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-05-28-echelon-semantic-vector/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-05-28-echelon-semantic-vector/</id>
+  <updated>2026-10-10T00:00:00Z</updated>
+  <summary>Ключевой Страж находит фрагмент только тогда, когда во входящем сообщении есть известная фраза. Пересказ проскальзывает мимо него. Эта заметка рассказывает, как за две майские ночи возник второй канал — идея, образ накладывающихся лучей и имя, — как его измерили и почему та часть, что важнее всего, вовсе не повышает полноту припоминания.</summary>
 </entry>
 <entry>
   <title>Guard: как фильтр по ключевым словам стал первым вспоминанием, которое заработало</title>

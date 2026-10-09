@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-10-09T00:00:00Z</updated>
+<updated>2026-10-10T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt</title>
@@ -13,6 +13,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Echelon Semantic Vector: das zweite Licht, für die Worte, die ein Stichwort-Scan nicht sieht</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-05-28-echelon-semantic-vector/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-05-28-echelon-semantic-vector/</id>
+  <updated>2026-10-10T00:00:00Z</updated>
+  <summary>Die Stichwort-Wache findet eine Stelle nur, wenn die eingehende Nachricht eine bekannte Phrase enthält. Eine Umschreibung rutscht an ihr vorbei. Diese Notiz erzählt, wie über zwei Nächte im Mai ein zweiter Kanal entstand — eine Idee, ein Bild von überlagerten Lichtern und ein Name —, wie er gemessen wurde und warum der Teil, der am meisten zählt, den Abruf gar nicht erhöht.</summary>
 </entry>
 <entry>
   <title>Die Wache: Wie ein Stichwortfilter zum ersten Abruf wurde, der funktionierte</title>
