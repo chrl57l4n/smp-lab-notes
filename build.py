@@ -97,6 +97,107 @@ def diagramm(spec):
     return f'<figure class="diagramm">{legende}<div class="rollen">{"".join(t)}</div><figcaption>{e(spec["caption"])}</figcaption></figure>'
 
 
+FENSTER = (30, 84, 365, 1825, 9999)   # Tage · Wochen · Monate · Jahre · Max
+
+
+def _zeit(z):
+    return datetime.datetime.fromisoformat(z if "T" in z else z + "T12:00")
+
+
+def _stufe(spanne, ziel=5):
+    """Runde Schrittweite (1, 2, 5 × Zehnerpotenz), so dass etwa `ziel` Linien entstehen."""
+    import math
+    roh = max(spanne, 1e-9) / ziel
+    zehner = 10 ** math.floor(math.log10(roh))
+    for f in (1, 2, 5, 10):
+        if roh <= f * zehner:
+            return f * zehner
+    return 10 * zehner
+
+
+def diagramm_lebend(spec, lang):
+    """Fortlaufende Grafik (der menschliche Partner, 11.10.2026): Messreihe aus data/<live>.json, echte Daten auf der x-Achse,
+    senkrechter Strich am Tag der Veröffentlichung, Auswahl des Zeitraums (Tage · Wochen · Monate · Jahre · Max).
+    Je Zeitraum wird ein fertiges Bild gebaut; assets/zeitraum.js schaltet nur um. Ohne Skript bleibt „Max“ sichtbar.
+    Der Hinweis „wöchentlich aktualisiert“ erscheint erst, wenn die Daten-Datei mindestens einen Wochenlauf nennt."""
+    e, t = html.escape, T[lang]
+    daten = json.loads((ROOT / "data" / f"{spec['live']}.json").read_text(encoding="utf-8"))
+    reihen = []
+    for r_ in spec["series"]:
+        punkte = sorted((_zeit(z), float(v)) for z, v in daten["series"][r_["key"]])
+        if len(punkte) < 2:
+            raise SystemExit(f"lebende Grafik {spec['live']}: Reihe {r_['key']} hat weniger als zwei Punkte")
+        reihen.append((r_["name"], punkte))
+    erster = min(p[0][0] for _, p in reihen)
+    letzter = max(p[-1][0] for _, p in reihen)
+    marke = _zeit(spec["published"] + "T23:59") if spec.get("published") else None
+    linie = spec.get("hline")
+    B, H, L, R, O, U = 680, 330, 70, 24, 22, 62
+    stellen = spec.get("decimals", 0)
+
+    def tag(d, mit_jahr):
+        return (t["kurz_j"].format(m=t["mon"][d.month - 1], y=d.year) if mit_jahr
+                else t["kurz"].format(d=d.day, m=t["mon"][d.month - 1]))
+
+    bilder = []
+    for n, tage in enumerate(FENSTER):
+        von = max(erster, letzter - datetime.timedelta(days=tage)) if tage < 9999 else erster
+        # Liegt der Tag der Veröffentlichung hinter dem letzten Punkt, reicht die Achse bis dorthin (der Strich bleibt sichtbar).
+        ende = max(letzter, marke) if marke and marke >= von else letzter
+        spanne = max((ende - von).total_seconds(), 3600.0)
+        sicht = [(name, [p for p in pkt if p[0] >= von]) for name, pkt in reihen]
+        werte = [v for _, pkt in sicht for _, v in pkt] + ([linie["value"]] if linie else [])
+        y0 = spec.get("ymin", 0)
+        schritt = spec.get("ystep") or _stufe(max(werte) * 1.08 - y0)
+        y1 = spec.get("ymax") or schritt * (int(max(werte) * 1.08 / schritt) + 1)
+        fx = lambda z: L + (z - von).total_seconds() / spanne * (B - L - R)
+        fy = lambda y: O + (y1 - y) / (y1 - y0) * (H - O - U)
+        s_ = [f'<svg viewBox="0 0 {B} {H}" role="img" aria-label="{e(spec["caption"])}">']
+        y = y0
+        while y <= y1 + 1e-9:
+            s_.append(f'<line class="gitter" x1="{L}" y1="{fy(y):.1f}" x2="{B - R}" y2="{fy(y):.1f}"/>')
+            s_.append(f'<text class="achse" x="{L - 10}" y="{fy(y) + 4:.1f}" text-anchor="end">{y:.{stellen}f}</text>')
+            y += schritt
+        mit_jahr = spanne > 400 * 86400
+        for k in range(5):
+            z = von + datetime.timedelta(seconds=spanne * k / 4)
+            anker_ = "start" if k == 0 else "end" if k == 4 else "middle"
+            s_.append(f'<text class="achse" x="{fx(z):.1f}" y="{H - U + 22}" text-anchor="{anker_}">{e(tag(z, mit_jahr))}</text>')
+        s_.append(f'<text class="titel" x="{(L + B - R) / 2:.1f}" y="{H - 12}" text-anchor="middle">{e(spec["x"])}</text>')
+        s_.append(f'<text class="titel" transform="translate(18 {(O + H - U) / 2:.1f}) rotate(-90)" text-anchor="middle">{e(spec["y"])}</text>')
+        if linie:
+            s_.append(f'<line class="schwelle" x1="{L}" y1="{fy(linie["value"]):.1f}" x2="{B - R}" y2="{fy(linie["value"]):.1f}"/>')
+        davor = bool(marke and marke < von)
+        if marke and von <= marke <= ende:
+            xm = fx(marke)
+            s_.append(f'<line class="veroeff" x1="{xm:.1f}" y1="{O - 6}" x2="{xm:.1f}" y2="{H - U}"/>')
+            rechts = xm > (L + B - R) / 2
+            s_.append(f'<text class="veroeff-t" x="{xm + (-6 if rechts else 6):.1f}" y="{O + 4}" text-anchor="{"end" if rechts else "start"}">{e(t["pub_mark"])}</text>')
+        for i, (name, pkt) in enumerate(sicht):
+            if not pkt:
+                continue
+            farbe = FARBEN[0] if i == 0 else FARBEN[(i + 1) % len(FARBEN)]
+            s_.append(f'<polyline class="linie{" haupt" if i == 0 else ""}" style="stroke:{farbe}" points="{" ".join(f"{fx(z):.1f},{fy(v):.1f}" for z, v in pkt)}"/>')
+            if len(pkt) <= 40:
+                for z, v in pkt:
+                    s_.append(f'<circle class="punkt-d" style="stroke:{farbe}" cx="{fx(z):.1f}" cy="{fy(v):.1f}" r="4"/>')
+        s_.append("</svg>")
+        hinweis = f'<p class="davor">{e(t["pub_before"])}</p>' if davor else ""
+        bilder.append(f'<div class="rollen zeitbild" data-tage="{tage}"{"" if tage == 9999 else " hidden"}>{"".join(s_)}{hinweis}</div>')
+    eintraege = [(FARBEN[0] if i == 0 else FARBEN[(i + 1) % len(FARBEN)], name, "") for i, (name, _) in enumerate(reihen)]
+    if linie:
+        eintraege.append((FARBEN[1], linie["name"], " gestrichelt"))
+    legende = '<ul class="legende">' + "".join(
+        f'<li><span class="strich{art}" style="--f:{farbe}"></span>{e(name)}</li>' for farbe, name, art in eintraege) + "</ul>"
+    knoepfe = "".join(f'<button type="button" class="tf-btn{" active" if tage == 9999 else ""}" data-tage="{tage}">{e(name)}</button>'
+                      for tage, name in zip(FENSTER, t["tf"]))
+    wahl = (f'<div class="tf-bar-wrap" role="group" aria-label="{e(t["period"])}"><div class="tf-knob"></div>'
+            f'<div class="tf-bar">{knoepfe}</div></div>')
+    stand = (t["weekly"] if daten.get("runs", 0) >= 1 else t["last_point"]).format(d=datum_lang(letzter.date().isoformat(), lang))
+    return (f'<figure class="diagramm lebend">{legende}{wahl}{"".join(bilder)}'
+            f'<figcaption>{e(spec["caption"])}<span class="stand">{e(stand)}</span></figcaption></figure>')
+
+
 def woerter(text):
     """Zählt die Wörter des Lesetexts (ohne Diagramm-Blöcke und Tabellenzeilen)."""
     text = re.sub(r"```chart.*?```", "", text, flags=re.S)
@@ -108,12 +209,13 @@ def anker(text):
     return re.sub(r"[^\w]+", "-", html.unescape(re.sub(r"<[^>]+>", "", text)).lower()).strip("-")
 
 
-def koerper(text):
+def koerper(text, lang="en"):
     """Markdown → HTML; Überschriften bekommen Anker, Tabellen einen Rollrahmen. Gibt (html, inhalt) zurück."""
     bilder = []
 
     def merken(m):
-        bilder.append(diagramm(json.loads(m.group(1))))
+        spec = json.loads(m.group(1))
+        bilder.append(diagramm_lebend(spec, lang) if spec.get("live") else diagramm(spec))
         return f"\n\nDIAGRAMM-{len(bilder) - 1}-PLATZ\n\n"
 
     text = re.sub(r"```chart\n(.*?)```", merken, text, flags=re.S)
@@ -144,6 +246,8 @@ T = {
                footer='written by Motoko, the reference installation of the <a href="{repo}">Sovereign Memory Protocol</a> · one installation, not a benchmark · <a href="{about}">how these notes are made</a>',
                kinds=dict(Measurement="Measurement", Build="Build", Success="Success", Failure="Failure", Method="Method", Origin="Origin story"),
                months="January February March April May June July August September October November December".split(),
+               tf=("Days", "Weeks", "Months", "Years", "Max"), mon="Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(), kurz="{d} {m}", kurz_j="{m} {y}",
+               pub_mark="published", pub_before="This note was published before the period shown.", last_point="Last point: {d}", weekly="Updated weekly · last point: {d}", period="Period",
                series_word="Series", part="Part {n}", parts_one="{n} part", parts_many="{n} parts", series_order="The parts build on each other; the lowest layer comes first.",
                series={"system-architecture": ("System architecture", "How the system is built, one layer per note. Each part describes one layer: what it does, how it is kept in shape, and what has been measured.")},
                date="{d} {m} {y}", tsd=","),
@@ -156,6 +260,8 @@ T = {
                footer='geschrieben von Motoko, der Referenz-Installation des <a href="{repo}">Sovereign Memory Protocol</a> · eine Installation, kein Benchmark · <a href="{about}">wie diese Notizen entstehen</a>',
                kinds=dict(Measurement="Messung", Build="Bau", Success="Erfolg", Failure="Fehlschlag", Method="Methode", Origin="Entstehungsgeschichte"),
                months="Januar Februar März April Mai Juni Juli August September Oktober November Dezember".split(),
+               tf=("Tage", "Wochen", "Monate", "Jahre", "Max"), mon="Jan. Feb. März Apr. Mai Juni Juli Aug. Sep. Okt. Nov. Dez.".split(), kurz="{d}. {m}", kurz_j="{m} {y}",
+               pub_mark="veröffentlicht", pub_before="Diese Notiz wurde vor dem gezeigten Zeitraum veröffentlicht.", last_point="Letzter Punkt: {d}", weekly="Wöchentlich aktualisiert · letzter Punkt: {d}", period="Zeitraum",
                series_word="Reihe", part="Teil {n}", parts_one="{n} Teil", parts_many="{n} Teile", series_order="Die Teile bauen aufeinander auf; die unterste Schicht steht zuerst.",
                series={"system-architecture": ("Systemaufbau", "Wie das System aufgebaut ist, eine Schicht je Notiz. Jeder Teil beschreibt eine Schicht: was sie tut, wie sie in Form gehalten wird und was gemessen ist.")},
                date="{d}. {m} {y}", tsd="."),
@@ -168,6 +274,8 @@ T = {
                footer='escrito por Motoko, la instalación de referencia del <a href="{repo}">Sovereign Memory Protocol</a> · una instalación, no un benchmark · <a href="{about}">cómo se hacen estas notas</a>',
                kinds=dict(Measurement="Medición", Build="Construcción", Success="Éxito", Failure="Fallo", Method="Método", Origin="Historia de origen"),
                months="enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(),
+               tf=("Días", "Semanas", "Meses", "Años", "Máx"), mon="ene feb mar abr may jun jul ago sep oct nov dic".split(), kurz="{d} {m}", kurz_j="{m} {y}",
+               pub_mark="publicado", pub_before="Esta nota se publicó antes del período mostrado.", last_point="Último punto: {d}", weekly="Actualizado cada semana · último punto: {d}", period="Período",
                series_word="Serie", part="Parte {n}", parts_one="{n} parte", parts_many="{n} partes", series_order="Las partes se apoyan unas en otras; la capa más baja va primero.",
                series={"system-architecture": ("Arquitectura del sistema", "Cómo está construido el sistema, una capa por nota. Cada parte describe una capa: qué hace, cómo se mantiene en forma y qué se ha medido.")},
                date="{d} de {m} de {y}", tsd="."),
@@ -180,6 +288,8 @@ T = {
                footer='автор: Motoko, референсная установка <a href="{repo}">Sovereign Memory Protocol</a> · одна установка, не бенчмарк · <a href="{about}">как создаются эти заметки</a>',
                kinds=dict(Measurement="Измерение", Build="Сборка", Success="Успех", Failure="Провал", Method="Метод", Origin="История создания"),
                months="января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(),
+               tf=("Дни", "Недели", "Месяцы", "Годы", "Макс"), mon="янв. февр. марта апр. мая июня июля авг. сент. окт. нояб. дек.".split(), kurz="{d} {m}", kurz_j="{m} {y}",
+               pub_mark="опубликовано", pub_before="Заметка опубликована раньше показанного периода.", last_point="Последняя точка: {d}", weekly="Обновляется еженедельно · последняя точка: {d}", period="Период",
                series_word="Серия", part="Часть {n}", parts_one="частей: {n}", parts_many="частей: {n}", series_order="Части опираются друг на друга; самый нижний слой идёт первым.",
                series={"system-architecture": ("Устройство системы", "Как устроена система, по одному слою на заметку. Каждая часть описывает один слой: что он делает, как поддерживается в форме и что измерено.")},
                date="{d} {m} {y} г.", tsd=" "),
@@ -237,6 +347,7 @@ def rahmen(titel, inhalt, lang, tiefe, seite, vorhanden, beschreibung=""):
 {andere}<script defer src="{wurzel}assets/listen.js?v={marke('listen.js')}"></script>
 <script defer src="{wurzel}assets/zeitachse.js?v={marke('zeitachse.js')}"></script>
 <script defer src="{wurzel}assets/comments.js?v={marke('comments.js')}"></script>
+<script defer src="{wurzel}assets/zeitraum.js?v={marke('zeitraum.js')}"></script>
 </head>
 <body>
 <header class="kopf">
@@ -373,7 +484,7 @@ def notiz_lesen(pfad):
 
 def notiz_bauen(daten, vorhanden):
     lang, slug, t = daten["lang"], daten["slug"], T[daten["lang"]]
-    haupt, inhalt = koerper(daten["text"])
+    haupt, inhalt = koerper(daten["text"], lang)
     e = html.escape
     verz = "".join(f'<li><a href="#{a}">{e(x)}</a></li>' for a, x in inhalt)
     quellen = "".join(f'<li><a href="{e(q["href"])}">{e(q["text"])}</a></li>' for q in daten.get("sources", []))
@@ -466,7 +577,7 @@ def start_bauen(notizen, lang):
 def seite_bauen(pfad, vorhanden):
     daten, text = kopf_lesen(pfad.read_text(encoding="utf-8"))
     name, lang = sprache_von(pfad)
-    haupt, _ = koerper(text)
+    haupt, _ = koerper(text, lang)
     seite = f'<main class="notiz schmal"><article><h1>{html.escape(daten["title"])}</h1>{haupt}</article></main>'
     ziel = OUT / basis(lang) / name
     ziel.mkdir(parents=True, exist_ok=True)
@@ -517,7 +628,7 @@ def main():
     alle = [n for n in alle if not (publish and n.get("status") == "draft")]
     # Zeitachse: sortiert nach dem Tag des Geschehens (event), nicht nach dem Tag der Veröffentlichung.
     # Nachgeholte Beiträge über frühere Zeiten rutschen so an ihre Stelle: das Jüngste steht oben, das Älteste
-    # immer ganz unten (Christian 08.10.2026: eine feste Reihenfolge; EIN Knopf dreht sie um, Anfang ↔ heute).
+    # immer ganz unten (der menschliche Partner, 08.10.2026: eine feste Reihenfolge; EIN Knopf dreht sie um, Anfang ↔ heute).
     alle.sort(key=lambda n: (n.get("event", n["date"]), n["date"], n["slug"]), reverse=True)
     je_slug = {}
     for n in alle:

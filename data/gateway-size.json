@@ -1,0 +1,7 @@
+{
+  "what": "Size of the wake-up gateway file in KB (1,000 bytes), reference installation. Times within one day give the order of the measurements; only the date is exact.",
+  "runs": 0,
+  "series": {
+    "size": [["2026-10-04T22:00", 21.8], ["2026-10-05T12:00", 20.3], ["2026-10-11T10:00", 32.2], ["2026-10-11T12:00", 23.5], ["2026-10-11T22:15", 22.7]]
+  }
+}

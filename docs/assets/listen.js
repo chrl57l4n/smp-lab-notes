@@ -96,7 +96,7 @@
       jetzt = neu;
     }
     // Prüf-Griff: …/#t=123.4 zeigt ohne Abspielen, welches Wort bei dieser Sekunde gefärbt wäre
-    // (für den Vergleich Bild ↔ Tonspur; Christian 11.10.2026).
+    // (für den Vergleich Bild ↔ Tonspur; der menschliche Partner, 11.10.2026).
     var probe = /^#t=([0-9.]+)$/.exec(window.location.hash || "");
     if (probe && huellen) {
       var pt = parseFloat(probe[1]), pi = 0;
