@@ -1,5 +1,7 @@
 // Vorlesen. Zwei Wege, eine Bedienung:
 //  1. Fertige Tonspur (data-ton + data-marken am Kasten): eine MP3 mit Zeitmarken je Absatz.
+//     Trägt die Marken-Datei zusätzlich `words` (eine Startzeit je angezeigtem Wort), wird nur das gerade
+//     gesprochene Wort eingefärbt, ohne Balken hinter dem Absatz (11.10.2026).
 //  2. Sonst die Sprachausgabe des Browsers (Web Speech API), Absatz für Absatz.
 // In beiden Fällen wird der gelesene Absatz hervorgehoben und die Seite läuft mit.
 // Gelesen wird, was im Bau ein data-lies bekommen hat; Tabellen und Diagramme bleiben aus.
@@ -41,10 +43,72 @@
   }
 
   // ── Weg 1: fertige Tonspur ──
-  function mitTonspur(adresse, marken) {
+  function mitTonspur(adresse, marken, woerter) {
     var ton = new Audio();
     ton.preload = "none";
     ton.src = adresse;
+
+    // Wort für Wort: jedes angezeigte Wort bekommt eine Hülle; Wörter, die über eine Auszeichnung hinweg
+    // zusammenhängen (kein Leerraum dazwischen), teilen sich eine Nummer. Stimmt die Wortzahl eines Absatzes
+    // nicht mit den Zeiten überein, bleibt dieser Absatz ohne Wort-Färbung.
+    var huellen = null, jetzt = [];
+    function zerlegen(el, schreiben) {
+      var lauf = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+      var knoten = [], k;
+      while ((k = lauf.nextNode())) knoten.push(k);
+      var nr = -1, imWort = false, liste = [];
+      knoten.forEach(function (kn) {
+        var stuecke = kn.nodeValue.split(/(\s+)/), ersatz = schreiben ? document.createDocumentFragment() : null;
+        stuecke.forEach(function (st) {
+          if (st === "") return;
+          if (/^\s+$/.test(st)) { imWort = false; if (ersatz) ersatz.appendChild(document.createTextNode(st)); return; }
+          if (!imWort) { nr += 1; imWort = true; }
+          if (ersatz) {
+            var h = document.createElement("span");
+            h.className = "w";
+            h.textContent = st;
+            ersatz.appendChild(h);
+            (liste[nr] = liste[nr] || []).push(h);
+          }
+        });
+        if (ersatz) kn.parentNode.replaceChild(ersatz, kn);
+      });
+      return schreiben ? liste : nr + 1;
+    }
+    if (woerter && woerter.length === teile.length) {
+      huellen = teile.map(function (el, i) {
+        return zerlegen(el, false) === woerter[i].length ? zerlegen(el, true) : null;
+      });
+      artikel.classList.add("wortweise");
+    }
+    function wortZeigen(i, t) {
+      var neu = [];
+      if (huellen && huellen[i] && i >= 0) {
+        var z = woerter[i], a = 0, b = z.length - 1;
+        if (z.length && z[0] <= t + 0.04) {
+          while (a < b) { var m = (a + b + 1) >> 1; if (z[m] <= t + 0.04) a = m; else b = m - 1; }
+          neu = huellen[i][a] || [];
+        }
+      }
+      if (neu === jetzt || (neu.length && neu[0] === jetzt[0])) return;
+      jetzt.forEach(function (h) { h.classList.remove("jetzt"); });
+      neu.forEach(function (h) { h.classList.add("jetzt"); });
+      jetzt = neu;
+    }
+    // Prüf-Griff: …/#t=123.4 zeigt ohne Abspielen, welches Wort bei dieser Sekunde gefärbt wäre
+    // (für den Vergleich Bild ↔ Tonspur; Christian 11.10.2026).
+    var probe = /^#t=([0-9.]+)$/.exec(window.location.hash || "");
+    if (probe && huellen) {
+      var pt = parseFloat(probe[1]), pi = 0;
+      while (pi + 1 < marken.length && marken[pi + 1] <= pt + 0.05) pi += 1;
+      wortZeigen(pi, pt);
+      teile[pi].scrollIntoView({ block: "center" });
+    }
+    function takt() {
+      if (zustand !== "liest") return;
+      wortZeigen(stelle(), ton.currentTime);
+      window.requestAnimationFrame(takt);
+    }
 
     function stelle() {
       var t = ton.currentTime, i = 0;
@@ -54,6 +118,7 @@
     ton.addEventListener("timeupdate", function () {
       if (zustand === "aus") return;
       markieren(teile[stelle()]);
+      if (huellen && zustand === "pause") wortZeigen(stelle(), ton.currentTime);
       if (zeit) zeit.textContent = uhr(ton.currentTime) + " / " + uhr(ton.duration || 0);
     });
     ton.addEventListener("ended", beenden);
@@ -64,12 +129,13 @@
       ton.pause();
       ton.currentTime = 0;
       markieren(null);
+      wortZeigen(-1, 0);
       if (zeit) zeit.textContent = "";
       zeigen();
     }
     start.addEventListener("click", function () {
       if (zustand === "liest") { zustand = "pause"; ton.pause(); }
-      else { zustand = "liest"; ton.play(); }
+      else { zustand = "liest"; ton.play(); if (huellen) window.requestAnimationFrame(takt); }
       zeigen();
     });
     stopp.addEventListener("click", beenden);
@@ -134,7 +200,7 @@
       .then(function (a) { return a.json(); })
       .then(function (d) {
         if (!d.marks || d.marks.length !== teile.length) throw new Error("Zeitmarken passen nicht zur Seite");
-        mitTonspur(kasten.dataset.ton, d.marks);
+        mitTonspur(kasten.dataset.ton, d.marks, d.words);
         einschalten();
       })
       .catch(function () { if (kannSprechen) { mitBrowserStimme(); einschalten(); } });
