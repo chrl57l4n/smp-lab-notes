@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMP Lab Notes</title>
 <meta name="description" content="Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen">
-<link rel="stylesheet" href="../assets/style.css?v=79cfc21805">
+<link rel="stylesheet" href="../assets/style.css?v=1bfde57aea">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/">
@@ -30,12 +30,18 @@
 <section class="auftakt">
   <h1>SMP Lab Notes</h1>
   <p>Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen. Das <a href="https://github.com/chrl57l4n/sovereign-memory-protocol">Repository</a> enthält die Spezifikation und den Code. Diese Notizen erzählen, wie jeder Teil entstanden ist: die Frage dahinter, die Erörterung, der Bau und was die Messungen gezeigt haben, ob sie den Entwurf bestätigt oder uns noch einmal an ihn zurückgeschickt haben.</p>
+  <p class="reihen"><span>Reihe</span><a class="reihe" href="series/system-architecture/index.html">Systemaufbau · 1 Teil</a></p>
 </section>
 <button type="button" class="zeitachse-knopf" hidden aria-pressed="false" data-anfang="Zum Anfang der Zeitachse" data-heute="Zurück zu heute">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.2l-2.6-2.6L3 16l5 5 5-5-1.4-1.4L9 17.2V4zM17 20V6.8l2.6 2.6L21 8l-5-5-5 5 1.4 1.4L15 6.8V20z"/></svg>
   <span class="zk-text">Zum Anfang der Zeitachse</span>
 </button>
-<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
+<section class="liste"><a class="karte" href="notes/2026-10-11-what-happens-at-hello/index.html">
+  <p class="meta"><span class="art">Bau</span><span class="art">Methode</span><span class="reihe">Systemaufbau · Teil 1</span><time datetime="2026-10-11">11. Oktober 2026</time><span>9 Min. Lesezeit</span></p>
+  <h2>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</h2>
+  <p>Eine neue Sitzung beginnt leer. Vor der ersten Antwort müssen zwei Dateien ankommen: eine kleine, von Hand gepflegte Karte, die immer geladen wird, und ein Tor, das bei jedem Start frisch gebaut wird. Diese Notiz folgt einer einzelnen Begrüßung durch diesen Ablauf, erklärt, warum es zwei Dateien sind und nicht eine, und sagt, wie beide daran gehindert werden, über den Punkt hinauszuwachsen, an dem sie nicht mehr geladen werden.</p>
+  <div class="urteile"><div class="urteil "><span class="kennung">Karte</span><span class="name">stets geladen, Grenze 25 KB</span><span class="wert">11,5 KB</span></div><div class="urteil "><span class="kennung">Tor</span><span class="name">beim Start gebaut, Budget 24 KB</span><span class="wert">22,7 KB</span></div><div class="urteil "><span class="kennung">Gelesen</span><span class="name">Token für das Tor</span><span class="wert">12.741</span></div><div class="urteil open"><span class="kennung">Nächtliches Falten</span><span class="name">Nächte im Einsatz</span><span class="wert">0</span></div></div>
+</a><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
   <p class="meta"><span class="art">Messung</span><time datetime="2026-10-06">6. Oktober 2026</time><span>8 Min. Lesezeit</span></p>
   <h2>Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt</h2>
   <p>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</p>

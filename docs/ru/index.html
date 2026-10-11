@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMP Lab Notes</title>
 <meta name="description" content="Как строится Sovereign Memory Protocol: идеи, сборки и измерения">
-<link rel="stylesheet" href="../assets/style.css?v=79cfc21805">
+<link rel="stylesheet" href="../assets/style.css?v=1bfde57aea">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/">
@@ -30,12 +30,18 @@
 <section class="auftakt">
   <h1>SMP Lab Notes</h1>
   <p>Как строится Sovereign Memory Protocol: идеи, сборки и измерения. <a href="https://github.com/chrl57l4n/sovereign-memory-protocol">Репозиторий</a> содержит спецификацию и код. Эти заметки рассказывают, как возникла каждая часть: вопрос, с которого всё началось, обсуждение, сборка и то, что показали измерения, подтвердили ли они замысел или вернули нас к нему.</p>
+  <p class="reihen"><span>Серия</span><a class="reihe" href="series/system-architecture/index.html">Устройство системы · частей: 1</a></p>
 </section>
 <button type="button" class="zeitachse-knopf" hidden aria-pressed="false" data-anfang="К началу хронологии" data-heute="Вернуться к сегодняшнему дню">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.2l-2.6-2.6L3 16l5 5 5-5-1.4-1.4L9 17.2V4zM17 20V6.8l2.6 2.6L21 8l-5-5-5 5 1.4 1.4L15 6.8V20z"/></svg>
   <span class="zk-text">К началу хронологии</span>
 </button>
-<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
+<section class="liste"><a class="karte" href="notes/2026-10-11-what-happens-at-hello/index.html">
+  <p class="meta"><span class="art">Сборка</span><span class="art">Метод</span><span class="reihe">Устройство системы · Часть 1</span><time datetime="2026-10-11">11 октября 2026 г.</time><span>8 мин чтения</span></p>
+  <h2>Нового чата и слова «привет» достаточно: слой пробуждения в самом низу системы</h2>
+  <p>Новый сеанс начинается пустым. До первого ответа должны прийти два файла: небольшая карта, которая ведётся вручную и загружается всегда, и врата, которые строятся заново при каждом старте. В этой заметке одно приветствие прослежено через всю эту последовательность, объяснено, почему файлов два, а не один, и рассказано, как оба удерживаются от роста до той точки, после которой они перестают загружаться.</p>
+  <div class="urteile"><div class="urteil "><span class="kennung">Карта</span><span class="name">загружается всегда, предел 25 КБ</span><span class="wert">11,5 КБ</span></div><div class="urteil "><span class="kennung">Врата</span><span class="name">строятся при старте, бюджет 24 КБ</span><span class="wert">22,7 КБ</span></div><div class="urteil "><span class="kennung">Чтение</span><span class="name">токенов на врата</span><span class="wert">12 741</span></div><div class="urteil open"><span class="kennung">Ночная свёртка</span><span class="name">ночей в работе</span><span class="wert">0</span></div></div>
+</a><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
   <p class="meta"><span class="art">Измерение</span><time datetime="2026-10-06">6 октября 2026 г.</time><span>7 мин чтения</span></p>
   <h2>Четыре условия выпуска Engram измерены: ни одно не выполнено чисто</h2>
   <p>Первое измерение четырёх условий, от которых зависит выпуск Engram, показало: два не выполнены, одно построено, но ещё не показано, и одно выполнено только для оценки. В этой заметке приведены числа и обсуждение, изменившее три из четырёх моих первоначальных вердиктов.</p>

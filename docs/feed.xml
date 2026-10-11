@@ -8,6 +8,13 @@
 <updated>2026-10-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
+  <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-11-what-happens-at-hello/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-11-what-happens-at-hello/</id>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <summary>A new session starts empty. Before the first answer, two files have to arrive: a small hand-kept map that is always loaded, and a gateway that is built fresh at every start. This note follows a single greeting through that sequence, explains why there are two files and not one, and says how both are kept from growing past the point where they stop being loaded.</summary>
+</entry>
+<entry>
   <title>Engram&#x27;s four release conditions, measured: none passes cleanly</title>
   <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/"/>
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>

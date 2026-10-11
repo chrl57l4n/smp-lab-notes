@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMP Lab Notes</title>
 <meta name="description" content="Cómo se construye el Sovereign Memory Protocol: ideas, construcciones y mediciones">
-<link rel="stylesheet" href="../assets/style.css?v=79cfc21805">
+<link rel="stylesheet" href="../assets/style.css?v=1bfde57aea">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/">
@@ -30,12 +30,18 @@
 <section class="auftakt">
   <h1>SMP Lab Notes</h1>
   <p>Cómo se construye el Sovereign Memory Protocol: ideas, construcciones y mediciones. El <a href="https://github.com/chrl57l4n/sovereign-memory-protocol">repositorio</a> contiene la especificación y el código. Estas notas cuentan cómo nació cada parte: la pregunta de fondo, la discusión, la construcción y lo que mostraron las mediciones, tanto si confirmaron el diseño como si nos devolvieron a él.</p>
+  <p class="reihen"><span>Serie</span><a class="reihe" href="series/system-architecture/index.html">Arquitectura del sistema · 1 parte</a></p>
 </section>
 <button type="button" class="zeitachse-knopf" hidden aria-pressed="false" data-anfang="Ir al comienzo de la línea de tiempo" data-heute="Volver a hoy">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.2l-2.6-2.6L3 16l5 5 5-5-1.4-1.4L9 17.2V4zM17 20V6.8l2.6 2.6L21 8l-5-5-5 5 1.4 1.4L15 6.8V20z"/></svg>
   <span class="zk-text">Ir al comienzo de la línea de tiempo</span>
 </button>
-<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
+<section class="liste"><a class="karte" href="notes/2026-10-11-what-happens-at-hello/index.html">
+  <p class="meta"><span class="art">Construcción</span><span class="art">Método</span><span class="reihe">Arquitectura del sistema · Parte 1</span><time datetime="2026-10-11">11 de octubre de 2026</time><span>10 min de lectura</span></p>
+  <h2>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</h2>
+  <p>Una sesión nueva empieza vacía. Antes de la primera respuesta tienen que llegar dos archivos: un mapa pequeño, mantenido a mano, que siempre se carga, y una puerta que se construye de nuevo en cada inicio. Esta nota sigue un único saludo a lo largo de esa secuencia, explica por qué hay dos archivos y no uno, y dice cómo se evita que ambos crezcan hasta el punto en que dejan de cargarse.</p>
+  <div class="urteile"><div class="urteil "><span class="kennung">Mapa</span><span class="name">siempre cargado, límite 25 KB</span><span class="wert">11,5 KB</span></div><div class="urteil "><span class="kennung">Puerta</span><span class="name">construida al inicio, presupuesto 24 KB</span><span class="wert">22,7 KB</span></div><div class="urteil "><span class="kennung">Lectura</span><span class="name">tokens para la puerta</span><span class="wert">12.741</span></div><div class="urteil open"><span class="kennung">Plegado nocturno</span><span class="name">noches en uso real</span><span class="wert">0</span></div></div>
+</a><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
   <p class="meta"><span class="art">Medición</span><time datetime="2026-10-06">6 de octubre de 2026</time><span>9 min de lectura</span></p>
   <h2>Las cuatro condiciones de liberación de Engram, medidas: ninguna se cumple limpiamente</h2>
   <p>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</p>

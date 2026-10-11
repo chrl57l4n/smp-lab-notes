@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMP Lab Notes</title>
 <meta name="description" content="How the Sovereign Memory Protocol is built: ideas, builds and measurements">
-<link rel="stylesheet" href="assets/style.css?v=79cfc21805">
+<link rel="stylesheet" href="assets/style.css?v=1bfde57aea">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/">
@@ -30,12 +30,18 @@
 <section class="auftakt">
   <h1>SMP Lab Notes</h1>
   <p>How the Sovereign Memory Protocol is built: ideas, builds and measurements. The <a href="https://github.com/chrl57l4n/sovereign-memory-protocol">repository</a> holds the specification and the code. These notes tell how each part came to be: the question behind it, the discussion, the build, and what the measurements showed, whether they confirmed the design or sent us back to it.</p>
+  <p class="reihen"><span>Series</span><a class="reihe" href="series/system-architecture/index.html">System architecture · 1 part</a></p>
 </section>
 <button type="button" class="zeitachse-knopf" hidden aria-pressed="false" data-anfang="Show the beginning first" data-heute="Show today first">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.2l-2.6-2.6L3 16l5 5 5-5-1.4-1.4L9 17.2V4zM17 20V6.8l2.6 2.6L21 8l-5-5-5 5 1.4 1.4L15 6.8V20z"/></svg>
   <span class="zk-text">Show the beginning first</span>
 </button>
-<section class="liste"><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
+<section class="liste"><a class="karte" href="notes/2026-10-11-what-happens-at-hello/index.html">
+  <p class="meta"><span class="art">Build</span><span class="art">Method</span><span class="reihe">System architecture · Part 1</span><time datetime="2026-10-11">11 October 2026</time><span>10 min read</span></p>
+  <h2>A new chat and a hello are enough: the wake-up layer at the bottom of the system</h2>
+  <p>A new session starts empty. Before the first answer, two files have to arrive: a small hand-kept map that is always loaded, and a gateway that is built fresh at every start. This note follows a single greeting through that sequence, explains why there are two files and not one, and says how both are kept from growing past the point where they stop being loaded.</p>
+  <div class="urteile"><div class="urteil "><span class="kennung">Map</span><span class="name">always loaded, limit 25 KB</span><span class="wert">11.5 KB</span></div><div class="urteil "><span class="kennung">Gateway</span><span class="name">built at start, budget 24 KB</span><span class="wert">22.7 KB</span></div><div class="urteil "><span class="kennung">Read</span><span class="name">tokens for the gateway</span><span class="wert">12,741</span></div><div class="urteil open"><span class="kennung">Nightly fold</span><span class="name">nights in the field</span><span class="wert">0</span></div></div>
+</a><a class="karte" href="notes/2026-10-06-engram-release-conditions-measured/index.html">
   <p class="meta"><span class="art">Measurement</span><time datetime="2026-10-06">6 October 2026</time><span>8 min read</span></p>
   <h2>Engram&#x27;s four release conditions, measured: none passes cleanly</h2>
   <p>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</p>

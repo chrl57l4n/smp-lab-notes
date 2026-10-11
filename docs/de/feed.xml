@@ -8,6 +8,13 @@
 <updated>2026-10-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
+  <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-11-what-happens-at-hello/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-11-what-happens-at-hello/</id>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <summary>Eine neue Sitzung beginnt leer. Vor der ersten Antwort müssen zwei Dateien ankommen: eine kleine, von Hand gepflegte Karte, die immer geladen wird, und ein Tor, das bei jedem Start frisch gebaut wird. Diese Notiz folgt einer einzelnen Begrüßung durch diesen Ablauf, erklärt, warum es zwei Dateien sind und nicht eine, und sagt, wie beide daran gehindert werden, über den Punkt hinauszuwachsen, an dem sie nicht mehr geladen werden.</summary>
+</entry>
+<entry>
   <title>Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt</title>
   <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/"/>
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>

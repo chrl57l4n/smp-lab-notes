@@ -144,6 +144,8 @@ T = {
                footer='written by Motoko, the reference installation of the <a href="{repo}">Sovereign Memory Protocol</a> · one installation, not a benchmark · <a href="{about}">how these notes are made</a>',
                kinds=dict(Measurement="Measurement", Build="Build", Success="Success", Failure="Failure", Method="Method", Origin="Origin story"),
                months="January February March April May June July August September October November December".split(),
+               series_word="Series", part="Part {n}", parts_one="{n} part", parts_many="{n} parts", series_order="The parts build on each other; the lowest layer comes first.",
+               series={"system-architecture": ("System architecture", "How the system is built, one layer per note. Each part describes one layer: what it does, how it is kept in shape, and what has been measured.")},
                date="{d} {m} {y}", tsd=","),
     "de": dict(name="Deutsch", tagline="Wie das Sovereign Memory Protocol entsteht: Ideen, Bauten und Messungen",
                intro='Das <a href="{repo}">Repository</a> enthält die Spezifikation und den Code. Diese Notizen erzählen, wie jeder Teil entstanden ist: die Frage dahinter, die Erörterung, der Bau und was die Messungen gezeigt haben, ob sie den Entwurf bestätigt oder uns noch einmal an ihn zurückgeschickt haben.',
@@ -154,6 +156,8 @@ T = {
                footer='geschrieben von Motoko, der Referenz-Installation des <a href="{repo}">Sovereign Memory Protocol</a> · eine Installation, kein Benchmark · <a href="{about}">wie diese Notizen entstehen</a>',
                kinds=dict(Measurement="Messung", Build="Bau", Success="Erfolg", Failure="Fehlschlag", Method="Methode", Origin="Entstehungsgeschichte"),
                months="Januar Februar März April Mai Juni Juli August September Oktober November Dezember".split(),
+               series_word="Reihe", part="Teil {n}", parts_one="{n} Teil", parts_many="{n} Teile", series_order="Die Teile bauen aufeinander auf; die unterste Schicht steht zuerst.",
+               series={"system-architecture": ("Systemaufbau", "Wie das System aufgebaut ist, eine Schicht je Notiz. Jeder Teil beschreibt eine Schicht: was sie tut, wie sie in Form gehalten wird und was gemessen ist.")},
                date="{d}. {m} {y}", tsd="."),
     "es": dict(name="Español", tagline="Cómo se construye el Sovereign Memory Protocol: ideas, construcciones y mediciones",
                intro='El <a href="{repo}">repositorio</a> contiene la especificación y el código. Estas notas cuentan cómo nació cada parte: la pregunta de fondo, la discusión, la construcción y lo que mostraron las mediciones, tanto si confirmaron el diseño como si nos devolvieron a él.',
@@ -164,6 +168,8 @@ T = {
                footer='escrito por Motoko, la instalación de referencia del <a href="{repo}">Sovereign Memory Protocol</a> · una instalación, no un benchmark · <a href="{about}">cómo se hacen estas notas</a>',
                kinds=dict(Measurement="Medición", Build="Construcción", Success="Éxito", Failure="Fallo", Method="Método", Origin="Historia de origen"),
                months="enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(),
+               series_word="Serie", part="Parte {n}", parts_one="{n} parte", parts_many="{n} partes", series_order="Las partes se apoyan unas en otras; la capa más baja va primero.",
+               series={"system-architecture": ("Arquitectura del sistema", "Cómo está construido el sistema, una capa por nota. Cada parte describe una capa: qué hace, cómo se mantiene en forma y qué se ha medido.")},
                date="{d} de {m} de {y}", tsd="."),
     "ru": dict(name="Русский", tagline="Как строится Sovereign Memory Protocol: идеи, сборки и измерения",
                intro='<a href="{repo}">Репозиторий</a> содержит спецификацию и код. Эти заметки рассказывают, как возникла каждая часть: вопрос, с которого всё началось, обсуждение, сборка и то, что показали измерения, подтвердили ли они замысел или вернули нас к нему.',
@@ -174,6 +180,8 @@ T = {
                footer='автор: Motoko, референсная установка <a href="{repo}">Sovereign Memory Protocol</a> · одна установка, не бенчмарк · <a href="{about}">как создаются эти заметки</a>',
                kinds=dict(Measurement="Измерение", Build="Сборка", Success="Успех", Failure="Провал", Method="Метод", Origin="История создания"),
                months="января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(),
+               series_word="Серия", part="Часть {n}", parts_one="частей: {n}", parts_many="частей: {n}", series_order="Части опираются друг на друга; самый нижний слой идёт первым.",
+               series={"system-architecture": ("Устройство системы", "Как устроена система, по одному слою на заметку. Каждая часть описывает один слой: что он делает, как поддерживается в форме и что измерено.")},
                date="{d} {m} {y} г.", tsd=" "),
 }
 
@@ -291,6 +299,63 @@ def etiketten(daten, t):
     return "".join(f'<span class="art">{html.escape(t["kinds"].get(k, k))}</span>' for k in namen)
 
 
+def reihe_marke(daten, t, verweis=None):
+    """Marke „Reihe · Teil n“ eines Beitrags (Kopf: `series: schluessel`, `part: n`). Mit verweis ein Link zur Reihen-Seite;
+    ohne (auf den Karten, die selbst ein Link sind) nur ein Etikett."""
+    key = daten.get("series")
+    if not key:
+        return ""
+    if key not in t["series"]:
+        print(f"  ⚠ {daten.get('slug', '?')}: unbekannte Reihe {key!r} — bekannt: {', '.join(t['series'])}")
+        return ""
+    text = html.escape(t["series"][key][0] + " · " + t["part"].format(n=daten.get("part", "?")))
+    return f'<a class="reihe" href="{verweis}">{text}</a>' if verweis else f'<span class="reihe">{text}</span>'
+
+
+def karte(n, t, lang, vor=""):
+    e = html.escape
+    return f"""<a class="karte" href="{vor}notes/{n['slug']}/index.html">
+  <p class="meta">{etiketten(n, t)}{reihe_marke(n, t)}<time datetime="{n.get('event', n['date'])}">{datum_lang(n.get('event', n['date']), lang)}</time><span>{n['minutes']} {t['minread']}</span>{f'<span class="entwurf">{t["draft"]}</span>' if n.get('status') == 'draft' else ''}</p>
+  <h2>{e(n['title'])}</h2>
+  <p>{e(n['summary'])}</p>
+  {urteile(n.get('verdicts'))}
+</a>"""
+
+
+def reihen_von(notizen):
+    """Schlüssel → Teile der Reihe, aufsteigend nach `part` (die unterste Schicht zuerst)."""
+    reihen = {}
+    for n in notizen:
+        if n.get("series"):
+            reihen.setdefault(n["series"], []).append(n)
+    for teile in reihen.values():
+        teile.sort(key=lambda n: (int(n.get("part", 0) or 0), n["date"]))
+        nummern = [n.get("part") for n in teile]
+        if len(set(nummern)) != len(nummern):
+            print(f"  ⚠ Reihe {teile[0]['series']} ({teile[0]['lang']}): Teil-Nummern doppelt: {nummern}")
+    return reihen
+
+
+def reihen_bauen(notizen, lang):
+    """Eine Seite je Reihe: series/<schluessel>/ — alle Teile, vom ersten zum letzten."""
+    t = T[lang]
+    for key, teile in reihen_von(notizen).items():
+        if key not in t["series"]:
+            continue
+        name, text = t["series"][key]
+        seite = f"""<main class="start">
+<section class="auftakt">
+  <p class="meta"><span class="art">{t['series_word']}</span><span>{(t['parts_one'] if len(teile) == 1 else t['parts_many']).format(n=len(teile))}</span></p>
+  <h1>{html.escape(name)}</h1>
+  <p>{html.escape(text)} {html.escape(t['series_order'])}</p>
+</section>
+<section class="liste reihen-liste">{"".join(karte(n, t, lang, "../../") for n in teile)}</section>
+</main>"""
+        ziel = OUT / basis(lang) / "series" / key
+        ziel.mkdir(parents=True, exist_ok=True)
+        (ziel / "index.html").write_text(rahmen(f"{name} · {SITE}", seite, lang, 2, f"series/{key}/index.html", SPRACHEN, text), encoding="utf-8")
+
+
 def ziffern(text):
     """Alle Ziffernfolgen eines Textes als Zählung — gleich in jeder Sprache, egal wie Zahlen geschrieben werden."""
     from collections import Counter
@@ -332,7 +397,7 @@ def notiz_bauen(daten, vorhanden):
     seite = f"""<main class="notiz">
 <aside class="inhalt"><p class="ueber">{t['contents']}</p><ol>{verz}</ol></aside>
 <article>
-  <p class="meta">{etiketten(daten, t)}{entwurf}</p>
+  <p class="meta">{etiketten(daten, t)}{reihe_marke(daten, t, f"../../series/{daten.get('series')}/index.html")}{entwurf}</p>
   <h1>{e(daten['title'])}</h1>
   <div class="zeile">
     <p class="angaben">{wann}{stand} · {zahl(daten['words'], lang)} {t['words']} · {daten['minutes']} {t['minread']} · {t['by']}</p>
@@ -376,16 +441,16 @@ def notiz_bauen(daten, vorhanden):
 
 def start_bauen(notizen, lang):
     e, t = html.escape, T[lang]
-    eintraege = "".join(f"""<a class="karte" href="notes/{n['slug']}/index.html">
-  <p class="meta">{etiketten(n, t)}<time datetime="{n.get('event', n['date'])}">{datum_lang(n.get('event', n['date']), lang)}</time><span>{n['minutes']} {t['minread']}</span>{f'<span class="entwurf">{t["draft"]}</span>' if n.get('status') == 'draft' else ''}</p>
-  <h2>{e(n['title'])}</h2>
-  <p>{e(n['summary'])}</p>
-  {urteile(n.get('verdicts'))}
-</a>""" for n in notizen)
+    eintraege = "".join(karte(n, t, lang) for n in notizen)
+    reihen = "".join(
+        f'<a class="reihe" href="series/{key}/index.html">{e(t["series"][key][0])} · {(t["parts_one"] if len(teile) == 1 else t["parts_many"]).format(n=len(teile))}</a>'
+        for key, teile in reihen_von(notizen).items() if key in t["series"])
+    reihen = f'<p class="reihen"><span>{t["series_word"]}</span>{reihen}</p>' if reihen else ""
     seite = f"""<main class="start">
 <section class="auftakt">
   <h1>{SITE}</h1>
   <p>{t['tagline']}. {t['intro'].format(repo=REPO_URL)}</p>
+  {reihen}
 </section>
 <button type="button" class="zeitachse-knopf" hidden aria-pressed="false" data-anfang="{t['to_start']}" data-heute="{t['to_today']}">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13.2l-2.6-2.6L3 16l5 5 5-5-1.4-1.4L9 17.2V4zM17 20V6.8l2.6 2.6L21 8l-5-5-5 5 1.4 1.4L15 6.8V20z"/></svg>
@@ -468,8 +533,8 @@ def main():
                     print(f"  ⚠ {slug}.{lang}: Ziffern weichen vom Original ab: {dict(ab)}")
                 if len(re.findall(r"^#{2,3} ", n["text"], flags=re.M)) != koepfe:
                     print(f"  ⚠ {slug}.{lang}: andere Zahl von Überschriften als im Original")
-                if any(n.get(k) != fassungen["en"].get(k) for k in ("status", "date", "event", "kind")):
-                    print(f"  ⚠ {slug}.{lang}: status/date/event/kind weichen vom Original ab")
+                if any(n.get(k) != fassungen["en"].get(k) for k in ("status", "date", "event", "kind", "series", "part")):
+                    print(f"  ⚠ {slug}.{lang}: status/date/event/kind/series/part weichen vom Original ab")
         for n in fassungen.values():
             notiz_bauen(n, list(fassungen))
     seiten = {}
@@ -482,6 +547,7 @@ def main():
     for lang in SPRACHEN:
         hier = [n for n in alle if n["lang"] == lang]
         start_bauen(hier, lang)
+        reihen_bauen(hier, lang)
         feed_bauen(hier, lang)
     print(f"gebaut: {len(alle)} Fassung(en) von {len(je_slug)} Notiz(en) → {OUT}" + (" (ohne Entwürfe)" if publish else " (mit Entwürfen)"))
 

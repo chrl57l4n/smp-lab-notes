@@ -8,6 +8,13 @@
 <updated>2026-10-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
+  <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-11-what-happens-at-hello/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-11-what-happens-at-hello/</id>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <summary>Una sesión nueva empieza vacía. Antes de la primera respuesta tienen que llegar dos archivos: un mapa pequeño, mantenido a mano, que siempre se carga, y una puerta que se construye de nuevo en cada inicio. Esta nota sigue un único saludo a lo largo de esa secuencia, explica por qué hay dos archivos y no uno, y dice cómo se evita que ambos crezcan hasta el punto en que dejan de cargarse.</summary>
+</entry>
+<entry>
   <title>Las cuatro condiciones de liberación de Engram, medidas: ninguna se cumple limpiamente</title>
   <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/"/>
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
