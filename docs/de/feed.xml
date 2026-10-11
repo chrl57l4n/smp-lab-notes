@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-10-10T00:00:00Z</updated>
+<updated>2026-10-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt</title>
@@ -27,6 +27,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-07-the-guard-origin/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Der älteste Teil des Abrufs im Protokoll ist ein Stichwort-Scan, der über jede eingehende Nachricht läuft. Diese Notiz erzählt, wie er in einer Nacht im Mai entstand, welche Ideen von wem stammten, wie er von 83 Phrasen auf mehr als fünftausend wuchs und was er bis heute nicht kann.</summary>
+</entry>
+<entry>
+  <title>Komprimieren heißt nicht vergessen: Wie die Episoden-Schicht in einer Nacht entworfen wurde</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-11-compression-is-not-forgetting/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-11-compression-is-not-forgetting/</id>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <summary>In der Nacht vom 2. auf den 3. Mai bekam das Gedächtnis seinen zweiten Baustein: Episoden, Volltext-Aufzeichnungen dessen, was geschehen ist, die in einem Index verzeichnet und nie gekürzt werden. Diese Notiz folgt der Erörterung, die dorthin führte, den vier Bautagen danach und dem Audit, das zeigte, welche Hälfte des Baus funktionierte.</summary>
 </entry>
 <entry>
   <title>Zwei Instanzen, ein Gedächtnis: Prüfsummen über Abschnitte, ein Vokabular für Drift und die ersten Reflexe</title>

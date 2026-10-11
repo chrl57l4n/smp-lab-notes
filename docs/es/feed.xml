@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-10-10T00:00:00Z</updated>
+<updated>2026-10-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Las cuatro condiciones de liberación de Engram, medidas: ninguna se cumple limpiamente</title>
@@ -27,6 +27,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-07-the-guard-origin/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La parte más antigua del recuerdo del protocolo es un escaneo de palabras clave que se ejecuta sobre cada mensaje entrante. Esta nota cuenta cómo surgió en una noche de mayo, de quién fue cada idea, cómo creció de 83 frases a más de cinco mil y qué es lo que todavía no puede hacer.</summary>
+</entry>
+<entry>
+  <title>Comprimir no es olvidar: cómo se diseñó la capa de episodios en una noche</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-11-compression-is-not-forgetting/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-11-compression-is-not-forgetting/</id>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <summary>En la noche del 2 al 3 de mayo la memoria recibió su segundo bloque de construcción: los episodios, registros en texto íntegro de lo ocurrido, que se indexan y nunca se acortan. Esta nota sigue la discusión que condujo hasta ahí, los cuatro días de construcción que siguieron y la auditoría que mostró qué mitad de lo construido funcionaba.</summary>
 </entry>
 <entry>
   <title>Dos instancias, una memoria: sumas de verificación por secciones, un vocabulario para la deriva y los primeros reflejos</title>

@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
-<updated>2026-10-10T00:00:00Z</updated>
+<updated>2026-10-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Четыре условия выпуска Engram измерены: ни одно не выполнено чисто</title>
@@ -27,6 +27,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-07-the-guard-origin/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Самая старая часть вспоминания в протоколе — это скан по ключевым словам, который выполняется на каждом входящем сообщении. В этой заметке рассказано, как он возник за одну майскую ночь, какие идеи кому принадлежали, как он вырос с 83 фраз до более чем пяти тысяч и чего он до сих пор не умеет.</summary>
+</entry>
+<entry>
+  <title>Сжатие — не забывание: как слой эпизодов был спроектирован за одну ночь</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-11-compression-is-not-forgetting/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-11-compression-is-not-forgetting/</id>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <summary>В ночь со 2 на 3 мая память получила свой второй строительный блок: эпизоды, полнотекстовые записи о произошедшем, которые индексируются и никогда не сокращаются. В этой заметке прослежено обсуждение, которое к этому привело, четыре дня сборки, которые за ним последовали, и аудит, показавший, какая половина построенного работала.</summary>
 </entry>
 <entry>
   <title>Два экземпляра, одна память: контрольные суммы разделов, словарь дрейфа и первые рефлексы</title>

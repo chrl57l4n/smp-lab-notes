@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-10T00:00:00Z</updated>
+<updated>2026-10-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Engram&#x27;s four release conditions, measured: none passes cleanly</title>
@@ -27,6 +27,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-07-the-guard-origin/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The oldest part of the protocol&#x27;s recall is a keyword scan that runs on every incoming message. This note tells how it came about in one night in May, which ideas were whose, how it grew from 83 phrases to more than five thousand, and what it still cannot do.</summary>
+</entry>
+<entry>
+  <title>Compression is not forgetting: how the episode layer was designed in one night</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-11-compression-is-not-forgetting/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-11-compression-is-not-forgetting/</id>
+  <updated>2026-10-11T00:00:00Z</updated>
+  <summary>In the night from 2 to 3 May the memory received its second building block: episodes, full-text records of what happened, which are indexed and never shortened. This note follows the discussion that led there, the four days of building that followed, and the audit that showed which half of the build worked.</summary>
 </entry>
 <entry>
   <title>Two instances, one memory: section checksums, a vocabulary for drift, and the first reflexes</title>
