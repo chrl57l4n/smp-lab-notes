@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-10-11T00:00:00Z</updated>
+<updated>2026-10-12T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -27,6 +27,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-05-28-echelon-semantic-vector/</id>
   <updated>2026-10-10T00:00:00Z</updated>
   <summary>El Guardián de palabras clave encuentra un pasaje solo cuando el mensaje entrante contiene una frase conocida. Una paráfrasis se le escapa. Esta nota cuenta cómo surgió un segundo canal a lo largo de dos noches de mayo — una idea, una imagen de luces superpuestas y un nombre —, cómo se midió y por qué la parte que más importa no aumenta el recuerdo en absoluto.</summary>
+</entry>
+<entry>
+  <title>El olvido como función: la cascada que convierte un día en una semana, un mes y un año</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-12-forgetting-as-a-function/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-12-forgetting-as-a-function/</id>
+  <updated>2026-10-12T00:00:00Z</updated>
+  <summary>El 16 de mayo la memoria recibió su eje temporal: un scratchpad para el día, una entrada curada por día, un resumen por semana, un arco por mes y, por debajo, una copia de la que no se quita nada. Esta nota sigue la petición que lo inició, el diseño de una tarde, la hora en que se construyó y lo que contienen los niveles cinco meses después.</summary>
 </entry>
 <entry>
   <title>El Guard: cómo un filtro de palabras clave se convirtió en el primer recuerdo que funcionó</title>

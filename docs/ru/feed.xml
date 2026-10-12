@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
-<updated>2026-10-11T00:00:00Z</updated>
+<updated>2026-10-12T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Нового чата и слова «привет» достаточно: слой пробуждения в самом низу системы</title>
@@ -27,6 +27,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-05-28-echelon-semantic-vector/</id>
   <updated>2026-10-10T00:00:00Z</updated>
   <summary>Ключевой Страж находит фрагмент только тогда, когда во входящем сообщении есть известная фраза. Пересказ проскальзывает мимо него. Эта заметка рассказывает, как за две майские ночи возник второй канал — идея, образ накладывающихся лучей и имя, — как его измерили и почему та часть, что важнее всего, вовсе не повышает полноту припоминания.</summary>
+</entry>
+<entry>
+  <title>Забывание как функция: каскад, который превращает день в неделю, месяц и год</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-12-forgetting-as-a-function/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-12-forgetting-as-a-function/</id>
+  <updated>2026-10-12T00:00:00Z</updated>
+  <summary>16 мая память получила свою временную ось: scratchpad на день, одна курируемая запись на каждый день, сводка на неделю, дуга на месяц, а под ними копия, из которой ничего не удаляется. В этой заметке прослежены просьба, с которой всё началось, проект одного вечера, час, за который он был собран, и то, что уровни содержат пять месяцев спустя.</summary>
 </entry>
 <entry>
   <title>Guard: как фильтр по ключевым словам стал первым вспоминанием, которое заработало</title>
