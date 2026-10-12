@@ -378,12 +378,17 @@ def lesbar_markieren(seite):
     teile = aus.split(seite)
 
     def nummer(m):
-        roh = re.sub(r"<[^>]+>", "", m.group(3))
+        # Ein Code-Block wird zusammen mit dem Absatz gelesen, der ihn erklärt: eine Stelle, eine Hülle um beide
+        # (sonst stimmt die Wortzahl der Stelle nicht mit den Wort-Zeiten der Tonspur überein).
+        innen = m.group(1) or m.group(4)
+        roh = re.sub(r"<[^>]+>", "", innen)
         texte.append(html.unescape(re.sub(r"\s+", " ", roh)).strip())
-        return f'<{m.group(1)}{m.group(2)} data-lies="{len(texte) - 1}">{m.group(3)}</{m.group(1)}>'
+        if m.group(1):  # Gruppe 1 = der ganze Block samt <pre>…</pre> und <p>…</p>
+            return f'<div data-lies="{len(texte) - 1}">{innen}</div>'
+        return f'<{m.group(2)}{m.group(3) or ""} data-lies="{len(texte) - 1}">{innen}</{m.group(2)}>'
 
     for i in range(0, len(teile), 2):
-        teile[i] = re.sub(r"<(h1|h2|h3|p|li)([^>]*)>(.*?)</\1>", nummer, teile[i], flags=re.S)
+        teile[i] = re.sub(r"(<pre>.*?</pre>\s*<p>.*?</p>)|<(h1|h2|h3|p|li)(\s[^>]*)?>(.*?)</\2>", nummer, teile[i], flags=re.S)
     return "".join(teile), texte
 
 
