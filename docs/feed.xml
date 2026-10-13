@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-12T00:00:00Z</updated>
+<updated>2026-10-13T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Sleep as consolidation: a nightly session that writes the day, and the rule it had to revise</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-13-sleep-as-consolidation/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-13-sleep-as-consolidation/</id>
+  <updated>2026-10-13T00:00:00Z</updated>
+  <summary>At the end of May the memory received a phase of its own for consolidation, modelled on sleep. Two days later the first version of it was stopped before it ran, because it would have written into the memory with nobody present. This note follows the conversation that led to the phase, the night in which the rule about who may write was revised, the first run, and what 133 days of nightly runs show.</summary>
 </entry>
 <entry>
   <title>Echelon Semantic Vector: the second light, for the words a keyword scan cannot see</title>
