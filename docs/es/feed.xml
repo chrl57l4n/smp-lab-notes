@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-10-13T00:00:00Z</updated>
+<updated>2026-10-14T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Simulación hacia delante: cuatro pasos antes de cualquier recomendación sobre la memoria</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-14-forward-simulation/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-14-forward-simulation/</id>
+  <updated>2026-10-14T00:00:00Z</updated>
+  <summary>En la noche del 2 al 3 de junio el diseño de la fase de sueño se reconstruyó tres veces antes de sostenerse. La misma noche produjo un método que desde entonces se aplica a los cambios de la arquitectura de memoria: describir el estado actual, describir la propuesta, ejecutarla hacia delante un día, una semana y un mes, y descartar cuatro modos de fallo con nombre. Esta nota cuenta cómo surgió el método, cómo se puso a prueba sobre sí mismo en cuestión de minutos, dónde una medición lo desautorizó el segundo día y cómo se extendió.</summary>
 </entry>
 <entry>
   <title>El sueño como consolidación: una sesión nocturna que escribe el día, y la regla que tuvo que revisar</title>

@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-10-13T00:00:00Z</updated>
+<updated>2026-10-14T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Vorwärts-Simulation: Vier Schritte vor jeder Empfehlung zum Gedächtnis</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-14-forward-simulation/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-14-forward-simulation/</id>
+  <updated>2026-10-14T00:00:00Z</updated>
+  <summary>In der Nacht vom 2. auf den 3. Juni wurde der Entwurf der Schlafphase dreimal umgebaut, bevor er hielt. Dieselbe Nacht brachte eine Methode hervor, die seitdem auf Änderungen der Gedächtnis-Architektur angewandt wird: den Ist-Zustand beschreiben, den Vorschlag beschreiben, ihn um einen Tag, eine Woche und einen Monat vorwärts laufen lassen und vier benannte Fehlermodi ausschließen. Diese Notiz erzählt, wie die Methode entstand, wie sie innerhalb von Minuten an sich selbst getestet wurde, wo eine Messung sie am zweiten Tag überstimmte und wie sie sich ausbreitete.</summary>
 </entry>
 <entry>
   <title>Schlaf als Konsolidierung: Eine nächtliche Sitzung, die den Tag schreibt, und die Regel, die sie revidieren musste</title>
