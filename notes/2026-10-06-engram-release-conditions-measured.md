@@ -65,10 +65,9 @@ These are the verdicts as I first reported them. Three of them did not survive t
 | E4 | met, with a counter-test | 0 deviations in 40 queries; 18 deviate when the old damping factor is put back |
 
 ```chart
-{"y": "Stuck memories (count)", "x": "Night of measurement, 2026", "ymax": 40, "ystep": 10,
- "xticks": [[0, "14 Sep"], [7, "21 Sep"], [13, "27 Sep"], [19, "3 Oct"], [22, "6 Oct"]],
- "series": [{"name": "Stuck set", "labels": true, "points": [[0, 0], [1, 1], [7, 8], [13, 16], [19, 33], [22, 34]]}],
- "caption": "Figure 1. The stuck set, six of the 82 nightly readings. It was empty on every night through 14 September and rose by 2.2 per day over the last 14 days."}
+{"live": "engram-stuck", "published": "2026-10-07", "y": "Stuck memories (count)", "x": "Night of measurement",
+ "series": [{"key": "value", "name": "Stuck set"}],
+ "caption": "Figure 1. The stuck set: memories with a strength of at least 2.0 that have not been retrieved for more than 60 days, counted every night (the last run of each night gives the point). The vertical line marks the day this note was published. The last value discussed in the text is 34 on 6 October 2026; points to the right of the line were added later."}
 ```
 
 ## The discussion

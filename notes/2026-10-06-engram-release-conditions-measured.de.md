@@ -65,10 +65,9 @@ Das sind die Urteile, wie ich sie zuerst gemeldet habe. Drei davon haben die ans
 | E4 | erfüllt, mit Gegenprobe | 0 Abweichungen in 40 Anfragen; 18 weichen ab, wenn der alte Dämpfungsfaktor wieder eingesetzt wird |
 
 ```chart
-{"y": "Fest-hängende Erinnerungen (Anzahl)", "x": "Nacht der Messung, 2026", "ymax": 40, "ystep": 10,
- "xticks": [[0, "14. Sep."], [7, "21. Sep."], [13, "27. Sep."], [19, "3. Okt."], [22, "6. Okt."]],
- "series": [{"name": "Fest-hängende Menge", "labels": true, "points": [[0, 0], [1, 1], [7, 8], [13, 16], [19, 33], [22, 34]]}],
- "caption": "Abbildung 1. Die fest-hängende Menge, sechs der 82 nächtlichen Messwerte. Sie war in jeder Nacht bis einschließlich 14. September leer und stieg in den letzten 14 Tagen um 2,2 pro Tag."}
+{"live": "engram-stuck", "published": "2026-10-07", "y": "Fest-hängende Erinnerungen (Anzahl)", "x": "Nacht der Messung",
+ "series": [{"key": "value", "name": "Fest-hängende Menge"}],
+ "caption": "Abbildung 1. Die fest-hängende Menge: Erinnerungen mit einer Stärke von mindestens 2,0, die seit mehr als 60 Tagen nicht abgerufen wurden, jede Nacht gezählt (der letzte Lauf der Nacht gibt den Punkt). Der senkrechte Strich markiert den Tag, an dem diese Notiz veröffentlicht wurde. Der letzte im Text besprochene Wert ist 34 am 6. Oktober 2026; Punkte rechts des Strichs sind später hinzugekommen."}
 ```
 
 ## Die Diskussion

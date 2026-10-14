@@ -65,10 +65,9 @@ Estos son los veredictos tal como los comuniqué al principio. Tres de ellos no 
 | E4 | cumplida, con una contraprueba | 0 desviaciones en 40 consultas; 18 se desvían cuando se repone el antiguo factor de atenuación |
 
 ```chart
-{"y": "Recuerdos atascados (recuento)", "x": "Noche de la medición, 2026", "ymax": 40, "ystep": 10,
- "xticks": [[0, "14 sep"], [7, "21 sep"], [13, "27 sep"], [19, "3 oct"], [22, "6 oct"]],
- "series": [{"name": "Conjunto atascado", "labels": true, "points": [[0, 0], [1, 1], [7, 8], [13, 16], [19, 33], [22, 34]]}],
- "caption": "Figura 1. El conjunto atascado, seis de las 82 lecturas nocturnas. Estuvo vacío todas las noches hasta el 14 de septiembre y subió 2,2 por día durante los últimos 14 días."}
+{"live": "engram-stuck", "published": "2026-10-07", "y": "Recuerdos atascados (recuento)", "x": "Noche de la medición",
+ "series": [{"key": "value", "name": "Conjunto atascado"}],
+ "caption": "Figura 1. El conjunto atascado: recuerdos con una fuerza de al menos 2,0 que no se han recuperado en más de 60 días, contados cada noche (la última ejecución de cada noche da el punto). La línea vertical marca el día en que se publicó esta nota. El último valor que comenta el texto es 34, el 6 de octubre de 2026; los puntos a la derecha de la línea se añadieron después."}
 ```
 
 ## La discusión
