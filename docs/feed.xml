@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-14T00:00:00Z</updated>
+<updated>2026-10-15T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Before matching comes seeing: what the recall searched, which words it knew, and what it heard</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-15-before-matching-comes-seeing/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-15-before-matching-comes-seeing/</id>
+  <updated>2026-10-15T00:00:00Z</updated>
+  <summary>Between 8 and 11 June 2026 the recall got its first systematic overhaul. A whole layer of curated notes turned out never to have been searched, the trigger list was full of words that pointed everywhere, and dictated messages arrived in a spelling no trigger knew. This note tells how each gap was found, who prompted what, how it was closed, and the lesson that has held since: a test of recall inherits the blind spot of the corpus it was drawn from.</summary>
 </entry>
 <entry>
   <title>Forward simulation: four steps before any recommendation on the memory</title>

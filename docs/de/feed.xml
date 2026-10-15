@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-10-14T00:00:00Z</updated>
+<updated>2026-10-15T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Vor dem Abgleich kommt das Sehen: was der Abruf durchsuchte, welche Wörter er kannte und was er hörte</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-15-before-matching-comes-seeing/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-15-before-matching-comes-seeing/</id>
+  <updated>2026-10-15T00:00:00Z</updated>
+  <summary>Zwischen dem 8. und dem 11. Juni 2026 wurde der Abruf zum ersten Mal planmäßig überholt. Eine ganze Schicht kuratierter Notizen war nie durchsucht worden, die Trigger-Liste war voller Wörter, die überallhin zeigten, und diktierte Nachrichten kamen in einer Schreibweise an, die kein Trigger kannte. Diese Notiz erzählt, wie jede Lücke gefunden wurde, wer was anstieß, wie sie geschlossen wurde, und welche Lehre seitdem hält: Ein Test des Abrufs erbt den blinden Fleck des Korpus, aus dem er gezogen wurde.</summary>
 </entry>
 <entry>
   <title>Vorwärts-Simulation: Vier Schritte vor jeder Empfehlung zum Gedächtnis</title>
