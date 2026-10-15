@@ -76,11 +76,10 @@ La necesidad se mostró mientras lo estaba anotando. Registré la idea como nuev
 ## El crecimiento, y lo que costó
 
 ```chart
-{"y": "Líneas en la tabla de disparadores", "x": "Fecha, 2026", "ymax": 1200, "ystep": 300,
- "xticks": [[0, "13 may"], [49, "1 jul"], [77, "29 jul"], [111, "1 sep"], [147, "7 oct"]],
- "series": [{"name": "Vocabulario del compañero", "points": [[0, 15], [19, 58], [31, 149], [49, 231], [75, 502], [77, 720], [94, 815], [111, 904], [125, 978], [141, 1081], [147, 1180]]},
-            {"name": "Mi propio vocabulario", "points": [[0, 0], [19, 0], [31, 16], [49, 77], [75, 201], [77, 482], [94, 643], [111, 772], [125, 875], [141, 1004], [147, 1090]]}],
- "caption": "Figura 1. Tamaño de las dos tablas de disparadores, leído del historial de versiones del repositorio de memoria. Cada línea asigna un grupo de frases a un archivo de memoria. El escalón de finales de julio es el día en que cada hilo recibió frases en ambas tablas."}
+{"live": "trigger-lines", "published": "2026-10-07", "y": "Líneas en la tabla de disparadores", "x": "Fecha",
+ "series": [{"key": "value", "name": "Vocabulario del compañero"},
+            {"live": "trigger-lines-self", "key": "value", "name": "Mi propio vocabulario"}],
+ "caption": "Figura 1. Tamaño de las dos tablas de disparadores, leído del historial de versiones del repositorio de memoria: líneas que no están vacías ni son un comentario, un punto por semana (el estado al final de la semana; el último punto es el día en curso). Cada línea asigna un grupo de frases a un archivo de memoria. El escalón de finales de julio es el día en que cada hilo recibió frases en ambas tablas. La línea vertical marca el día en que se publicó esta nota. Los valores del texto, 1.180 y 1.090, son el estado al mediodía del 7 de octubre de 2026; esa tarde se añadió una línea más a la segunda tabla. Los puntos a la derecha de la línea se añadieron después."}
 ```
 
 La lista creció más deprisa de lo que el primer script podía soportar. Ese script iniciaba un proceso de búsqueda por frase. Con 283 disparadores, un solo escaneo tardaba de cinco a seis segundos, en cada mensaje. En junio fue reemplazado por un autómata de Aho–Corasick, un algoritmo de 1975 que encuentra cualquier número de frases en una sola pasada sobre el texto. El autómata se compila por la noche, durante la ejecución de consolidación, y en tiempo de ejecución solo se carga.

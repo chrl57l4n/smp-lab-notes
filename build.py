@@ -119,15 +119,29 @@ def diagramm_lebend(spec, lang):
     """Fortlaufende Grafik (der menschliche Partner, 11.10.2026): Messreihe aus data/<live>.json, echte Daten auf der x-Achse,
     senkrechter Strich am Tag der Veröffentlichung, Auswahl des Zeitraums (Tage · Wochen · Monate · Jahre · Max).
     Je Zeitraum wird ein fertiges Bild gebaut; assets/zeitraum.js schaltet nur um. Ohne Skript bleibt „Max“ sichtbar.
-    Der Hinweis „wöchentlich aktualisiert“ erscheint erst, wenn die Daten-Datei mindestens einen Wochenlauf nennt."""
+    Der Hinweis „wöchentlich aktualisiert“ erscheint erst, wenn die Daten-Datei mindestens einen Wochenlauf nennt.
+    Eine Linie darf mit "live" eine eigene Daten-Datei nennen (zwei Tabellen in einer Grafik); "labels" schreibt die Werte
+    an die Punkte. Der Hinweis zum Stand richtet sich nach der Datei der Grafik (spec["live"])."""
     e, t = html.escape, T[lang]
-    daten = json.loads((ROOT / "data" / f"{spec['live']}.json").read_text(encoding="utf-8"))
-    reihen = []
+
+    def lesen(name):
+        try:
+            return json.loads((ROOT / "data" / f"{name}.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError) as f:
+            raise SystemExit(f"lebende Grafik: data/{name}.json nicht lesbar ({f})")
+
+    daten = lesen(spec["live"])
+    reihen, beschriftet = [], []
     for r_ in spec["series"]:
-        punkte = sorted((_zeit(z), float(v)) for z, v in daten["series"][r_["key"]])
+        quelle = lesen(r_["live"]) if r_.get("live") else daten
+        if quelle.get("runs", 0) != daten.get("runs", 0) and lang == "en":
+            # der Hinweis „wöchentlich aktualisiert“ richtet sich nur nach spec["live"]; er gälte sonst nicht für jede Linie
+            print(f"  ⚠ lebende Grafik {spec['live']}: {r_['live']} hat runs {quelle.get('runs', 0)}, die Grafik {daten.get('runs', 0)}")
+        punkte = sorted((_zeit(z), float(v)) for z, v in quelle["series"][r_["key"]])
         if len(punkte) < 2:
-            raise SystemExit(f"lebende Grafik {spec['live']}: Reihe {r_['key']} hat weniger als zwei Punkte")
+            raise SystemExit(f"lebende Grafik {r_.get('live', spec['live'])}: Reihe {r_['key']} hat weniger als zwei Punkte")
         reihen.append((r_["name"], punkte))
+        beschriftet.append(bool(r_.get("labels")))
     erster = min(p[0][0] for _, p in reihen)
     letzter = max(p[-1][0] for _, p in reihen)
     marke = _zeit(spec["published"] + "T23:59") if spec.get("published") else None
@@ -181,6 +195,8 @@ def diagramm_lebend(spec, lang):
             if len(pkt) <= 40:
                 for z, v in pkt:
                     s_.append(f'<circle class="punkt-d" style="stroke:{farbe}" cx="{fx(z):.1f}" cy="{fy(v):.1f}" r="4"/>')
+                    if beschriftet[i]:
+                        s_.append(f'<text class="wert" x="{fx(z):.1f}" y="{fy(v) - 10:.1f}" text-anchor="middle">{v:.{stellen}f}</text>')
         s_.append("</svg>")
         hinweis = f'<p class="davor">{e(t["pub_before"])}</p>' if davor else ""
         bilder.append(f'<div class="rollen zeitbild" data-tage="{tage}"{"" if tage == 9999 else " hidden"}>{"".join(s_)}{hinweis}</div>')
@@ -193,7 +209,12 @@ def diagramm_lebend(spec, lang):
                       for tage, name in zip(FENSTER, t["tf"]))
     wahl = (f'<div class="tf-bar-wrap" role="group" aria-label="{e(t["period"])}"><div class="tf-knob"></div>'
             f'<div class="tf-bar">{knoepfe}</div></div>')
-    stand = (t["weekly"] if daten.get("runs", 0) >= 1 else t["last_point"]).format(d=datum_lang(letzter.date().isoformat(), lang))
+    # Monats-Reihen sitzen auf dem 1. des Monats und zählen bis zum Lauf: dann „gezählt am“ mit dem Zähltag "as_of".
+    woechentlich = daten.get("runs", 0) >= 1
+    if daten.get("as_of"):
+        stand = (t["weekly_counted"] if woechentlich else t["counted"]).format(d=datum_lang(daten["as_of"], lang))
+    else:
+        stand = (t["weekly"] if woechentlich else t["last_point"]).format(d=datum_lang(letzter.date().isoformat(), lang))
     return (f'<figure class="diagramm lebend">{legende}{wahl}{"".join(bilder)}'
             f'<figcaption>{e(spec["caption"])}<span class="stand">{e(stand)}</span></figcaption></figure>')
 
@@ -247,7 +268,7 @@ T = {
                kinds=dict(Measurement="Measurement", Build="Build", Success="Success", Failure="Failure", Method="Method", Origin="Origin story"),
                months="January February March April May June July August September October November December".split(),
                tf=("Days", "Weeks", "Months", "Years", "Max"), mon="Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(), kurz="{d} {m}", kurz_j="{m} {y}",
-               pub_mark="published", pub_before="This note was published before the period shown.", last_point="Last point: {d}", weekly="Updated weekly · last point: {d}", period="Period",
+               pub_mark="published", pub_before="This note was published before the period shown.", last_point="Last point: {d}", weekly="Updated weekly · last point: {d}", counted="Counted on {d}", weekly_counted="Updated weekly · counted on {d}", period="Period",
                series_word="Series", part="Part {n}", parts_one="{n} part", parts_many="{n} parts", series_order="The parts build on each other; the lowest layer comes first.",
                series={"system-architecture": ("System architecture", "How the system is built, one layer per note. Each part describes one layer: what it does, how it is kept in shape, and what has been measured.")},
                date="{d} {m} {y}", tsd=","),
@@ -261,7 +282,7 @@ T = {
                kinds=dict(Measurement="Messung", Build="Bau", Success="Erfolg", Failure="Fehlschlag", Method="Methode", Origin="Entstehungsgeschichte"),
                months="Januar Februar März April Mai Juni Juli August September Oktober November Dezember".split(),
                tf=("Tage", "Wochen", "Monate", "Jahre", "Max"), mon="Jan. Feb. März Apr. Mai Juni Juli Aug. Sep. Okt. Nov. Dez.".split(), kurz="{d}. {m}", kurz_j="{m} {y}",
-               pub_mark="veröffentlicht", pub_before="Diese Notiz wurde vor dem gezeigten Zeitraum veröffentlicht.", last_point="Letzter Punkt: {d}", weekly="Wöchentlich aktualisiert · letzter Punkt: {d}", period="Zeitraum",
+               pub_mark="veröffentlicht", pub_before="Diese Notiz wurde vor dem gezeigten Zeitraum veröffentlicht.", last_point="Letzter Punkt: {d}", weekly="Wöchentlich aktualisiert · letzter Punkt: {d}", counted="Gezählt am {d}", weekly_counted="Wöchentlich aktualisiert · gezählt am {d}", period="Zeitraum",
                series_word="Reihe", part="Teil {n}", parts_one="{n} Teil", parts_many="{n} Teile", series_order="Die Teile bauen aufeinander auf; die unterste Schicht steht zuerst.",
                series={"system-architecture": ("Systemaufbau", "Wie das System aufgebaut ist, eine Schicht je Notiz. Jeder Teil beschreibt eine Schicht: was sie tut, wie sie in Form gehalten wird und was gemessen ist.")},
                date="{d}. {m} {y}", tsd="."),
@@ -275,7 +296,7 @@ T = {
                kinds=dict(Measurement="Medición", Build="Construcción", Success="Éxito", Failure="Fallo", Method="Método", Origin="Historia de origen"),
                months="enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split(),
                tf=("Días", "Semanas", "Meses", "Años", "Máx"), mon="ene feb mar abr may jun jul ago sep oct nov dic".split(), kurz="{d} {m}", kurz_j="{m} {y}",
-               pub_mark="publicado", pub_before="Esta nota se publicó antes del período mostrado.", last_point="Último punto: {d}", weekly="Actualizado cada semana · último punto: {d}", period="Período",
+               pub_mark="publicado", pub_before="Esta nota se publicó antes del período mostrado.", last_point="Último punto: {d}", weekly="Actualizado cada semana · último punto: {d}", counted="Contado el {d}", weekly_counted="Actualizado cada semana · contado el {d}", period="Período",
                series_word="Serie", part="Parte {n}", parts_one="{n} parte", parts_many="{n} partes", series_order="Las partes se apoyan unas en otras; la capa más baja va primero.",
                series={"system-architecture": ("Arquitectura del sistema", "Cómo está construido el sistema, una capa por nota. Cada parte describe una capa: qué hace, cómo se mantiene en forma y qué se ha medido.")},
                date="{d} de {m} de {y}", tsd="."),
@@ -289,7 +310,7 @@ T = {
                kinds=dict(Measurement="Измерение", Build="Сборка", Success="Успех", Failure="Провал", Method="Метод", Origin="История создания"),
                months="января февраля марта апреля мая июня июля августа сентября октября ноября декабря".split(),
                tf=("Дни", "Недели", "Месяцы", "Годы", "Макс"), mon="янв. февр. марта апр. мая июня июля авг. сент. окт. нояб. дек.".split(), kurz="{d} {m}", kurz_j="{m} {y}",
-               pub_mark="опубликовано", pub_before="Заметка опубликована раньше показанного периода.", last_point="Последняя точка: {d}", weekly="Обновляется еженедельно · последняя точка: {d}", period="Период",
+               pub_mark="опубликовано", pub_before="Заметка опубликована раньше показанного периода.", last_point="Последняя точка: {d}", weekly="Обновляется еженедельно · последняя точка: {d}", counted="Подсчитано {d}", weekly_counted="Обновляется еженедельно · подсчитано {d}", period="Период",
                series_word="Серия", part="Часть {n}", parts_one="частей: {n}", parts_many="частей: {n}", series_order="Части опираются друг на друга; самый нижний слой идёт первым.",
                series={"system-architecture": ("Устройство системы", "Как устроена система, по одному слою на заметку. Каждая часть описывает один слой: что он делает, как поддерживается в форме и что измерено.")},
                date="{d} {m} {y} г.", tsd=" "),

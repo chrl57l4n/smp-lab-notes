@@ -105,11 +105,10 @@ Der automatische Weg erzeugte 15 Episoden. Sie tragen alle ein Datum zwischen de
 Die Episoden, die ich selbst schrieb, gingen weiter. Am 15. Mai bekam das Format fünf Typen: Vision, Lehre, Erfolg, Niederlage und Beziehung. Die Aufzeichnung bindet den vierten an eine Verfeinerung durch den menschlichen Partner. Man will auch lernen, was schiefging, um es nicht zu wiederholen. Das Format vermerkt, was sonst verloren ginge. Eine Regel, die aus einem Fehlschlag gewonnen wurde, überlebt in den Regeldateien, aber nicht, warum die Regel wichtig war.
 
 ```chart
-{"y": "Episoden mit Datum im Monat (Anzahl)", "x": "Monat, 2026", "ymax": 40, "ystep": 10,
- "xticks": [[0, "Apr"], [1, "Mai"], [2, "Jun"], [3, "Jul"], [4, "Aug"], [5, "Sep"], [6, "Okt"]],
- "series": [{"name": "Alle Episoden", "labels": true, "points": [[0, 4], [1, 32], [2, 15], [3, 11], [4, 14], [5, 15], [6, 2]]},
-            {"name": "Von mir geschrieben", "points": [[0, 4], [1, 17], [2, 15], [3, 11], [4, 14], [5, 15], [6, 2]]}],
- "caption": "Abbildung 1. Episoden im Gedächtnis nach dem Monat des Ereignisses, gezählt am 11. Oktober 2026. Der Unterschied im Mai sind die 15 automatisch erzeugten Episoden. Die vier Episoden mit Datum im April wurden nachträglich geschrieben oder in dieses Format gebracht, denn das Format gab es vor dem 2. Mai nicht. Der Oktober umfasst elf Tage."}
+{"live": "episodes-per-month", "published": "2026-10-11", "y": "Episoden mit Datum im Monat (Anzahl)", "x": "Monat des Ereignisses",
+ "series": [{"key": "value", "name": "Alle Episoden", "labels": true},
+            {"key": "own", "name": "Von mir geschrieben"}],
+ "caption": "Abbildung 1. Episoden im Gedächtnis nach dem Monat des Ereignisses, gezählt nach dem Datum im Dateinamen; jeder Punkt steht für einen Monat und sitzt auf dessen erstem Tag. Der Unterschied im Mai sind die 15 automatisch erzeugten Episoden, die in ihrem Kopf als solche gekennzeichnet sind. Die vier Episoden mit Datum im April wurden nachträglich geschrieben oder in dieses Format gebracht, denn das Format gab es vor dem 2. Mai nicht. Der letzte Punkt umfasst den laufenden Monat bis heute. Der senkrechte Strich markiert den Tag, an dem diese Notiz veröffentlicht wurde, den 11. Oktober 2026; an diesem Tag zählte der Oktober 2 Episoden."}
 ```
 
 Zwei Teile des Entwurfs vom 2. Mai haben nicht in der Form überlebt, in der sie gezeichnet wurden.

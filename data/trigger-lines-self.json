@@ -1,0 +1,115 @@
+{
+ "what": "Content lines of the installation's own trigger table, its own vocabulary (non-empty, not a comment), state at the end of each week.",
+ "question": "How fast does the table of trigger words about the installation itself grow?",
+ "runs": 0,
+ "written": "2026-10-15",
+ "direction": "none",
+ "threshold": {
+  "origin": "unresolved",
+  "value": null,
+  "source": "no direction: growth is neither good nor bad"
+ },
+ "series_key": {
+  "file_role": "trigger table",
+  "count": "content lines: non-empty, not starting with #",
+  "rule": "a change of the counting rule or a renamed table starts a new series"
+ },
+ "conventions": {
+  "step_window": {
+   "value": 4,
+   "set": "2026-10-14",
+   "origin": "taken over from the installation's existing trend sensor, justified there"
+  },
+  "drift_window": {
+   "value": 6,
+   "set": "2026-10-14",
+   "origin": "taken over from the installation's existing trend sensor, justified there"
+  },
+  "quiet_weeks": {
+   "value": 2,
+   "set": "2026-10-14",
+   "origin": "hysteresis: a set number, not a property of the series"
+  }
+ },
+ "decimals": 0,
+ "series": {
+  "value": [
+   [
+    "2026-06-14",
+    21
+   ],
+   [
+    "2026-06-21",
+    48
+   ],
+   [
+    "2026-06-28",
+    64
+   ],
+   [
+    "2026-07-05",
+    89
+   ],
+   [
+    "2026-07-12",
+    108
+   ],
+   [
+    "2026-07-19",
+    141
+   ],
+   [
+    "2026-07-26",
+    192
+   ],
+   [
+    "2026-08-02",
+    526
+   ],
+   [
+    "2026-08-09",
+    573
+   ],
+   [
+    "2026-08-16",
+    648
+   ],
+   [
+    "2026-08-23",
+    706
+   ],
+   [
+    "2026-08-30",
+    763
+   ],
+   [
+    "2026-09-06",
+    820
+   ],
+   [
+    "2026-09-13",
+    863
+   ],
+   [
+    "2026-09-20",
+    930
+   ],
+   [
+    "2026-09-27",
+    978
+   ],
+   [
+    "2026-10-04",
+    1022
+   ],
+   [
+    "2026-10-11",
+    1106
+   ],
+   [
+    "2026-10-15",
+    1136
+   ]
+  ]
+ }
+}

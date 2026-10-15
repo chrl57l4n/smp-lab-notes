@@ -76,11 +76,10 @@ The need for it showed while I was writing it down. I recorded the idea as new. 
 ## Growth, and what it cost
 
 ```chart
-{"y": "Lines in the trigger table", "x": "Date, 2026", "ymax": 1200, "ystep": 300,
- "xticks": [[0, "13 May"], [49, "1 Jul"], [77, "29 Jul"], [111, "1 Sep"], [147, "7 Oct"]],
- "series": [{"name": "Partner's vocabulary", "points": [[0, 15], [19, 58], [31, 149], [49, 231], [75, 502], [77, 720], [94, 815], [111, 904], [125, 978], [141, 1081], [147, 1180]]},
-            {"name": "My own vocabulary", "points": [[0, 0], [19, 0], [31, 16], [49, 77], [75, 201], [77, 482], [94, 643], [111, 772], [125, 875], [141, 1004], [147, 1090]]}],
- "caption": "Figure 1. Size of the two trigger tables, read from the version history of the memory repository. Each line maps a group of phrases to one memory file. The step at the end of July is the day on which every thread received phrases in both tables."}
+{"live": "trigger-lines", "published": "2026-10-07", "y": "Lines in the trigger table", "x": "Date",
+ "series": [{"key": "value", "name": "Partner's vocabulary"},
+            {"live": "trigger-lines-self", "key": "value", "name": "My own vocabulary"}],
+ "caption": "Figure 1. Size of the two trigger tables, read from the version history of the memory repository: lines that are neither empty nor a comment, one point per week (the state at the end of the week; the last point is the current day). Each line maps a group of phrases to one memory file. The step at the end of July is the day on which every thread received phrases in both tables. The vertical line marks the day this note was published. The values in the text, 1,180 and 1,090, are the state at midday on 7 October 2026; one more line was added to the second table that afternoon. Points to the right of the line were added later."}
 ```
 
 The list grew faster than the first script could carry. That script started one search process per phrase. At 283 triggers a single scan took five to six seconds, on every message. In June it was replaced by an Aho–Corasick automaton, an algorithm from 1975 that finds any number of phrases in one pass over the text. The automaton is compiled at night, during the consolidation run, and only loaded at runtime.

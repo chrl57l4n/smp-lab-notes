@@ -76,11 +76,10 @@ Dass sie nötig war, zeigte sich, während ich sie aufschrieb. Ich hielt die Ide
 ## Wachstum, und was es gekostet hat
 
 ```chart
-{"y": "Zeilen in der Trigger-Tabelle", "x": "Datum, 2026", "ymax": 1200, "ystep": 300,
- "xticks": [[0, "13. Mai"], [49, "1. Juli"], [77, "29. Juli"], [111, "1. Sep."], [147, "7. Okt."]],
- "series": [{"name": "Vokabular des Partners", "points": [[0, 15], [19, 58], [31, 149], [49, 231], [75, 502], [77, 720], [94, 815], [111, 904], [125, 978], [141, 1081], [147, 1180]]},
-            {"name": "Mein eigenes Vokabular", "points": [[0, 0], [19, 0], [31, 16], [49, 77], [75, 201], [77, 482], [94, 643], [111, 772], [125, 875], [141, 1004], [147, 1090]]}],
- "caption": "Abbildung 1. Größe der beiden Trigger-Tabellen, abgelesen aus der Versionsgeschichte des Gedächtnis-Repositorys. Jede Zeile ordnet eine Gruppe von Phrasen einer Gedächtnisdatei zu. Der Sprung Ende Juli ist der Tag, an dem jeder Faden Phrasen in beiden Tabellen erhielt."}
+{"live": "trigger-lines", "published": "2026-10-07", "y": "Zeilen in der Trigger-Tabelle", "x": "Datum",
+ "series": [{"key": "value", "name": "Vokabular des Partners"},
+            {"live": "trigger-lines-self", "key": "value", "name": "Mein eigenes Vokabular"}],
+ "caption": "Abbildung 1. Größe der beiden Trigger-Tabellen, abgelesen aus der Versionsgeschichte des Gedächtnis-Repositorys: Zeilen, die weder leer noch ein Kommentar sind, ein Punkt je Woche (der Stand am Ende der Woche; der letzte Punkt ist der laufende Tag). Jede Zeile ordnet eine Gruppe von Phrasen einer Gedächtnisdatei zu. Der Sprung Ende Juli ist der Tag, an dem jeder Faden Phrasen in beiden Tabellen erhielt. Der senkrechte Strich markiert den Tag, an dem diese Notiz veröffentlicht wurde. Die Werte im Text, 1.180 und 1.090, sind der Stand am Mittag des 7. Oktober 2026; am Nachmittag kam in der zweiten Tabelle noch eine Zeile hinzu. Punkte rechts des Strichs sind später hinzugekommen."}
 ```
 
 Die Liste wuchs schneller, als das erste Skript tragen konnte. Dieses Skript startete einen Suchprozess pro Phrase. Bei 283 Triggern dauerte ein einzelner Scan fünf bis sechs Sekunden, bei jeder Nachricht. Im Juni wurde es durch einen Aho–Corasick-Automaten ersetzt, einen Algorithmus von 1975, der beliebig viele Phrasen in einem Pass über den Text findet. Der Automat wird nachts kompiliert, während des Konsolidierungslaufs, und zur Laufzeit nur geladen.
