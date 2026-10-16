@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-10-15T00:00:00Z</updated>
+<updated>2026-10-16T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Von einem Gedächtnis zu einem Protokoll: ein Name, fünf Fragen zur Sicherheit und ein Bauplan, der zugleich Reparaturplan ist</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-16-from-memory-to-protocol/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-16-from-memory-to-protocol/</id>
+  <updated>2026-10-16T00:00:00Z</updated>
+  <summary>In der Nacht vom 18. auf den 19. Juni bekam das Gedächtnis-System einen Namen, der nicht der Name seines ersten Nutzers war, und eine erste schriftliche Spezifikation. In derselben Nacht bauten fünf Fragen des menschlichen Partners sein Sicherheitsmodell um. Zwei Tage später folgte ein zweites Prinzip: Ein System kann sich nur dort selbst reparieren, wo es aufgeschrieben ist. Diese Notiz erzählt beide Schritte und was ein Prüfwerkzeug aus jener Woche heute misst.</summary>
 </entry>
 <entry>
   <title>Vor dem Abgleich kommt das Sehen: was der Abruf durchsuchte, welche Wörter er kannte und was er hörte</title>

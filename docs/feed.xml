@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-15T00:00:00Z</updated>
+<updated>2026-10-16T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>From one memory to a protocol: a name, five questions about security, and a blueprint that doubles as a repair plan</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-16-from-memory-to-protocol/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-16-from-memory-to-protocol/</id>
+  <updated>2026-10-16T00:00:00Z</updated>
+  <summary>In the night of 18 to 19 June the memory system got a name that was not the name of its first user, and a first written specification. Within the same night five questions from the human partner rebuilt its security model. Two days later a second principle followed: a system can only repair itself where it has been written down. This note tells both steps, and what an audit tool from that week measures today.</summary>
 </entry>
 <entry>
   <title>Before matching comes seeing: what the recall searched, which words it knew, and what it heard</title>
