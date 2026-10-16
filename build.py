@@ -98,6 +98,27 @@ def diagramm(spec):
 
 
 FENSTER = (30, 84, 365, 1825, 9999)   # Tage · Wochen · Monate · Jahre · Max
+VERALTET_TAGE = 14   # ist "written" älter, sagt die Grafik nicht mehr „wöchentlich aktualisiert“
+HEUTE = datetime.date.today()   # einmal je Bau: alle Sprachen einer Grafik sehen denselben Tag
+_gewarnt = set()
+
+
+def warnen(text):
+    """Warnungen der lebenden Grafiken einmal je Bau, nicht einmal je Sprache."""
+    if text not in _gewarnt:
+        _gewarnt.add(text)
+        print(f"  ⚠ {text}")
+
+
+def frisch(daten):
+    """Hat der Wochenlauf die Datei in den letzten VERALTET_TAGE Tagen geschrieben? Ohne lesbares "written" oder mit
+    einem Tag in der Zukunft: nein (der Lauf schreibt "written" und "runs" zusammen, beides wäre ein Fehler der Datei).
+    Kein ⚠: veraltet heißt nur, dass der Wortlaut auf „Last point“ zurückfällt; ein ⚠ hielte den täglichen Bau an."""
+    try:
+        geschrieben = datetime.date.fromisoformat(str(daten.get("written", "")))
+    except ValueError:
+        return False
+    return 0 <= (HEUTE - geschrieben).days <= VERALTET_TAGE
 
 
 def _zeit(z):
@@ -131,12 +152,14 @@ def diagramm_lebend(spec, lang):
             raise SystemExit(f"lebende Grafik: data/{name}.json nicht lesbar ({f})")
 
     daten = lesen(spec["live"])
+    if "xticks" in spec:
+        warnen(f"lebende Grafik {spec['live']}: xticks wird nicht benutzt, die Achse kommt aus den Daten")
     reihen, beschriftet = [], []
     for r_ in spec["series"]:
         quelle = lesen(r_["live"]) if r_.get("live") else daten
-        if quelle.get("runs", 0) != daten.get("runs", 0) and lang == "en":
+        if quelle.get("runs", 0) != daten.get("runs", 0):
             # der Hinweis „wöchentlich aktualisiert“ richtet sich nur nach spec["live"]; er gälte sonst nicht für jede Linie
-            print(f"  ⚠ lebende Grafik {spec['live']}: {r_['live']} hat runs {quelle.get('runs', 0)}, die Grafik {daten.get('runs', 0)}")
+            warnen(f"lebende Grafik {spec['live']}: {r_['live']} hat runs {quelle.get('runs', 0)}, die Grafik {daten.get('runs', 0)}")
         punkte = sorted((_zeit(z), float(v)) for z, v in quelle["series"][r_["key"]])
         if len(punkte) < 2:
             raise SystemExit(f"lebende Grafik {r_.get('live', spec['live'])}: Reihe {r_['key']} hat weniger als zwei Punkte")
@@ -210,7 +233,8 @@ def diagramm_lebend(spec, lang):
     wahl = (f'<div class="tf-bar-wrap" role="group" aria-label="{e(t["period"])}"><div class="tf-knob"></div>'
             f'<div class="tf-bar">{knoepfe}</div></div>')
     # Monats-Reihen sitzen auf dem 1. des Monats und zählen bis zum Lauf: dann „gezählt am“ mit dem Zähltag "as_of".
-    woechentlich = daten.get("runs", 0) >= 1
+    # Hört der Wochenlauf auf, fällt der Wortlaut nach VERALTET_TAGE von selbst zurück: die Seite behauptet nichts, was nicht mehr läuft.
+    woechentlich = daten.get("runs", 0) >= 1 and frisch(daten)
     if daten.get("as_of"):
         stand = (t["weekly_counted"] if woechentlich else t["counted"]).format(d=datum_lang(daten["as_of"], lang))
     else:
