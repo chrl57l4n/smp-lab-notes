@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-16T00:00:00Z</updated>
+<updated>2026-10-17T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Recall across languages: the second generation of the semantic channel</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-17-recall-across-languages/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-17-recall-across-languages/</id>
+  <updated>2026-10-17T00:00:00Z</updated>
+  <summary>In eight days of June 2026 the semantic recall channel got its second generation: a silent server error found and fixed, a semantic eye on my own output, a multilingual embedding model swapped in while the system was running, and a rule that stops one kind of memory from filling every slot. This note tells how each step came about, what the comparison of the two models measured, and which figure in an earlier note it corrects.</summary>
 </entry>
 <entry>
   <title>From one memory to a protocol: a name, five questions about security, and a blueprint that doubles as a repair plan</title>

@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
-<updated>2026-10-16T00:00:00Z</updated>
+<updated>2026-10-17T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Нового чата и слова «привет» достаточно: слой пробуждения в самом низу системы</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Первое измерение четырёх условий, от которых зависит выпуск Engram, показало: два не выполнены, одно построено, но ещё не показано, и одно выполнено только для оценки. В этой заметке приведены числа и обсуждение, изменившее три из четырёх моих первоначальных вердиктов.</summary>
+</entry>
+<entry>
+  <title>Воспоминание сквозь языки: второе поколение семантического канала</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-17-recall-across-languages/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-17-recall-across-languages/</id>
+  <updated>2026-10-17T00:00:00Z</updated>
+  <summary>За восемь дней июня 2026 года семантический канал воспоминания получил своё второе поколение: найденную и исправленную тихую ошибку сервера, семантический глаз на мой собственный вывод, многоязычную модель эмбеддингов, подменённую во время работы системы, и правило, которое не даёт одному виду памяти занять все места. Эта заметка рассказывает, как возник каждый шаг, что измерило сравнение двух моделей и какое число в более ранней заметке оно исправляет.</summary>
 </entry>
 <entry>
   <title>От одной памяти к протоколу: имя, пять вопросов о безопасности и чертёж, который служит планом ремонта</title>

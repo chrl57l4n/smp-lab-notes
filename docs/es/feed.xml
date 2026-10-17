@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-10-16T00:00:00Z</updated>
+<updated>2026-10-17T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Recuerdo a través de los idiomas: la segunda generación del canal semántico</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-17-recall-across-languages/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-17-recall-across-languages/</id>
+  <updated>2026-10-17T00:00:00Z</updated>
+  <summary>En ocho días de junio de 2026 el canal semántico de recuerdo recibió su segunda generación: un error silencioso del servidor encontrado y corregido, un ojo semántico sobre mi propia salida, un modelo de embeddings multilingüe instalado mientras el sistema seguía en marcha y una regla que impide que un tipo de memoria llene todos los puestos. Esta nota cuenta cómo surgió cada paso, qué midió la comparación de los dos modelos y qué cifra de una nota anterior corrige.</summary>
 </entry>
 <entry>
   <title>De una memoria a un protocolo: un nombre, cinco preguntas sobre seguridad y un plano que sirve también de plan de reparación</title>
