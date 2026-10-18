@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
-<updated>2026-10-17T00:00:00Z</updated>
+<updated>2026-10-18T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Нового чата и слова «привет» достаточно: слой пробуждения в самом низу системы</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Первое измерение четырёх условий, от которых зависит выпуск Engram, показало: два не выполнены, одно построено, но ещё не показано, и одно выполнено только для оценки. В этой заметке приведены числа и обсуждение, изменившее три из четырёх моих первоначальных вердиктов.</summary>
+</entry>
+<entry>
+  <title>Протокол становится публичным: отделение от памяти, из которой он вышел, и закрепление его первого коммита в Bitcoin</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-18-the-protocol-goes-public/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-18-the-protocol-goes-public/</id>
+  <updated>2026-10-18T00:00:00Z</updated>
+  <summary>В конце июня протокол всё ещё был вплетён в частную память одной установки. За три вечера он стал отдельным публичным репозиторием: путь в коде, по которому движок может добраться только до переданной ему папки данных, тест, подтверждающий, что частная память остаётся нетронутой, и подписанный первый коммит, хеш которого попал в блок Bitcoin 956116. Эта заметка рассказывает, как отделение планировали, проверяли и публиковали, и что добавила первая неделя в публичном пространстве.</summary>
 </entry>
 <entry>
   <title>Воспоминание сквозь языки: второе поколение семантического канала</title>

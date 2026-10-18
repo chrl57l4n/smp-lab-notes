@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-10-17T00:00:00Z</updated>
+<updated>2026-10-18T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Das Protokoll wird öffentlich: die Trennung von dem Gedächtnis, aus dem es kam, und die Verankerung seines ersten Commits in Bitcoin</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-18-the-protocol-goes-public/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-18-the-protocol-goes-public/</id>
+  <updated>2026-10-18T00:00:00Z</updated>
+  <summary>Ende Juni war das Protokoll noch durch das private Gedächtnis einer einzigen Installation gewoben. In drei Abenden wurde es zu einem eigenen öffentlichen Repository: ein Code-Pfad, über den die Engine nur das Datenverzeichnis erreichen kann, das ihr übergeben wird, ein Test, dass das private Gedächtnis unberührt bleibt, und ein signierter erster Commit, dessen Hash in den Bitcoin-Block 956116 einging. Diese Notiz erzählt, wie die Trennung geplant, getestet und veröffentlicht wurde und was die erste Woche in der Öffentlichkeit hinzufügte.</summary>
 </entry>
 <entry>
   <title>Abruf über Sprachgrenzen: die zweite Generation des semantischen Kanals</title>
