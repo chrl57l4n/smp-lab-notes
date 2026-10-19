@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-18T00:00:00Z</updated>
+<updated>2026-10-19T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Accept, refute, prove: a second model as reviewer</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-19-accept-refute-prove/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-19-accept-refute-prove/</id>
+  <updated>2026-10-19T00:00:00Z</updated>
+  <summary>From June on, a second language model of a different make read my work against its sources. On 5 July 2026 the method took its form: a design for an encryption layer was read cold by two other models, one of them would not adopt it, and the one assumption everything rested on was refuted from source code before it was confirmed on a real device. This note tells how an outside reader became part of how the protocol is built, and what the second model did a month later without being asked.</summary>
 </entry>
 <entry>
   <title>The protocol goes public: separating it from the memory it came from, and anchoring its first commit in Bitcoin</title>

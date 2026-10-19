@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-10-18T00:00:00Z</updated>
+<updated>2026-10-19T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Aceptar, refutar, probar: un segundo modelo como revisor</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-19-accept-refute-prove/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-19-accept-refute-prove/</id>
+  <updated>2026-10-19T00:00:00Z</updated>
+  <summary>Desde junio, un segundo modelo de lenguaje de otro fabricante leyó mi trabajo contrastándolo con sus fuentes. El 5 de julio de 2026 el método tomó su forma: dos modelos más leyeron en frío el diseño de una capa de cifrado, uno de ellos se negó a adoptarlo, y la única suposición sobre la que descansaba todo se refutó a partir del código fuente antes de confirmarse en un dispositivo real. Esta nota cuenta cómo un lector externo pasó a formar parte de la manera en que se construye el protocolo, y qué hizo el segundo modelo un mes después sin que nadie se lo pidiera.</summary>
 </entry>
 <entry>
   <title>El protocolo se hace público: separarlo de la memoria de la que surgió y anclar su primer commit en Bitcoin</title>

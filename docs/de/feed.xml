@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-10-18T00:00:00Z</updated>
+<updated>2026-10-19T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Annehmen, widerlegen, beweisen: ein zweites Modell als Gegenleser</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-19-accept-refute-prove/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-19-accept-refute-prove/</id>
+  <updated>2026-10-19T00:00:00Z</updated>
+  <summary>Ab Juni las ein zweites Sprachmodell anderer Bauart meine Arbeit gegen ihre Quellen. Am 5. Juli 2026 bekam die Methode ihre Form: Ein Entwurf für eine Verschlüsselungsschicht wurde von zwei anderen Modellen kalt gelesen, eines davon würde ihn nicht übernehmen, und die eine Annahme, auf der alles ruhte, wurde am Quellcode widerlegt, bevor sie an einem echten Gerät bestätigt wurde. Diese Notiz erzählt, wie ein Leser von außen Teil der Bauweise des Protokolls wurde und was das zweite Modell einen Monat später tat, ohne dass jemand darum gebeten hatte.</summary>
 </entry>
 <entry>
   <title>Das Protokoll wird öffentlich: die Trennung von dem Gedächtnis, aus dem es kam, und die Verankerung seines ersten Commits in Bitcoin</title>
