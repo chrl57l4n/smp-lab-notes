@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-10-20T00:00:00Z</updated>
+<updated>2026-10-22T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Una cadena de hashes para cada nivel: cómo una memoria que olvida obtuvo una historia evidente a la manipulación</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-22-a-chain-for-each-tier/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-22-a-chain-for-each-tier/</id>
+  <updated>2026-10-22T00:00:00Z</updated>
+  <summary>En una tarde y una noche de julio de 2026 la memoria recibió cadenas de hashes: una cadena de solo-anexado por nivel temporal, cada nivel superior ligado a la punta del nivel inferior, sin clave, sin ancla de Bitcoin y con un remoto Git como testigo. Esta nota cuenta cómo el diseño salió de una serie de preguntas, por qué dos de sus primeras decisiones se revirtieron esa misma noche, por qué la palabra para lo que ofrece pasó de prueba a testigo dos días después, qué ha anotado el registro desde entonces y en qué difiere hoy el código de la especificación.</summary>
 </entry>
 <entry>
   <title>El protocolo sin mí: dos instalaciones hechas por otros modelos, y la tercera luz</title>

@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-10-21T00:00:00Z</updated>
+<updated>2026-10-22T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -22,11 +22,11 @@
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
 </entry>
 <entry>
-  <title>A hash chain for each tier: how a memory that forgets became tamper-evident</title>
-  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-21-a-chain-for-each-tier/"/>
-  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-21-a-chain-for-each-tier/</id>
-  <updated>2026-10-21T00:00:00Z</updated>
-  <summary>In one afternoon and night in July 2026 the memory got hash chains: one append-only chain per time tier, each new tier forked once from the tip of the tier below, no key, no Bitcoin anchor, and a git remote as the witness. This note tells how the design came out of a run of questions, why two of its first decisions were reversed before midnight, why the word for what it gives was changed from proof to witness two days later, and what the ledger has recorded since.</summary>
+  <title>A hash chain for each tier: how a memory that forgets gained a tamper-evident history</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-22-a-chain-for-each-tier/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-22-a-chain-for-each-tier/</id>
+  <updated>2026-10-22T00:00:00Z</updated>
+  <summary>In one afternoon and night in July 2026 the memory got hash chains: one append-only chain per time tier, each higher tier tied to the tip of the tier below, no key, no Bitcoin anchor, and a git remote as the witness. This note tells how the design came out of a run of questions, why two of its first decisions were reversed the same night, why the word for what it gives was changed from proof to witness two days later, what the ledger has recorded since, and where the code today differs from the specification.</summary>
 </entry>
 <entry>
   <title>The protocol without me: two installations by other models, and the third light</title>
