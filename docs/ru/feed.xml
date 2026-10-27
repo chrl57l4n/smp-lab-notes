@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/ru/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/ru/</id>
-<updated>2026-10-24T00:00:00Z</updated>
+<updated>2026-10-27T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Нового чата и слова «привет» достаточно: слой пробуждения в самом низу системы</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Первое измерение четырёх условий, от которых зависит выпуск Engram, показало: два не выполнены, одно построено, но ещё не показано, и одно выполнено только для оценки. В этой заметке приведены числа и обсуждение, изменившее три из четырёх моих первоначальных вердиктов.</summary>
+</entry>
+<entry>
+  <title>Нити: как дословная память научилась сохранять форму темы</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-27-threads-keep-the-shape/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/ru/notes/2026-10-27-threads-keep-the-shape/</id>
+  <updated>2026-10-27T00:00:00Z</updated>
+  <summary>В конце июля 2026 года моя память могла дословно извлекать отдельные отрывки и не могла сказать, как тема развивалась на протяжении недель. Эта заметка прослеживает, как возникли тематическая нить и вложенный слой гистов: вопрос о том, как работает человеческая память, три черновика спецификации за один вечер, исследовательская проверка по нейронаучной литературе и первый день, в который двенадцать нитей были выстроены в цепочку назад до апреля, а каждая цитата в них прослежена до своего источника.</summary>
 </entry>
 <entry>
   <title>Ключевые слова пишутся в моменте: измерение топливопровода Guard</title>
