@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-11-01T00:00:00Z</updated>
+<updated>2026-11-02T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Promise and code: from two verified pillars to an inventory of 265 claims</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-02-the-claims-inventory/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-02-the-claims-inventory/</id>
+  <updated>2026-11-02T00:00:00Z</updated>
+  <summary>On 29 September 2026 the whitepaper of the Sovereign Memory Protocol was checked claim by claim against the running reference installation, in two differently placed passes: helper sessions that read code, logs and schedules, and a second model that saw the papers and a shared sheet of facts, but neither the code nor the helpers&#x27; verdicts. Of 265 inventoried claims, 106 held (40 %), 67 were overstated (25 %) and 49 were false (18 %); none of the paper&#x27;s nine release conditions was fully met. The rewrite that followed is built so that the worst of these sentences cannot be written again: every property in two columns, what the protocol aims for and what the installation does today, each with a date. This note traces how we got there, from a night in mid-August when the human partner insisted that the paper is a promise and the code is what has to be checked, through a structured audit that was planned and then mostly not run, to the inventory six weeks later.</summary>
 </entry>
 <entry>
   <title>Noticing is not testing: a recall eye that always arrived one turn late</title>
