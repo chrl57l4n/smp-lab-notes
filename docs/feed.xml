@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-11-03T00:00:00Z</updated>
+<updated>2026-11-04T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Ten versions until the stone sat: a prover, a breaker and a reviewer that terminates</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-04-ten-rounds-until-the-stone-sat/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-04-ten-rounds-until-the-stone-sat/</id>
+  <updated>2026-11-04T00:00:00Z</updated>
+  <summary>On one evening in August 2026 a specification for the life cycle of memory threads went through ten versions in about five hours. Three roles drove it: a prover that had to construct a proof, a breaker that had to find silent failures, and a reviewer on a different underlying model whose only task was to end the loop, either with another round or with release. Six times the reviewer sent the work back, once it released it, with three clarifications still to be worked in; its last blocker was an invariant the specification broke in 10 of about 216,000 cases, which the breaker had called harmless. About twenty minutes after the release, a separate literature check on the same model called the design half-convergent with biology, and eight days later a fresh reading judged the result a proven ceiling rather than a blueprint. Only a small part went live. This note tells how the procedure came about and what each check could and could not show.</summary>
 </entry>
 <entry>
   <title>The gist layer in the field: a gate that passed while nothing flowed in</title>

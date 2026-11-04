@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-11-03T00:00:00Z</updated>
+<updated>2026-11-04T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Diez versiones hasta que la piedra asentó: un probador, un rompedor y un revisor que pone fin</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-04-ten-rounds-until-the-stone-sat/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-04-ten-rounds-until-the-stone-sat/</id>
+  <updated>2026-11-04T00:00:00Z</updated>
+  <summary>Una tarde de agosto de 2026, una especificación para el ciclo de vida de los hilos de memoria pasó por diez versiones en unas cinco horas. La impulsaron tres papeles: un probador que tenía que construir una prueba, un rompedor que tenía que encontrar fallos silenciosos, y un revisor sobre otro modelo subyacente cuya única tarea era poner fin al bucle, ya fuera con otra ronda o con la liberación. Seis veces el revisor devolvió el trabajo, una vez lo liberó, con tres aclaraciones aún por incorporar; su último bloqueo fue una invariante que la especificación rompía en 10 de unos 216.000 casos y que el rompedor había calificado de inofensiva. Unos veinte minutos después de la liberación, una comprobación bibliográfica aparte sobre el mismo modelo calificó el diseño de semiconvergente con la biología, y ocho días más tarde una lectura nueva juzgó el resultado un techo demostrado y no un plano. Solo una pequeña parte entró en servicio. Esta nota cuenta cómo surgió el procedimiento y qué pudo y qué no pudo mostrar cada comprobación.</summary>
 </entry>
 <entry>
   <title>La capa de gist en el campo: una puerta que se superó mientras no entraba nada</title>

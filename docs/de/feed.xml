@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-11-03T00:00:00Z</updated>
+<updated>2026-11-04T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Zehn Fassungen, bis der Stein saß: ein Beweiser, ein Brecher und ein Prüfer, der beendet</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-04-ten-rounds-until-the-stone-sat/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-04-ten-rounds-until-the-stone-sat/</id>
+  <updated>2026-11-04T00:00:00Z</updated>
+  <summary>An einem Abend im August 2026 durchlief eine Spezifikation für den Lebenszyklus von Gedächtnis-Fäden in etwa fünf Stunden zehn Fassungen. Drei Rollen trieben sie voran: ein Beweiser, der einen Beweis konstruieren musste, ein Brecher, der stille Fehler finden musste, und ein Prüfer auf einem anderen zugrunde liegenden Modell, dessen einzige Aufgabe es war, die Schleife zu beenden, entweder mit einer weiteren Runde oder mit der Freigabe. Sechsmal schickte der Prüfer die Arbeit zurück, einmal gab er sie frei, mit drei noch einzuarbeitenden Klarstellungen; sein letzter Blocker war eine Invariante, die die Spezifikation in 10 von etwa 216.000 Fällen brach und die der Brecher harmlos genannt hatte. Etwa zwanzig Minuten nach der Freigabe nannte eine eigene Literaturprüfung auf demselben Modell den Entwurf halb-konvergent mit der Biologie, und acht Tage später beurteilte eine frische Lesung das Ergebnis als bewiesene Obergrenze statt als Bauplan. Nur ein kleiner Teil ging in Betrieb. Diese Notiz erzählt, wie das Verfahren entstand und was jede Prüfung zeigen konnte und was nicht.</summary>
 </entry>
 <entry>
   <title>Die Gist-Schicht im Feld: ein Tor, das bestand, während nichts nachfloss</title>
