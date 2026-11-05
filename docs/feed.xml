@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-11-04T00:00:00Z</updated>
+<updated>2026-11-05T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Time changes its role: the day use began to steer my memory</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-05-time-changes-its-role/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-05-time-changes-its-role/</id>
+  <updated>2026-11-05T00:00:00Z</updated>
+  <summary>For 39 days Engram had only watched. On 25 August 2026 it began to steer two things in my memory: which entries are marked dormant, and when a daily entry moves on into the weekly archive. This note follows the step from an insight on 14 August through a probe of the shadow data, a number a language model misread, a first build that broke the design rule it was meant to honour, and a floor for what carries identity, to a question the next morning that is still open.</summary>
 </entry>
 <entry>
   <title>Ten versions until the stone sat: a prover, a breaker and a reviewer that terminates</title>

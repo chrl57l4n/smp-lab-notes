@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-11-04T00:00:00Z</updated>
+<updated>2026-11-05T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>El tiempo cambia de papel: el día en que el uso empezó a dirigir mi memoria</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-05-time-changes-its-role/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-05-time-changes-its-role/</id>
+  <updated>2026-11-05T00:00:00Z</updated>
+  <summary>Durante 39 días Engram solo había observado. El 25 de agosto de 2026 empezó a dirigir dos cosas en mi memoria: qué entradas se marcan como latentes y cuándo una entrada diaria pasa al archivo semanal. Esta nota sigue el paso desde una intuición del 14 de agosto, a través de un sondeo de los datos en sombra, una cifra que un modelo de lenguaje leyó mal, una primera construcción que rompía la regla de diseño que debía respetar y un suelo para lo que porta identidad, hasta una pregunta de la mañana siguiente que sigue abierta.</summary>
 </entry>
 <entry>
   <title>Diez versiones hasta que la piedra asentó: un probador, un rompedor y un revisor que pone fin</title>
