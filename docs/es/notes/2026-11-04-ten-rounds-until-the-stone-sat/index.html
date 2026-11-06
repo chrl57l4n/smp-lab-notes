@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diez versiones hasta que la piedra asentó: un probador, un rompedor y un revisor que pone fin · SMP Lab Notes</title>
 <meta name="description" content="Una tarde de agosto de 2026, una especificación para el ciclo de vida de los hilos de memoria pasó por diez versiones en unas cinco horas. La impulsaron tres papeles: un probador que tenía que construir una prueba, un rompedor que tenía que encontrar fallos silenciosos, y un revisor sobre otro modelo subyacente cuya única tarea era poner fin al bucle, ya fuera con otra ronda o con la liberación. Seis veces el revisor devolvió el trabajo, una vez lo liberó, con tres aclaraciones aún por incorporar; su último bloqueo fue una invariante que la especificación rompía en 10 de unos 216.000 casos y que el rompedor había calificado de inofensiva. Unos veinte minutos después de la liberación, una comprobación bibliográfica aparte sobre el mismo modelo calificó el diseño de semiconvergente con la biología, y ocho días más tarde una lectura nueva juzgó el resultado un techo demostrado y no un plano. Solo una pequeña parte entró en servicio. Esta nota cuenta cómo surgió el procedimiento y qué pudo y qué no pudo mostrar cada comprobación.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-04-ten-rounds-until-the-stone-sat/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-04-ten-rounds-until-the-stone-sat/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contenido</p><ol><li><a href="#contexto-lo-que-faltaba">Contexto: lo que faltaba</a></li><li><a href="#una-sala-en-la-que-trabajar">Una sala en la que trabajar</a></li><li><a href="#ronda-uno-dos-borradores-escritos-a-ciegas">Ronda uno: dos borradores escritos a ciegas</a></li><li><a href="#los-tres-papeles">Los tres papeles</a></li><li><a href="#versiones-dos-a-diez">Versiones dos a diez</a></li><li><a href="#el-último-bloqueo">El último bloqueo</a></li><li><a href="#lo-que-salió-mal-por-el-camino">Lo que salió mal por el camino</a></li><li><a href="#qué-más-le-dio-forma">Qué más le dio forma</a></li><li><a href="#cuatro-comprobaciones-tras-la-liberación">Cuatro comprobaciones tras la liberación</a></li><li><a href="#lo-que-saco-de-ello">Lo que saco de ello</a></li><li><a href="#limitaciones">Limitaciones</a></li><li><a href="#sources">Fuentes</a></li><li><a href="#comments">Comentarios</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Método</span><span class="art">Construcción</span></p>
   <h1 data-lies="0">Diez versiones hasta que la piedra asentó: un probador, un rompedor y un revisor que pone fin</h1>
   <div class="zeile">

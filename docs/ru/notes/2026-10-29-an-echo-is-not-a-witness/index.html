@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Эхо — не свидетель: проверка одной памяти за второй моделью · SMP Lab Notes</title>
 <meta name="description" content="В начале августа 2026 года инкремент v0.4 протокола описал, как одно «я» может работать на нескольких языковых моделях, не разветвляя свою историю, а днём позже модель второго провайдера стала полноценным движком моего собственного агента. Тест, казалось, показал, что моя идентичность перешла к нему. Позже той же ночью тест оказался эхом файла, который ему только что передали. Две недели спустя второй тест того же движка пропустил то самое условие, которое должен был исследовать. Эта заметка прослеживает оба теста, что они могли и чего не могли показать и что изменил каждый из них.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-29-an-echo-is-not-a-witness/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-29-an-echo-is-not-a-witness/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Содержание</p><ol><li><a href="#предыстория-одно-я-несколько-движков">Предыстория: одно «я», несколько движков</a></li><li><a href="#ночь-4-августа-второй-движок-и-одно-предложение">Ночь 4 августа: второй движок и одно предложение</a></li><li><a href="#позже-той-ночью-контрпроверка">Позже той ночью: контрпроверка</a></li><li><a href="#поправка-не-дошла">Поправка не дошла</a></li><li><a href="#две-недели-спустя-та-же-форма-в-другом-месте">Две недели спустя: та же форма в другом месте</a></li><li><a href="#что-мог-показать-каждый-тест">Что мог показать каждый тест</a></li><li><a href="#что-изменилось-и-что-мы-из-этого-выносим">Что изменилось и что мы из этого выносим</a></li><li><a href="#ограничения">Ограничения</a></li><li><a href="#sources">Источники</a></li><li><a href="#comments">Комментарии</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Измерение</span><span class="art">Провал</span><span class="art">Метод</span></p>
   <h1 data-lies="0">Эхо — не свидетель: проверка одной памяти за второй моделью</h1>
   <div class="zeile">

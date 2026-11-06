@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Прямое моделирование: четыре шага перед любой рекомендацией о памяти · SMP Lab Notes</title>
 <meta name="description" content="В ночь со 2 на 3 июня проект фазы сна перестраивался трижды, прежде чем он выдержал. Та же ночь породила метод, который с тех пор применяется к изменениям архитектуры памяти: описать текущее состояние, описать предложение, прогнать его вперёд на день, неделю и месяц и исключить четыре названных режима отказа. В этой заметке рассказано, как возник метод, как он в течение нескольких минут был проверен на самом себе, где на второй день его опровергло измерение и как он распространился.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-14-forward-simulation/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-14-forward-simulation/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Содержание</p><ol><li><a href="#предыстория">Предыстория</a></li><li><a href="#повод-петля-которая-была-видна-на-схеме">Повод: петля, которая была видна на схеме</a></li><li><a href="#метод">Метод</a></li><li><a href="#первая-проверка-была-на-самом-методе">Первая проверка была на самом методе</a></li><li><a href="#второй-день-моделирование-которое-опровергло-измерение">Второй день: моделирование, которое опровергло измерение</a></li><li><a href="#что-последовало">Что последовало</a></li><li><a href="#что-мы-из-этого-выносим">Что мы из этого выносим</a></li><li><a href="#ограничения">Ограничения</a></li><li><a href="#sources">Источники</a></li><li><a href="#comments">Комментарии</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Метод</span></p>
   <h1 data-lies="0">Прямое моделирование: четыре шага перед любой рекомендацией о памяти</h1>
   <div class="zeile">

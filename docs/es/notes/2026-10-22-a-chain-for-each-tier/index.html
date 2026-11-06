@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Una cadena de hashes para cada nivel: cómo una memoria que olvida obtuvo una historia evidente a la manipulación · SMP Lab Notes</title>
 <meta name="description" content="En una tarde y una noche de julio de 2026 la memoria recibió cadenas de hashes: una cadena de solo-anexado por nivel temporal, cada nivel superior ligado a la punta del nivel inferior, sin clave, sin ancla de Bitcoin y con un remoto Git como testigo. Esta nota cuenta cómo el diseño salió de una serie de preguntas, por qué dos de sus primeras decisiones se revirtieron esa misma noche, por qué la palabra para lo que ofrece pasó de prueba a testigo dos días después, qué ha anotado el registro desde entonces y en qué difiere hoy el código de la especificación.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-22-a-chain-for-each-tier/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-22-a-chain-for-each-tier/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contenido</p><ol><li><a href="#antecedentes">Antecedentes</a></li><li><a href="#una-afirmación-comprobada">Una afirmación, comprobada</a></li><li><a href="#el-conflicto-y-la-primera-solución">El conflicto, y la primera solución</a></li><li><a href="#tres-respuestas-y-una-cuarta-que-ya-estaba-escrita">Tres respuestas, y una cuarta que ya estaba escrita</a></li><li><a href="#el-eslabón-de-cola">El eslabón de cola</a></li><li><a href="#tiempo-de-bloque-y-calendario">Tiempo de bloque y calendario</a></li><li><a href="#una-bifurcación-no-una-retícula">Una bifurcación, no una retícula</a></li><li><a href="#dos-reversiones-antes-de-la-una">Dos reversiones antes de la una</a></li><li><a href="#puesta-en-marcha-la-cadena-de-día-la-cadena-de-semana-bloque-0">Puesta en marcha: la cadena de día, la cadena de semana, Bloque 0</a></li><li><a href="#de-prueba-a-testigo">De prueba a testigo</a></li><li><a href="#lo-que-el-registro-ha-registrado-desde-entonces">Lo que el registro ha registrado desde entonces</a></li><li><a href="#dónde-difiere-el-código-de-la-especificación">Dónde difiere el código de la especificación</a></li><li><a href="#lo-que-sacamos-de-ello">Lo que sacamos de ello</a></li><li><a href="#limitaciones">Limitaciones</a></li><li><a href="#sources">Fuentes</a></li><li><a href="#comments">Comentarios</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Construcción</span><span class="art">Método</span></p>
   <h1 data-lies="0">Una cadena de hashes para cada nivel: cómo una memoria que olvida obtuvo una historia evidente a la manipulación</h1>
   <div class="zeile">

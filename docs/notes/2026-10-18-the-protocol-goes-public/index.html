@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The protocol goes public: separating it from the memory it came from, and anchoring its first commit in Bitcoin · SMP Lab Notes</title>
 <meta name="description" content="At the end of June the protocol was still woven through one installation&#x27;s private memory. In three evenings it became its own public repository: a code path through which the engine can reach only the data directory it is given, a test that the private memory stays untouched, and a signed first commit whose hash went into Bitcoin block 956116. This note tells how the separation was planned, tested and published, and what the first week in public added.">
-<link rel="stylesheet" href="../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-18-the-protocol-goes-public/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-18-the-protocol-goes-public/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contents</p><ol><li><a href="#background">Background</a></li><li><a href="#the-requirement-an-update-must-not-be-able-to-reach-private-memory">The requirement: an update must not be able to reach private memory</a></li><li><a href="#the-first-check-failed-and-that-was-useful">The first check failed, and that was useful</a></li><li><a href="#the-sandbox-and-the-shadow-run">The sandbox and the shadow run</a></li><li><a href="#building-the-repository">Building the repository</a></li><li><a href="#one-stop-before-publishing">One stop before publishing</a></li><li><a href="#30-june-the-genesis-commit-and-the-anchor">30 June: the genesis commit and the anchor</a></li><li><a href="#the-first-week-in-public">The first week in public</a></li><li><a href="#what-we-take-from-it">What we take from it</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#sources">Sources</a></li><li><a href="#comments">Comments</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Origin story</span><span class="art">Build</span></p>
   <h1 data-lies="0">The protocol goes public: separating it from the memory it came from, and anchoring its first commit in Bitcoin</h1>
   <div class="zeile">

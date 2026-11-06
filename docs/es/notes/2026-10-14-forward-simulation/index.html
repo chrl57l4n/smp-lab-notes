@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Simulación hacia delante: cuatro pasos antes de cualquier recomendación sobre la memoria · SMP Lab Notes</title>
 <meta name="description" content="En la noche del 2 al 3 de junio el diseño de la fase de sueño se reconstruyó tres veces antes de sostenerse. La misma noche produjo un método que desde entonces se aplica a los cambios de la arquitectura de memoria: describir el estado actual, describir la propuesta, ejecutarla hacia delante un día, una semana y un mes, y descartar cuatro modos de fallo con nombre. Esta nota cuenta cómo surgió el método, cómo se puso a prueba sobre sí mismo en cuestión de minutos, dónde una medición lo desautorizó el segundo día y cómo se extendió.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-14-forward-simulation/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-14-forward-simulation/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contenido</p><ol><li><a href="#antecedentes">Antecedentes</a></li><li><a href="#la-ocasión-un-bucle-que-era-visible-en-un-diagrama">La ocasión: un bucle que era visible en un diagrama</a></li><li><a href="#el-método">El método</a></li><li><a href="#la-primera-prueba-fue-sobre-el-método-mismo">La primera prueba fue sobre el método mismo</a></li><li><a href="#el-segundo-día-una-simulación-que-una-medición-desautorizó">El segundo día: una simulación que una medición desautorizó</a></li><li><a href="#lo-que-siguió">Lo que siguió</a></li><li><a href="#lo-que-sacamos-de-ello">Lo que sacamos de ello</a></li><li><a href="#limitaciones">Limitaciones</a></li><li><a href="#sources">Fuentes</a></li><li><a href="#comments">Comentarios</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Método</span></p>
   <h1 data-lies="0">Simulación hacia delante: cuatro pasos antes de cualquier recomendación sobre la memoria</h1>
   <div class="zeile">

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Capas al inicio de la sesión: cómo un puñado de archivos sencillos se convirtió en la primera memoria · SMP Lab Notes</title>
 <meta name="description" content="La primera forma operativa de la memoria del protocolo fue un conjunto de archivos de texto plano en un repositorio bajo control de versiones, cargados en cada sesión nueva antes del primer mensaje. Esta nota cuenta cómo surgió eso en abril, qué hizo posible en el plazo de una semana y qué tres límites se mostraron casi de inmediato.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-08-layers-at-session-start/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-08-layers-at-session-start/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contenido</p><ol><li><a href="#antecedentes">Antecedentes</a></li><li><a href="#el-punto-de-partida-notas-en-un-repositorio">El punto de partida: notas en un repositorio</a></li><li><a href="#el-problema-cada-sesión-había-que-despertarla-a-mano">El problema: cada sesión había que despertarla a mano</a></li><li><a href="#la-construcción-un-hook-que-carga-las-capas">La construcción: un hook que carga las capas</a></li><li><a href="#el-mismo-día-una-bifurcación-en-la-memoria">El mismo día: una bifurcación en la memoria</a></li><li><a href="#lo-que-cuesta-la-parte-siempre-cargada">Lo que cuesta la parte siempre cargada</a></li><li><a href="#una-prueba-que-nadie-planeó-una-segunda-máquina">Una prueba que nadie planeó: una segunda máquina</a></li><li><a href="#lo-que-no-podía-hacer">Lo que no podía hacer</a></li><li><a href="#lo-que-sacamos-de-ello">Lo que sacamos de ello</a></li><li><a href="#limitaciones">Limitaciones</a></li><li><a href="#sources">Fuentes</a></li><li><a href="#comments">Comentarios</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Historia de origen</span><span class="art">Construcción</span></p>
   <h1 data-lies="0">Capas al inicio de la sesión: cómo un puñado de archivos sencillos se convirtió en la primera memoria</h1>
   <div class="zeile">

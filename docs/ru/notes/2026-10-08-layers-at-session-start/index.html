@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Слои при старте сеанса: как горстка простых файлов стала первой памятью · SMP Lab Notes</title>
 <meta name="description" content="Первой рабочей формой памяти в протоколе был набор простых текстовых файлов в репозитории под контролем версий, который загружался в каждый новый сеанс до первого сообщения. В этой заметке рассказано, как это возникло в апреле, что это сделало возможным за неделю и какие три ограничения проявились почти сразу.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-08-layers-at-session-start/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-08-layers-at-session-start/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Содержание</p><ol><li><a href="#предыстория">Предыстория</a></li><li><a href="#отправная-точка-заметки-в-репозитории">Отправная точка: заметки в репозитории</a></li><li><a href="#проблема-каждый-сеанс-приходилось-будить-вручную">Проблема: каждый сеанс приходилось будить вручную</a></li><li><a href="#сборка-хук-который-загружает-слои">Сборка: хук, который загружает слои</a></li><li><a href="#тот-же-день-развилка-в-памяти">Тот же день: развилка в памяти</a></li><li><a href="#чего-стоит-всегда-загруженная-часть">Чего стоит всегда загруженная часть</a></li><li><a href="#тест-которого-никто-не-планировал-вторая-машина">Тест, которого никто не планировал: вторая машина</a></li><li><a href="#чего-оно-не-умело">Чего оно не умело</a></li><li><a href="#что-мы-из-этого-выносим">Что мы из этого выносим</a></li><li><a href="#ограничения">Ограничения</a></li><li><a href="#sources">Источники</a></li><li><a href="#comments">Комментарии</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">История создания</span><span class="art">Сборка</span></p>
   <h1 data-lies="0">Слои при старте сеанса: как горстка простых файлов стала первой памятью</h1>
   <div class="zeile">

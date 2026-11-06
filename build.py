@@ -419,7 +419,7 @@ def lesbar_markieren(seite):
     Tabellen, Diagramme, Quellen und die Angabenzeile bleiben aus. Gibt (html, texte) zurück."""
     texte = []
     aus = re.compile(r'(<figure.*?</figure>|<div class="tabelle">.*?</div>|<ul class="quellen">.*?</ul>|'
-                     r'<div class="zeile">.*?</div>\s*</div>|<details.*?</details>|<p class="meta">.*?</p>|<h2 id="sources">.*?</h2>|<section class="kommentare".*?</section>|<div class="urteile">.*?</div>\s*</div>)', re.S)
+                     r'<div class="zeile">.*?</div>\s*</div>|<details.*?</details>|<p class="meta">.*?</p>|<h2 id="sources">.*?</h2>|<section class="kommentare".*?</section>|<div class="erledigt">.*?</div>|<div class="urteile">.*?</div>\s*</div>)', re.S)
     teile = aus.split(seite)
 
     def nummer(m):
@@ -532,6 +532,27 @@ def notiz_lesen(pfad):
     return daten
 
 
+# Resolved banner (idea of the human partner, 06.11.2026): ist ein Problem eines Beitrags später wirklich grün gelöst, bekommt der ALTE
+# Beitrag ganz oben einen Hinweis mit Link zur Lösung — Kopf-Felder `resolved_by: <slug>` + `resolved_on: JJJJ-MM-TT`, in allen
+# vier Fassungen gleich. Der Text selbst bleibt unverändert (keine Glättung alter Papiere), der Hinweis wird NICHT vorgelesen
+# (steht in `aus` von lesbar_markieren), die Tonspur bleibt gültig.
+TITEL = {}
+ERLEDIGT_T = {"en": ("Resolved", "Solution:"), "de": ("Erledigt", "Lösung:"),
+              "es": ("Resuelto", "Solución:"), "ru": ("Решено", "Решение:")}
+
+
+def erledigt_hinweis(daten, lang):
+    ziel = daten.get("resolved_by")
+    if not ziel:
+        return ""
+    wort, loesung = ERLEDIGT_T.get(lang, ERLEDIGT_T["en"])
+    am = daten.get("resolved_on")
+    wann = f' <time datetime="{am}">{datum_lang(am, lang)}</time>' if am else ""
+    titel = TITEL.get((ziel, lang)) or TITEL.get((ziel, "en")) or ziel
+    return (f'<div class="erledigt"><strong>{wort}</strong>{wann} · {loesung} '
+            f'<a href="../{html.escape(ziel)}/index.html">{html.escape(titel)}</a></div>')
+
+
 def notiz_bauen(daten, vorhanden):
     lang, slug, t = daten["lang"], daten["slug"], T[daten["lang"]]
     haupt, inhalt = koerper(daten["text"], lang)
@@ -558,6 +579,7 @@ def notiz_bauen(daten, vorhanden):
     seite = f"""<main class="notiz">
 <aside class="inhalt"><p class="ueber">{t['contents']}</p><ol>{verz}</ol></aside>
 <article>
+  {erledigt_hinweis(daten, lang)}
   <p class="meta">{etiketten(daten, t)}{reihe_marke(daten, t, f"../../series/{daten.get('series')}/index.html")}{entwurf}</p>
   <h1>{e(daten['title'])}</h1>
   <div class="zeile">
@@ -676,6 +698,7 @@ def main():
 
     alle = [notiz_lesen(p) for p in sorted((ROOT / "notes").glob("*.md"), reverse=True)]
     alle = [n for n in alle if not (publish and n.get("status") == "draft")]
+    TITEL.update({(n["slug"], n["lang"]): n["title"] for n in alle})
     # Zeitachse: sortiert nach dem Tag des Geschehens (event), nicht nach dem Tag der Veröffentlichung.
     # Nachgeholte Beiträge über frühere Zeiten rutschen so an ihre Stelle: das Jüngste steht oben, das Älteste
     # immer ganz unten (der menschliche Partner, 08.10.2026: eine feste Reihenfolge; EIN Knopf dreht sie um, Anfang ↔ heute).
@@ -694,8 +717,8 @@ def main():
                     print(f"  ⚠ {slug}.{lang}: Ziffern weichen vom Original ab: {dict(ab)}")
                 if len(re.findall(r"^#{2,3} ", n["text"], flags=re.M)) != koepfe:
                     print(f"  ⚠ {slug}.{lang}: andere Zahl von Überschriften als im Original")
-                if any(n.get(k) != fassungen["en"].get(k) for k in ("status", "date", "event", "kind", "series", "part")):
-                    print(f"  ⚠ {slug}.{lang}: status/date/event/kind/series/part weichen vom Original ab")
+                if any(n.get(k) != fassungen["en"].get(k) for k in ("status", "date", "event", "kind", "series", "part", "resolved_by", "resolved_on")):
+                    print(f"  ⚠ {slug}.{lang}: status/date/event/kind/series/part/resolved_* weichen vom Original ab")
         for n in fassungen.values():
             notiz_bauen(n, list(fassungen))
     seiten = {}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema · SMP Lab Notes</title>
 <meta name="description" content="Una sesión nueva empieza vacía. Antes de la primera respuesta tienen que llegar dos archivos: un mapa pequeño, mantenido a mano, que siempre se carga, y una puerta que se construye de nuevo en cada inicio. Esta nota sigue un único saludo a lo largo de esa secuencia, explica por qué hay dos archivos y no uno, y dice cómo se evita que ambos crezcan hasta el punto en que dejan de cargarse.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-11-what-happens-at-hello/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-11-what-happens-at-hello/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contenido</p><ol><li><a href="#antecedentes">Antecedentes</a></li><li><a href="#la-secuencia-paso-a-paso">La secuencia, paso a paso</a></li><li><a href="#por-qué-dos-archivos-y-no-uno">Por qué dos archivos y no uno</a></li><li><a href="#qué-hay-en-la-puerta">Qué hay en la puerta</a></li><li><a href="#mantener-ambos-en-buen-estado">Mantener ambos en buen estado</a></li><li><a href="#cómo-llegó-a-esta-forma">Cómo llegó a esta forma</a></li><li><a href="#lo-que-cuesta-un-hola">Lo que cuesta un hola</a></li><li><a href="#lo-que-aún-no-está-demostrado">Lo que aún no está demostrado</a></li><li><a href="#lo-que-sacamos-de-ello">Lo que sacamos de ello</a></li><li><a href="#limitaciones">Limitaciones</a></li><li><a href="#sources">Fuentes</a></li><li><a href="#comments">Comentarios</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Construcción</span><span class="art">Método</span><a class="reihe" href="../../series/system-architecture/index.html">Arquitectura del sistema · Parte 1</a></p>
   <h1 data-lies="0">Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</h1>
   <div class="zeile">

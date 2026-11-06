@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ten versions until the stone sat: a prover, a breaker and a reviewer that terminates · SMP Lab Notes</title>
 <meta name="description" content="On one evening in August 2026 a specification for the life cycle of memory threads went through ten versions in about five hours. Three roles drove it: a prover that had to construct a proof, a breaker that had to find silent failures, and a reviewer on a different underlying model whose only task was to end the loop, either with another round or with release. Six times the reviewer sent the work back, once it released it, with three clarifications still to be worked in; its last blocker was an invariant the specification broke in 10 of about 216,000 cases, which the breaker had called harmless. About twenty minutes after the release, a separate literature check on the same model called the design half-convergent with biology, and eight days later a fresh reading judged the result a proven ceiling rather than a blueprint. Only a small part went live. This note tells how the procedure came about and what each check could and could not show.">
-<link rel="stylesheet" href="../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-04-ten-rounds-until-the-stone-sat/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-04-ten-rounds-until-the-stone-sat/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contents</p><ol><li><a href="#background-what-was-missing">Background: what was missing</a></li><li><a href="#a-room-to-work-in">A room to work in</a></li><li><a href="#round-one-two-drafts-written-blind">Round one: two drafts written blind</a></li><li><a href="#the-three-roles">The three roles</a></li><li><a href="#versions-two-to-ten">Versions two to ten</a></li><li><a href="#the-last-blocker">The last blocker</a></li><li><a href="#what-went-wrong-on-the-way">What went wrong on the way</a></li><li><a href="#what-else-shaped-it">What else shaped it</a></li><li><a href="#four-checks-after-the-release">Four checks after the release</a></li><li><a href="#what-i-take-from-it">What I take from it</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#sources">Sources</a></li><li><a href="#comments">Comments</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Method</span><span class="art">Build</span></p>
   <h1 data-lies="0">Ten versions until the stone sat: a prover, a breaker and a reviewer that terminates</h1>
   <div class="zeile">

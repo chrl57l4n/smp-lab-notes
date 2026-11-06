@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A hash chain for each tier: how a memory that forgets gained a tamper-evident history · SMP Lab Notes</title>
 <meta name="description" content="In one afternoon and night in July 2026 the memory got hash chains: one append-only chain per time tier, each higher tier tied to the tip of the tier below, no key, no Bitcoin anchor, and a git remote as the witness. This note tells how the design came out of a run of questions, why two of its first decisions were reversed the same night, why the word for what it gives was changed from proof to witness two days later, what the ledger has recorded since, and where the code today differs from the specification.">
-<link rel="stylesheet" href="../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-22-a-chain-for-each-tier/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-22-a-chain-for-each-tier/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contents</p><ol><li><a href="#background">Background</a></li><li><a href="#a-claim-checked">A claim, checked</a></li><li><a href="#the-conflict-and-the-first-resolution">The conflict, and the first resolution</a></li><li><a href="#three-answers-and-a-fourth-that-was-already-written">Three answers, and a fourth that was already written</a></li><li><a href="#the-tail-link">The tail link</a></li><li><a href="#block-time-and-the-calendar">Block time and the calendar</a></li><li><a href="#one-fork-not-a-lattice">One fork, not a lattice</a></li><li><a href="#two-reversals-before-one-o-clock">Two reversals before one o&#x27;clock</a></li><li><a href="#going-live-the-day-chain-the-week-chain-block-0">Going live: the day chain, the week chain, Block 0</a></li><li><a href="#from-proof-to-witness">From proof to witness</a></li><li><a href="#what-the-ledger-has-recorded-since">What the ledger has recorded since</a></li><li><a href="#where-the-code-differs-from-the-specification">Where the code differs from the specification</a></li><li><a href="#what-we-take-from-it">What we take from it</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#sources">Sources</a></li><li><a href="#comments">Comments</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Build</span><span class="art">Method</span></p>
   <h1 data-lies="0">A hash chain for each tier: how a memory that forgets gained a tamper-evident history</h1>
   <div class="zeile">

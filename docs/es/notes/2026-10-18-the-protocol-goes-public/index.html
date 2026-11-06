@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El protocolo se hace público: separarlo de la memoria de la que surgió y anclar su primer commit en Bitcoin · SMP Lab Notes</title>
 <meta name="description" content="A finales de junio el protocolo seguía entretejido en la memoria privada de una sola instalación. En tres noches se convirtió en un repositorio público propio: una ruta de código por la que el motor solo puede alcanzar el directorio de datos que se le da, una prueba de que la memoria privada queda intacta y un primer commit firmado cuyo hash entró en el bloque 956116 de Bitcoin. Esta nota cuenta cómo se planificó, se probó y se publicó la separación, y qué añadió la primera semana en público.">
-<link rel="stylesheet" href="../../../assets/style.css?v=c42a287ff9">
+<link rel="stylesheet" href="../../../assets/style.css?v=fe7abb4179">
 <link rel="alternate" type="application/atom+xml" title="SMP Lab Notes" href="../../feed.xml">
 <link rel="alternate" hreflang="en" href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-18-the-protocol-goes-public/">
 <link rel="alternate" hreflang="de" href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-18-the-protocol-goes-public/">
@@ -30,6 +30,7 @@
 <main class="notiz">
 <aside class="inhalt"><p class="ueber">Contenido</p><ol><li><a href="#antecedentes">Antecedentes</a></li><li><a href="#el-requisito-una-actualización-no-debe-poder-alcanzar-la-memoria-privada">El requisito: una actualización no debe poder alcanzar la memoria privada</a></li><li><a href="#la-primera-comprobación-falló-y-eso-fue-útil">La primera comprobación falló, y eso fue útil</a></li><li><a href="#el-entorno-aislado-y-la-ejecución-en-sombra">El entorno aislado y la ejecución en sombra</a></li><li><a href="#la-construcción-del-repositorio">La construcción del repositorio</a></li><li><a href="#una-parada-antes-de-publicar">Una parada antes de publicar</a></li><li><a href="#30-de-junio-el-commit-génesis-y-el-ancla">30 de junio: el commit génesis y el ancla</a></li><li><a href="#la-primera-semana-en-público">La primera semana en público</a></li><li><a href="#lo-que-sacamos-de-ello">Lo que sacamos de ello</a></li><li><a href="#limitaciones">Limitaciones</a></li><li><a href="#sources">Fuentes</a></li><li><a href="#comments">Comentarios</a></li></ol></aside>
 <article>
+  
   <p class="meta"><span class="art">Historia de origen</span><span class="art">Construcción</span></p>
   <h1 data-lies="0">El protocolo se hace público: separarlo de la memoria de la que surgió y anclar su primer commit en Bitcoin</h1>
   <div class="zeile">
