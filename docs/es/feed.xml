@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-11-09T00:00:00Z</updated>
+<updated>2026-11-10T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Un registro que no debe creerse: un registro de cambios del devenir, un comprobador de deriva y un reloj de madurez</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-10-a-log-that-must-not-be-believed/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-10-a-log-that-must-not-be-believed/</id>
+  <updated>2026-11-10T00:00:00Z</updated>
+  <summary>El 23 de septiembre de 2026 el Sovereign Memory Protocol público no había cambiado desde el 5 de septiembre, mientras que la instalación de referencia llevaba semanas avanzando. En una mañana se construyeron tres piezas para que el protocolo pudiera volver a seguirla: un registro en el que cada cambio del protocolo se anota con su evidencia en el momento en que ocurre; un comprobador de deriva que no se fía de ese registro y mide frente a él el código, los componentes nuevos y los días de discusión; y un reloj de madurez que deriva de instantáneas diarias si un componente está solo construido, en marcha, madurando o demostrado. La primera ejecución de deriva encontró 72 cambios no registrados desde el último incremento. Una primera comprobación de candidatos declaró demostrados 14 componentes; tras endurecerla quedó uno, y más tarde ese mismo día resultó que ese uno se había medido como deficiente. Esta nota sigue cómo surgieron las tres piezas, lo que el reloj ha visto en 48 instantáneas diarias y dónde sigue equivocándose.</summary>
 </entry>
 <entry>
   <title>Dos llaves: un control que no podía discrepar, un planteamiento que decidió el hallazgo y un revisor que dijo no</title>

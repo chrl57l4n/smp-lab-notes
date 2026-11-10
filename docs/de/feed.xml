@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-11-09T00:00:00Z</updated>
+<updated>2026-11-10T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Ein Logbuch, dem misstraut werden muss: ein Änderungsbuch des Werdens, ein Drift-Prüfer und eine Reifeuhr</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-10-a-log-that-must-not-be-believed/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-10-a-log-that-must-not-be-believed/</id>
+  <updated>2026-11-10T00:00:00Z</updated>
+  <summary>Am 23. September 2026 hatte sich das öffentliche Sovereign Memory Protocol seit dem 5. September nicht verändert, während die Referenzinstallation seit Wochen weitergegangen war. An einem Vormittag wurden drei Teile gebaut, damit das Protokoll ihr wieder folgen konnte: ein Log, in das jede Änderung am Protokoll mit Beleg eingetragen wird, wenn sie geschieht; ein Drift-Prüfer, der diesem Log nicht traut und Code, neue Komponenten und Gesprächstage daran misst; und eine Reifeuhr, die aus täglichen Momentaufnahmen ableitet, ob eine Komponente nur gebaut ist, läuft, reift oder bewährt ist. Der erste Drift-Lauf fand 72 nicht eingetragene Änderungen seit dem letzten Inkrement. Eine erste Kandidatenprüfung nannte 14 Komponenten bewährt; nachdem sie verschärft worden war, blieb eine übrig, und später am selben Tag stellte sich heraus, dass genau diese als mangelhaft gemessen worden war. Diese Notiz folgt der Entstehung der drei Teile, dem, was die Uhr in 48 täglichen Momentaufnahmen gesehen hat, und den Stellen, an denen sie noch falsch liegt.</summary>
 </entry>
 <entry>
   <title>Zwei Schlüssel: eine Kontrolle, die nicht widersprechen konnte, eine Rahmung, die den Befund entschied, und ein Prüfer, der Nein sagte</title>

@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-11-09T00:00:00Z</updated>
+<updated>2026-11-10T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>A log that must not be believed: a changelog of becoming, a drift checker and a maturity clock</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-10-a-log-that-must-not-be-believed/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-10-a-log-that-must-not-be-believed/</id>
+  <updated>2026-11-10T00:00:00Z</updated>
+  <summary>On 23 September 2026 the public Sovereign Memory Protocol had not changed since 5 September, while the reference installation had moved on for weeks. In one morning three parts were built so that the protocol could follow it again: a log in which every change to the protocol is entered with evidence when it happens; a drift checker that does not trust that log and measures code, new components and discussion days against it; and a maturity clock that derives from daily snapshots whether a component is merely built, running, maturing or proven. The first drift run found 72 unrecorded changes since the last increment. A first candidate check called 14 components proven; after it was tightened one remained, and later that day it turned out that this one had been measured as deficient. This note follows how the three parts came about, what the clock has seen in 48 daily snapshots, and where it is still wrong.</summary>
 </entry>
 <entry>
   <title>Two keys: a control that could not disagree, a framing that decided the finding, and a reviewer that said no</title>
