@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-11-10T00:00:00Z</updated>
+<updated>2026-11-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Medir el recuerdo en lugar de adivinar: un hook lento que no era el sospechoso, un segundo modelo que separaba pero no encontraba y una compuerta que se retiró</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-11-measure-the-recall-not-the-suspect/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-11-measure-the-recall-not-the-suspect/</id>
+  <updated>2026-11-11T00:00:00Z</updated>
+  <summary>Entre el 25 de septiembre y el 3 de octubre de 2026 la ruta de recuerdo de la instalación de referencia se midió tres veces, y cada vez la medición sustituyó a una conjetura. El guardián de palabras clave del que se sospechaba que ralentizaba cada mensaje tardaba unos 0,1 s; la espera venía de los dos hooks de recuerdo semántico, que rehacían un trabajo idéntico en cada llamada. Precalcular ese trabajo al construir el índice los redujo de 1,16 a 0,60 s y de 1,34 a 0,91 s, con resultados idénticos en 29 de 29 consultas de prueba. En nuestro conjunto de referencia, un modelo de embeddings más reciente del mismo tamaño tuvo menos primeros aciertos correctos que el titular (30 frente a 35 de 74), pero separaba mejor las preguntas reales de los disparates (AUROC de 0,99 en su ejecución densa frente a 0,93 en la configuración en vivo), así que se ejecutó en modo sombra como una compuerta que solo decidiría si insertar. La sombra registró una pérdida silenciosa y después resultó que se había alimentado con un índice desfasado; sobre un índice actualizado la compuerta no fue mejor que un umbral más alto para el titular, y se retiró por completo. Lo que quedó es una pequeña penalización para las preguntas cuyas palabras de peso la memoria no contiene. Esta nota sigue las tres mediciones y lo que la penalización ha hecho en el campo desde entonces.</summary>
 </entry>
 <entry>
   <title>Un registro que no debe creerse: un registro de cambios del devenir, un comprobador de deriva y un reloj de madurez</title>

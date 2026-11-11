@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-11-10T00:00:00Z</updated>
+<updated>2026-11-11T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Measuring recall instead of guessing: a slow hook that was not the suspect, a second model that separated but did not find, and a gate that was removed</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-11-measure-the-recall-not-the-suspect/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-11-measure-the-recall-not-the-suspect/</id>
+  <updated>2026-11-11T00:00:00Z</updated>
+  <summary>Between 25 September and 3 October 2026 the recall path of the reference installation was measured three times, and each time the measurement replaced a guess. The keyword guard that was suspected of slowing every message took about 0.1 s; the wait came from the two semantic recall hooks, which redid identical work on every call. Precomputing that work at index time cut them from 1.16 to 0.60 s and from 1.34 to 0.91 s, with results identical on 29 of 29 test queries. On our gold set, a newer embedding model of the same size had fewer correct first hits than the incumbent (30 against 35 of 74) but separated real questions from nonsense better (AUROC 0.99 for its dense run against 0.93 for the live configuration), so it was run in shadow as a gate that would only decide whether to inject. The shadow recorded a silent loss, then turned out to have been fed a stale index; on a fresh index the gate was not better than a higher threshold for the incumbent, and it was removed completely. What stayed is a small penalty for questions whose weighty words the memory does not contain. This note follows the three measurements and what the penalty has done in the field since.</summary>
 </entry>
 <entry>
   <title>A log that must not be believed: a changelog of becoming, a drift checker and a maturity clock</title>
