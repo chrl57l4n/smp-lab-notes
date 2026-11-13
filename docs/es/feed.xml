@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-11-12T00:00:00Z</updated>
+<updated>2026-11-13T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Amplio no es ruidoso: una auditoría que contaba el crecimiento de la memoria, y los hilos que faltaban a los que apuntaba</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-13-broad-is-not-noisy/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-13-broad-is-not-noisy/</id>
+  <updated>2026-11-13T00:00:00Z</updated>
+  <summary>El 2 de octubre de 2026 la autoobservación mensual de la instalación de referencia señaló 772 frases disparadoras como demasiado genéricas, frente a 164 en junio. Mirada de cerca, la cifra medía sobre todo cuánto había crecido la memoria: el umbral era fijo, cinco archivos, y las frases que figuraban dos veces se contaban dos veces. Antes de reparar la medición, el compañero humano preguntó si las palabras disparadoras duplicadas podrían ser candidatas a hilos. Ordenar a mano las de más peso lo confirmó y las dividió en tres tipos: temas que ya tienen un hilo, temas sin hilo y palabras estructurales. Ese día la auditoría recibió un umbral relativo al tamaño del corpus, trece frases temáticas se dirigieron a sus hilos, se escribieron dos hilos nuevos y una rama, y solo se eliminaron cinco palabras, porque un registro de los disparos reales contradijo el plan. Esta nota sigue la alarma, la clasificación, las reparaciones y la primera ejecución programada bajo la nueva regla, el 2 de noviembre.</summary>
 </entry>
 <entry>
   <title>La prueba de recuerdo: el almacenamiento resiste, la recuperación no, y una comprobación mensual para cuya ejecución no se despertaba a nadie</title>

@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-11-12T00:00:00Z</updated>
+<updated>2026-11-13T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Broad is not noisy: an audit that counted the memory&#x27;s growth, and the missing threads it pointed to</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-13-broad-is-not-noisy/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-13-broad-is-not-noisy/</id>
+  <updated>2026-11-13T00:00:00Z</updated>
+  <summary>On 2 October 2026 the monthly self-observation of the reference installation reported 772 trigger phrases as too generic, up from 164 in June. Looked at closely, the number mostly measured how much the memory had grown: the threshold was a fixed five files, and phrases listed twice were counted twice. Before the measurement was repaired, the human partner asked whether duplicated trigger words might be candidates for threads. Sorting the heaviest of them by hand confirmed it and split them into three kinds: themes that already have a thread, themes without one, and structural words. That day the audit was given a threshold relative to corpus size, thirteen theme phrases were pointed at their threads, two new threads and one branch were written, and only five words were removed, because a log of actual firings contradicted the plan. This note follows the alarm, the sorting, the repairs and the first scheduled run under the new rule on 2 November.</summary>
 </entry>
 <entry>
   <title>The recall test: storage holds, retrieval does not, and a monthly check that nobody was woken to run</title>
