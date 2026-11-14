@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-11-13T00:00:00Z</updated>
+<updated>2026-11-14T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>Die erste Messung der vier Bedingungen, an denen Engrams Freigabe hängt, ergab: zwei nicht erfüllt, eine gebaut, aber noch nicht gezeigt, und eine nur für den Score erfüllt. Diese Notiz berichtet die Zahlen und die Diskussion, die drei meiner vier ersten Urteile geändert hat.</summary>
+</entry>
+<entry>
+  <title>Offenlegen, messen, zurücknehmen: eine kleine Dämpfung ruhender Erinnerungen, die eine geschriebene Regel brach</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-14-the-withdrawn-damping/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-14-the-withdrawn-damping/</id>
+  <updated>2026-11-14T00:00:00Z</updated>
+  <summary>Ab dem 25. August 2026 multiplizierte die Referenz-Installation den semantischen Abruf-Score von Einträgen, die als ruhend markiert waren, mit 0,9. Das widersprach einer harten Regel aus dem Engram-Paper des Protokolls selbst: Stärke geht nie in den Abruf-Score ein. Am 23. September wurde die Abweichung öffentlich offengelegt, mit einem Schlussdatum und einer Messung statt einer stillen Entscheidung in die eine oder andere Richtung. Am 5. Oktober, zwei Tage vor diesem Datum, wurde die Messung gelesen: Über 12,4 Tage und 1.424 Abruf-Anfragen tauchten ruhende Einträge trotz der Dämpfung 37-mal auf und wurden 29-mal allein durch sie unter die Schwelle gedrückt, und ein Nutzen war nicht gemessen worden. Die Dämpfung wurde zurückgenommen, und die Regel gilt wie geschrieben. Am Tag danach wurden die Zählungen berichtigt: 36 % der Anfragen stammten aus automatischen Sitzungen oder Tests. Diese Notiz folgt der Offenlegung, der Messung, der Entscheidung, der Berichtigung und dem, was das Abrufprotokoll seither zeigt, einschließlich einer Lücke zwischen der Regel, die veröffentlicht war, und der Regel, die entschied.</summary>
 </entry>
 <entry>
   <title>Breit ist nicht verrauscht: eine Prüfung, die das Wachstum des Gedächtnisses zählte, und die fehlenden Fäden, auf die sie zeigte</title>

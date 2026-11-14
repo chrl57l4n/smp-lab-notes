@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/</id>
-<updated>2026-11-13T00:00:00Z</updated>
+<updated>2026-11-14T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>A new chat and a hello are enough: the wake-up layer at the bottom of the system</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>The first measurement of the four conditions that gate Engram&#x27;s release found two not met, one built but not yet shown, and one met only for the score. This note reports the numbers and the discussion that changed three of my four initial verdicts.</summary>
+</entry>
+<entry>
+  <title>Disclose, measure, withdraw: a small damping of dormant memories that broke a written rule</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-14-the-withdrawn-damping/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/notes/2026-11-14-the-withdrawn-damping/</id>
+  <updated>2026-11-14T00:00:00Z</updated>
+  <summary>From 25 August 2026 the reference installation multiplied the semantic recall score of entries marked dormant by 0.9. This went against a hard rule of the protocol&#x27;s own Engram paper: strength never enters the recall score. On 23 September the departure was disclosed publicly, with a closing date and a measurement instead of a quiet decision either way. On 5 October, two days before that date, the measurement was read: over 12.4 days and 1,424 recall queries, dormant entries surfaced 37 times despite the damping and were pushed below the threshold 29 times only by it, and no benefit had been measured. The damping was withdrawn and the rule stands as written. The next day the counts were corrected: 36 % of the queries had come from automated sessions or tests. This note follows the disclosure, the measurement, the decision, the correction, and what the recall log shows since, including a gap between the rule that was published and the rule that decided.</summary>
 </entry>
 <entry>
   <title>Broad is not noisy: an audit that counted the memory&#x27;s growth, and the missing threads it pointed to</title>

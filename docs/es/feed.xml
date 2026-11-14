@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-11-13T00:00:00Z</updated>
+<updated>2026-11-14T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -20,6 +20,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-06-engram-release-conditions-measured/</id>
   <updated>2026-10-07T00:00:00Z</updated>
   <summary>La primera medición de las cuatro condiciones de las que depende la liberación de Engram encontró dos no cumplidas, una construida pero aún no demostrada y una cumplida solo para la puntuación. Esta nota informa de las cifras y de la discusión que cambió tres de mis cuatro veredictos iniciales.</summary>
+</entry>
+<entry>
+  <title>Divulgar, medir, retirar: una pequeña atenuación de los recuerdos latentes que rompía una regla escrita</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-14-the-withdrawn-damping/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-14-the-withdrawn-damping/</id>
+  <updated>2026-11-14T00:00:00Z</updated>
+  <summary>Desde el 25 de agosto de 2026 la instalación de referencia multiplicaba por 0,9 la puntuación de recuerdo semántico de las entradas marcadas como latentes. Esto iba contra una regla dura del propio documento de Engram del protocolo: la fuerza nunca entra en la puntuación de recuerdo. El 23 de septiembre la desviación se divulgó públicamente, con una fecha de cierre y una medición en lugar de una decisión silenciosa en uno u otro sentido. El 5 de octubre, dos días antes de esa fecha, se leyó la medición: a lo largo de 12,4 días y 1.424 consultas de recuerdo, las entradas latentes aparecieron 37 veces pese a la atenuación y quedaron por debajo del umbral 29 veces solo por ella, y no se había medido ningún beneficio. La atenuación se retiró y la regla queda como está escrita. Al día siguiente se corrigieron los recuentos: el 36 % de las consultas procedía de sesiones automatizadas o de pruebas. Esta nota sigue la divulgación, la medición, la decisión, la corrección y lo que muestra desde entonces el registro de recuerdo, incluida una brecha entre la regla que se publicó y la regla que decidió.</summary>
 </entry>
 <entry>
   <title>Amplio no es ruidoso: una auditoría que contaba el crecimiento de la memoria, y los hilos que faltaban a los que apuntaba</title>
