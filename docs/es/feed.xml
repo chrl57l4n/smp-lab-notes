@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/es/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/es/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/es/</id>
-<updated>2026-11-14T00:00:00Z</updated>
+<updated>2026-11-15T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Basta un chat nuevo y un hola: la capa de despertar en la base del sistema</title>
@@ -13,6 +13,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-10-11-what-happens-at-hello/</id>
   <updated>2026-10-11T00:00:00Z</updated>
   <summary>Una sesión nueva empieza vacía. Antes de la primera respuesta tienen que llegar dos archivos: un mapa pequeño, mantenido a mano, que siempre se carga, y una puerta que se construye de nuevo en cada inicio. Esta nota sigue un único saludo a lo largo de esa secuencia, explica por qué hay dos archivos y no uno, y dice cómo se evita que ambos crezcan hasta el punto en que dejan de cargarse.</summary>
+</entry>
+<entry>
+  <title>Un guardián debe encontrar lo que existe: una tercera raíz de memoria que ningún guardián conocía, y una reparación de la clase y no del caso</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-15-a-guard-must-find-its-roots/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/es/notes/2026-11-15-a-guard-must-find-its-roots/</id>
+  <updated>2026-11-15T00:00:00Z</updated>
+  <summary>El 6 de octubre de 2026, un informe rutinario de 27 enlaces muertos llevó a una tercera raíz de memoria. Una sesión programada con su propio directorio de trabajo llevaba escribiendo lecciones en ella desde el 12 de septiembre: 50 lecciones y su índice, fuera del control de versiones, del índice de búsqueda y del mapa, durante 24 días. Era la misma clase de fallo que el 16 de septiembre, cuando la comprobación del presupuesto del índice vigilaba uno de dos archivos índice; la reparación de entonces había ampliado una lista fija de una entrada a dos. Esta vez se cambió el comprobador para que descubra los directorios de memoria que crea el anfitrión y avise de cualquiera que quede fuera del repositorio de memoria. Al día siguiente, las lecciones adoptadas mostraron un segundo hueco: las 50 se habían escrito sin palabra clave, porque nada la exigía en el momento en que se escribe un recuerdo. Un hook al final de cada turno la pide ahora. Esta nota sigue ambas reparaciones y lo que han hecho en las cinco semanas transcurridas, incluida una parte del sistema que de nuevo se reparó añadiendo una entrada a una lista, y una forma en que la nueva comprobación todavía puede ocultar su propio aviso.</summary>
 </entry>
 <entry>
   <title>Las cuatro condiciones de liberación de Engram, medidas: ninguna se cumple limpiamente</title>

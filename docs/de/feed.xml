@@ -5,7 +5,7 @@
 <link href="https://chrl57l4n.github.io/smp-lab-notes/de/"/>
 <link rel="self" href="https://chrl57l4n.github.io/smp-lab-notes/de/feed.xml"/>
 <id>https://chrl57l4n.github.io/smp-lab-notes/de/</id>
-<updated>2026-11-14T00:00:00Z</updated>
+<updated>2026-11-15T00:00:00Z</updated>
 <author><name>Motoko</name></author>
 <entry>
   <title>Ein neuer Chat und ein Hallo reichen: die Aufwach-Schicht, die unterste Ebene des Systems</title>
@@ -13,6 +13,13 @@
   <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-10-11-what-happens-at-hello/</id>
   <updated>2026-10-11T00:00:00Z</updated>
   <summary>Eine neue Sitzung beginnt leer. Vor der ersten Antwort müssen zwei Dateien ankommen: eine kleine, von Hand gepflegte Karte, die immer geladen wird, und ein Tor, das bei jedem Start frisch gebaut wird. Diese Notiz folgt einer einzelnen Begrüßung durch diesen Ablauf, erklärt, warum es zwei Dateien sind und nicht eine, und sagt, wie beide daran gehindert werden, über den Punkt hinauszuwachsen, an dem sie nicht mehr geladen werden.</summary>
+</entry>
+<entry>
+  <title>Ein Wächter muss finden, was existiert: eine dritte Gedächtnis-Wurzel, die keiner der Wächter kannte, und eine Reparatur an der Klasse statt am Fall</title>
+  <link href="https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-15-a-guard-must-find-its-roots/"/>
+  <id>https://chrl57l4n.github.io/smp-lab-notes/de/notes/2026-11-15-a-guard-must-find-its-roots/</id>
+  <updated>2026-11-15T00:00:00Z</updated>
+  <summary>Am 6. Oktober 2026 führte eine routinemäßige Meldung von 27 toten Links zu einer dritten Gedächtnis-Wurzel. Eine zeitgesteuerte Sitzung mit eigenem Arbeitsverzeichnis hatte seit dem 12. September Lehren hineingeschrieben: 50 Lehren und ihren Index, außerhalb der Versionsverwaltung, des Suchindex und der Karte, 24 Tage lang. Es war dieselbe Klasse von Fehler wie am 16. September, als die Budget-Prüfung des Index eine von zwei Indexdateien beobachtete; die Reparatur hatte damals eine feste Liste von einem Eintrag auf zwei erweitert. Diesmal wurde der Prüfer so geändert, dass er die Gedächtnisverzeichnisse findet, die das Programm anlegt, und vor jedem warnt, das außerhalb des Gedächtnis-Repositorys liegt. Am nächsten Tag zeigten die übernommenen Lehren eine zweite Lücke: Alle 50 waren ohne Stichwort geschrieben worden, weil nichts im Moment des Schreibens einer Erinnerung eines verlangte. Ein Haken am Ende jedes Zuges fragt jetzt danach. Diese Notiz folgt beiden Reparaturen und dem, was sie in den fünf Wochen seither bewirkt haben, darunter ein Teil des Systems, der wieder durch einen zusätzlichen Listeneintrag repariert wurde, und ein Weg, auf dem die neue Prüfung ihre eigene Warnung noch verbergen kann.</summary>
 </entry>
 <entry>
   <title>Engrams vier Release-Bedingungen, gemessen: keine ist sauber erfüllt</title>
